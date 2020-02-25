@@ -20,8 +20,8 @@ CREATE TABLE IF NOT EXISTS  Azienda(
 
 -- CREAZIONE TABELLA PROGRAMMA --
 CREATE TABLE IF NOT EXISTS  Programma(
-	idProgramma VARCHAR(50) NOT NULL,
-    fasciaOraria TIME,
+    idProgramma VARCHAR(50) NOT NULL,
+    fasciaOraria VARCHAR(10) NOT NULL,
     idSpeech VARCHAR(50) NOT NULL,
     idSala VARCHAR(50) NULL,
     PRIMARY KEY(idProgramma)
@@ -73,7 +73,7 @@ CREATE TABLE IF NOT EXISTS  Composto(
     idPart VARCHAR(50) NULL,
     idProgramma VARCHAR(50) NOT NULL,
     nPartecipanti INT(200) NULL,
-     PRIMARY KEY(idPart,idProgramma)
+    PRIMARY KEY(idPart,idProgramma)
 );
 
 -- SETTO LE CHIAVI ESTERNE --
