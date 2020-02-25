@@ -30,8 +30,8 @@ CREATE TABLE IF NOT EXISTS  Programma(
 -- CREAZIONE TABELLA SPEECH --
 CREATE TABLE IF NOT EXISTS  Speech(
     idSpeech VARCHAR(50) NOT NULL,
-    titolo VARCHAR(50) NULL,
-    argomento VARCHAR(50) NULL,
+    titolo VARCHAR(100) NULL,
+    argomento VARCHAR(200) NULL,
     PRIMARY KEY(idSpeech)
 );
 
