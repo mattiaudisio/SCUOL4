@@ -80,6 +80,8 @@ CREATE TABLE IF NOT EXISTS  Composto(
 ALTER TABLE Relatore ADD FOREIGN KEY(idAzienda) REFERENCES Azienda(idAzienda);
 ALTER TABLE Programma ADD FOREIGN KEY(idSpeech) REFERENCES Speech(idSpeech);
 ALTER TABLE Programma ADD FOREIGN KEY(idSala) REFERENCES Sala(idSala);
+ALTER TABLE Programma ADD FOREIGN KEY(idProgramma) REFERENCES Programma(idProgramma);
 ALTER TABLE Sala ADD FOREIGN KEY(nPiano) REFERENCES Piano(nPiano);
 ALTER TABLE Relaziona ADD FOREIGN KEY(idRel) REFERENCES Relatore(idRel);
 ALTER TABLE Composto ADD FOREIGN KEY(idPart) REFERENCES Partecipante(idPart);
+ALTER TABLE Composto ADD FOREIGN KEY(idProgramma) REFERENCES Composto(idProgramma);
