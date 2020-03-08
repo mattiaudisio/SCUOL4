@@ -14,7 +14,7 @@ Alla fine della giornata c'è un unico speach speciale, speach premiazione, che 
 Relatore(__idRel__,mailRel,cognomeRel,nomeRel,~~idAzienda~~);<br />
 Azienda(__idAzienda__,indirizzoAzienda,telefonoAzienda);<br />
 Programma(__idProgramma__,fasciaOraria,~~idSpeech,nomeSala~~);<br />
-Speech(__idSpeech__,titolo,argomento);<br />
+Speech(__idSpeech__,titolo,argomento,Durata);<br />
 Partecipante(__idPart__,cognomePart,nomePart,mailPart,tipologiaPart);<br />
 Sala(__idSala__,nPostiSala,~~Numero~~);<br />
 Piano(__nPiano__,nSale,descrizione);<br />
