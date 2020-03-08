@@ -14,7 +14,7 @@ SELECT Relatore.cognomeRel, Relatore.nomeRel
 FROM Relatore, Azienda
 WHERE Relatore.idAzienda='Azienda1'
 AND Azienda.idAzienda = Relatore.idAzienda
-ORDER BY Relatore.cognome;
+ORDER BY Relatore.cognomeRel;
 
 /*Numero di partecipanti per ogni speech*/
 SELECT Speech.titolo, Composto.nPartecipanti
