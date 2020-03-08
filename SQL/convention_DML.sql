@@ -1,71 +1,76 @@
 USE 5C_Convention;
 
--- TABELLA RELATORE --
-INSERT INTO Relatore(idRel,cognomeRel,nomeRel,idAzienda) VALUES
-    ('Relatore01','Marco','Rossi','Azienda01'),
-    ('Relatore02','Matteo','Verdi','Azienda02'),
-    ('Relatore03','Luca','Manzoni','Azienda03'),
-    ('Relatore04','Lucrezia','Viola','Azienda04'),
-    ('Relatore05','Giovanni','Longo','Azienda05');    
-    
--- TABELLA AZIENDA --
-INSERT INTO Azienda(idAzienda,indirizzoAzienda,telefonoAzienda) VALUES  
-    ('Azienda01','Via Azienda 1','1111111111'),
-    ('Azienda02','Via Azienda 2','2222222222'),
-    ('Azienda03','Via Azienda 3','3333333333'),
-    ('Azienda04','Via Azienda 4','4444444444'),
-    ('Azienda05','Via Azienda 5','5555555555');
-    
--- TABELLA PROGRAMMA --
-INSERT INTO Programma(idProgramma,fasciaOraria,idSpeech,idSala) VALUES
-    ('Programma01','A','Speech01','Sala01'),
-    ('Programma02','B','Speech02','Sala02'),
-    ('Programma03','C','Speech03','Sala03'),
-    ('Programma04','D','Speech04','Sala04'),
-    ('Programma05','E','Speech05','Sala05');
-    
--- TABELLA SPEECH --    
-INSERT INTO Speech(idSpeech,titolo,argomento) VALUES
-    ('Speech01','Titolo01','Argomento01'),
-    ('Speech02','Titolo02','Argomento02'),
-    ('Speech03','Titolo03','Argomento03'),
-    ('Speech04','Titolo04','Argomento04'),
-    ('Speech05','Titolo05','Argomento05');
-
--- TABELLA PARTECIPANTE --    
-INSERT INTO Partecipante(idPart,cognomePart,nomePart,mailPart,tipologiaPart) VALUES
-    ('Partecipante01','Ferrari','Leonardo','par01@gmail.com','insegnanti'),
-    ('Partecipante02','Russo','Francesco','par02@gmail.com','studenti'),
-    ('Partecipante03','Romano','Anna','par03@gmail.com','lavoratoriProfessionisti'),
-    ('Partecipante04','Gallo','Andrea','par04@gmail.com','studenti'),
-    ('Partecipante05','Costa','Gabriele','par05@gmail.com','lavoratoriProfessionisti');
-    
--- TABELLA SALA --
-INSERT INTO Sala(idSala,nPostiSala,nPiano) VALUES
-    ('Sala01',100,'Piano01'),
-    ('Sala02',100,'Piano02'),
-    ('Sala03',100,'Piano01'),
-    ('Sala04',100,'Piano02'),
-    ('Sala05',100,'Piano03');
-    
--- TABELLA PIANO --
-INSERT INTO Piano(nPiano,nSale,descrizione) VALUES
-    ('Piano01',2,'descrizione01'),
-    ('Piano02',2,'descrizione02'),
-    ('Piano03',1,'descrizione03');
-    
--- TABELLA RELAZIONA --
-INSERT INTO Relaziona(idRel,idProgramma) VALUES
-    ('Relatore01','Programma01'),
-    ('Relatore01','Programma02'),
-    ('Relatore01','Programma03'),
-    ('Relatore01','Programma04'),
-    ('Relatore01','Programma05');
-    
--- TABELLA COMPOSTO --
-INSERT INTO Composto(idPart,idProgramma,nPartecipanti) VALUES
-    ('Partecipante01','Programma01',10),
-    ('Partecipante02','Programma02',20),
-    ('Partecipante03','Programma03',30),
-    ('Partecipante04','Programma04',40),
-    ('Partecipante05','Programma05',50);             
+INSERT INTO Piano(idPiano,nPiano,nSale) VALUES
+	('Piano1', 10, 1),
+	('Piano2', 5, 2),
+	('Piano3', 6, 3);
+	
+INSERT INTO Sala(idSala, nPostiSala, idPiano) VALUES
+	('Sala1','50','Piano1'),
+	('Sala2','100','Piano2'),
+	('Sala3','50','Piano3'),
+	('Sala4','60','Piano2'),
+	('Sala5','40','Piano1'),
+	('Sala6','150','Piano3');
+	
+INSERT INTO Azienda(idAzienda, indirizzoAzienda, telefonoAzienda) VALUES
+	('Azienda1','Via Azienda 1','0175125831'),
+	('Azienda2','Via Azienda 2','0175125832'),
+	('Azienda3','Via Azienda 3','0175125833'),
+	('Azienda4','Via Azienda 4','0175125834'),
+	('Azienda5','Via Azienda 5','0175125835'),
+	('Azienda6','Via Azienda 6','0175125836'),
+	('Azienda7','Via Azienda 7','0175125837');		
+	
+INSERT INTO Partecipante(idPart, cognomePart, nomePart, mailPart, tipologiaPart) VALUES
+	('par1','Rossi','Marco','par1@gmail.com','Studente'),
+	('par2','Bianchi','Matteo','par2@gmail.com','Docente'),
+	('par3','Verdi','Luca','par3@gmail.com','Libero Professionista'),
+	('par4','Gialli','Mattia','par4@gmail.com','Studente'),
+	('par5','Viola','Francesco','par5@gmail.com','Docente'),
+	('par6','Verde','Nicola','par6@gmail.com','Docente'),
+	('par7','Rossi','Stefano','par7@gmail.com','Libero Professionista'),
+	('par8','Rossi','Andrea','par8@gmail.com','Libero Professionista');	
+	
+INSERT INTO Speech(idSpeech, titolo, argomento, Durata) VALUES
+	('Speech1','Titolo1','Argomento1', 1234),
+	('Speech2','Titolo2','Argomento2', 4321),
+	('Speech3','Titolo3','Argomento3', 23234),
+	('Speech4','Titolo4','Argomento4', 23432),
+	('Speech5','Titolo5','Argomento5', 29873);	
+	
+INSERT INTO Programma(idProgramma, fasciaOraria, idSpeech, idSala) VALUES
+	('Programma1','A','Speech1','Sala1'),
+	('Programma2','B','Speech2','Sala2'),
+	('Programma3','C','Speech3','Sala3'),
+	('Programma4','C','Speech4','Sala4'),
+	('Programma5','B','Speech5','Sala5'),
+	('Programma6','A','Speech2','Sala6');
+	
+INSERT INTO Relatore(idRel, cognomeRel, nomeRel, idAzienda) VALUES
+	('Relatore1','Rossi','Marco','Azienda1'),
+	('Relatore2','Rossi','Luca','Azienda2'),
+	('Relatore3','Rossi','Andrea','Azienda3'),
+	('Relatore4','Rossi','Mattia','Azienda4'),
+	('Relatore5','Rossi','Giacomo','Azienda5'),
+	('Relatore6','Rossi','Fabio','Azienda1'),
+	('Relatore7','Rossi','Alessandro','Azienda7');
+	
+INSERT INTO Relaziona(idRel, idProgramma) VALUES
+	('Relatore1','Programma1'),
+	('Relatore2','Programma2'),
+	('Relatore3','Programma3'),
+	('Relatore4','Programma4'),
+	('Relatore5','Programma5'),
+	('Relatore6','Programma6'),
+	('Relatore7','Programma1');    	
+	
+INSERT INTO Composto(idPart, idProgramma, nPartecipanti) VALUES
+ 	('par1', 'Programma1', 10),
+	('par2', 'Programma1', 10),
+	('par3', 'Programma1', 10),
+	('par4', 'Programma1', 10),
+	('par5', 'Programma1', 10),
+	('par6', 'Programma1', 10),
+	('par7', 'Programma1', 10),
+	('par8', 'Programma1', 10);	
