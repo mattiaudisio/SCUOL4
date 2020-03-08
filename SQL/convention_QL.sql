@@ -9,10 +9,10 @@ Inner join Programma On sala.nomeSala=Programma.NomeSala
 Where programma.fasciaOraria='B'
 */
 
-/*Cognome e nome dei relatori di Beintoo*/
+/*Cognome e nome dei relatori dell'azienda 1*/
 SELECT Relatore.cognomeRel, Relatore.nomeRel
 FROM Relatore, Azienda
-WHERE Relatore.idAzienda='Beintoo'
+WHERE Relatore.idAzienda='Azienda1'
 AND Azienda.idAzienda = Relatore.idAzienda
 ORDER BY Relatore.cognome;
 
