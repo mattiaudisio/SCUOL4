@@ -26,7 +26,7 @@ ORDER BY Speech.titolo;
 /*Sapere a che piano è lo speech speech 1*/
 SELECT Piano.intPiano
 FROM Piano, Sala, Programma, Speech
-WHERE Speech.idSpeech = `SP01`
+WHERE Speech.idSpeech = `Speech1`
 AND Speech.idSPeech = Programma.idSpeech
 AND Programma.nomeSala = Sala.nomeSala
 AND Sala.nPiano = Piano.nPiano;
@@ -54,5 +54,5 @@ WHERE Partecipante.idPart = Composto.idPart
 AND Composto.idProgramma = Composto.idProgramma
 AND Programma.fasciaOraria = 'A'
 AND Programma.idSpeech = 'Speech1'
-AND Programma.nomeSala = 'Sala1'
+AND Programma.idSala = 'Sala1'
 ORDER BY Partecipante.cognomePart ASC;
