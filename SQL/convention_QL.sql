@@ -19,12 +19,12 @@ ORDER BY Relatore.cognomeRel;
 /*Numero di partecipanti per ogni speech*/
 SELECT Speech.titolo, Composto.nPartecipanti
 FROM Speech, Programma, Composto
-WHERE Programma.idSPeech = Speech.idSpeech
+WHERE Programma.idSpeech = Speech.idSpeech
 AND Programma.idProgramma = Composto.idProgramma
 ORDER BY Speech.titolo;
 
 /*Sapere a che piano è lo speech speech 1*/
-SELECT Piano.intPiano
+SELECT Piano.idPiano
 FROM Piano, Sala, Programma, Speech
 WHERE Speech.idSpeech = `Speech1`
 AND Speech.idSPeech = Programma.idSpeech
