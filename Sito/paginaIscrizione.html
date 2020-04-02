@@ -1,0 +1,21 @@
+<html>
+<head>
+</head>
+<body>
+	<h1> ISCRIZIONE </h1>
+	<form action="iscrizione.php" method="post">
+		ID: <input type="text" name="id"/><br>
+		Cognome: <input type="text" name="cognome"/><br>
+		nome: <input type="text" name="nome"/><br>
+		mail: <input type="email" name="mail"/><br>
+		tipologia: <br/>
+    	<input type="radio" name="intrattenimento" id="studente" value="studente">
+		<label for="studente">Studente</label><br/>
+    	<input type="radio" name="intrattenimento" id="professore" value="professore">
+		<label for="professore">Professore</label><br/>
+    	<input type="radio" name="intrattenimento" id="liberoProfessionista" value="liberoProfessionista">
+		<label for="liberoProfessionista">Libero Professionista</label><br/>
+   		<input type="submit" name="send" value="Invia">
+	<form>
+</body>
+</html>
