@@ -4,7 +4,7 @@ INSERT INTO Piano(idPiano,nPiano,nSale) VALUES
 	('Piano1', 10, 1),
 	('Piano2', 5, 2),
 	('Piano3', 6, 3);
-	
+
 INSERT INTO Sala(idSala, nPostiSala, idPiano) VALUES
 	('Sala1','50','Piano1'),
 	('Sala2','100','Piano2'),
@@ -12,7 +12,7 @@ INSERT INTO Sala(idSala, nPostiSala, idPiano) VALUES
 	('Sala4','60','Piano2'),
 	('Sala5','40','Piano1'),
 	('Sala6','150','Piano3');
-	
+
 INSERT INTO Azienda(idAzienda, indirizzoAzienda, telefonoAzienda) VALUES
 	('Azienda1','Via Azienda 1','0175125831'),
 	('Azienda2','Via Azienda 2','0175125832'),
@@ -20,8 +20,8 @@ INSERT INTO Azienda(idAzienda, indirizzoAzienda, telefonoAzienda) VALUES
 	('Azienda4','Via Azienda 4','0175125834'),
 	('Azienda5','Via Azienda 5','0175125835'),
 	('Azienda6','Via Azienda 6','0175125836'),
-	('Azienda7','Via Azienda 7','0175125837');		
-	
+	('Azienda7','Via Azienda 7','0175125837');
+
 INSERT INTO Partecipante(idPart, cognomePart, nomePart, mailPart, tipologiaPart) VALUES
 	('par1','Rossi','Marco','par1@gmail.com','Studente'),
 	('par2','Bianchi','Matteo','par2@gmail.com','Docente'),
@@ -30,15 +30,15 @@ INSERT INTO Partecipante(idPart, cognomePart, nomePart, mailPart, tipologiaPart)
 	('par5','Viola','Francesco','par5@gmail.com','Docente'),
 	('par6','Verde','Nicola','par6@gmail.com','Docente'),
 	('par7','Rossi','Stefano','par7@gmail.com','Libero Professionista'),
-	('par8','Rossi','Andrea','par8@gmail.com','Libero Professionista');	
-	
+	('par8','Rossi','Andrea','par8@gmail.com','Libero Professionista');
+
 INSERT INTO Speech(idSpeech, titolo, argomento, Durata) VALUES
-	('Speech1','Titolo1','Argomento1', 1234),
-	('Speech2','Titolo2','Argomento2', 4321),
-	('Speech3','Titolo3','Argomento3', 23234),
-	('Speech4','Titolo4','Argomento4', 23432),
-	('Speech5','Titolo5','Argomento5', 29873);	
-	
+	('Speech1','Manjaro','Manjaro', 1234),
+	('Speech2','Kernel','Kernel', 4321),
+	('Speech3','Raspberry','Raspberry', 23234),
+	('Speech4','Java','Java', 23432),
+	('Speech5','Gnome','Gnome', 29873);
+
 INSERT INTO Programma(idProgramma, fasciaOraria, idSpeech, idSala) VALUES
 	('Programma1','A','Speech1','Sala1'),
 	('Programma2','B','Speech2','Sala2'),
@@ -46,7 +46,7 @@ INSERT INTO Programma(idProgramma, fasciaOraria, idSpeech, idSala) VALUES
 	('Programma4','C','Speech4','Sala4'),
 	('Programma5','B','Speech5','Sala5'),
 	('Programma6','A','Speech2','Sala6');
-	
+
 INSERT INTO Relatore(idRel, cognomeRel, nomeRel, idAzienda) VALUES
 	('Relatore1','Rossi','Marco','Azienda1'),
 	('Relatore2','Rossi','Luca','Azienda2'),
@@ -55,7 +55,7 @@ INSERT INTO Relatore(idRel, cognomeRel, nomeRel, idAzienda) VALUES
 	('Relatore5','Rossi','Giacomo','Azienda5'),
 	('Relatore6','Rossi','Fabio','Azienda1'),
 	('Relatore7','Rossi','Alessandro','Azienda7');
-	
+
 INSERT INTO Relaziona(idRel, idProgramma) VALUES
 	('Relatore1','Programma1'),
 	('Relatore2','Programma2'),
@@ -63,8 +63,8 @@ INSERT INTO Relaziona(idRel, idProgramma) VALUES
 	('Relatore4','Programma4'),
 	('Relatore5','Programma5'),
 	('Relatore6','Programma6'),
-	('Relatore7','Programma1');    	
-	
+	('Relatore7','Programma1');
+
 INSERT INTO Composto(idPart, idProgramma, nPartecipanti) VALUES
  	('par1', 'Programma1', 10),
 	('par2', 'Programma1', 10),
@@ -73,4 +73,4 @@ INSERT INTO Composto(idPart, idProgramma, nPartecipanti) VALUES
 	('par5', 'Programma1', 10),
 	('par6', 'Programma1', 10),
 	('par7', 'Programma1', 10),
-	('par8', 'Programma1', 10);	
+	('par8', 'Programma1', 10);
