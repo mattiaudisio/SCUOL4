@@ -53,7 +53,7 @@ INSERT INTO Relatore(idRel, cognomeRel, nomeRel, idAzienda) VALUES
 	('Relatore3','Verdi','Andrea','Azienda3'),
 	('Relatore4','Musso','Mattia','Azienda4'),
 	('Relatore5','Cattaneo','Giacomo','Azienda5'),
-	('Relatore6','Ferrero','Fabio','Azienda1'),
+	('Relatore6','Ferrero','Fabio','Azienda6'),
 	('Relatore7','Russo','Alessandro','Azienda7');
 
 INSERT INTO Relaziona(idRel, idProgramma) VALUES
