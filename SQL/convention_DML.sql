@@ -33,11 +33,11 @@ INSERT INTO Partecipante(idPart, cognomePart, nomePart, mailPart, tipologiaPart)
 	('par8','Rossi','Andrea','par8@gmail.com','Libero Professionista');
 
 INSERT INTO Speech(idSpeech, titolo, argomento, Durata) VALUES
-	('Speech1','Manjaro','Manjaro', 1234),
-	('Speech2','Kernel','Kernel', 4321),
-	('Speech3','Raspberry','Raspberry', 23234),
-	('Speech4','Java','Java', 23432),
-	('Speech5','Gnome','Gnome', 29873);
+	('Speech1','Manjaro','Rilasciato Manjaro 19.0 Kyria', 1234),
+	('Speech2','Kernel','Nuova gestione dei processi', 4321),
+	('Speech3','Raspberry','Raspberry Pi 4', 23234),
+	('Speech4','Java','Nuova release jdk', 23432),
+	('Speech5','Gnome','Rilasciato Gnome 3.36', 29873);
 
 INSERT INTO Programma(idProgramma, fasciaOraria, idSpeech, idSala) VALUES
 	('Programma1','A','Speech1','Sala1'),
@@ -49,12 +49,12 @@ INSERT INTO Programma(idProgramma, fasciaOraria, idSpeech, idSala) VALUES
 
 INSERT INTO Relatore(idRel, cognomeRel, nomeRel, idAzienda) VALUES
 	('Relatore1','Rossi','Marco','Azienda1'),
-	('Relatore2','Rossi','Luca','Azienda2'),
-	('Relatore3','Rossi','Andrea','Azienda3'),
-	('Relatore4','Rossi','Mattia','Azienda4'),
-	('Relatore5','Rossi','Giacomo','Azienda5'),
-	('Relatore6','Rossi','Fabio','Azienda1'),
-	('Relatore7','Rossi','Alessandro','Azienda7');
+	('Relatore2','Otta','Luca','Azienda2'),
+	('Relatore3','Verdi','Andrea','Azienda3'),
+	('Relatore4','Musso','Mattia','Azienda4'),
+	('Relatore5','Cattaneo','Giacomo','Azienda5'),
+	('Relatore6','Ferrero','Fabio','Azienda1'),
+	('Relatore7','Russo','Alessandro','Azienda7');
 
 INSERT INTO Relaziona(idRel, idProgramma) VALUES
 	('Relatore1','Programma1'),
