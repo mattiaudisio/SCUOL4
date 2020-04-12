@@ -100,8 +100,10 @@
             if(!empty($_POST['cognome']) && !empty($_POST['nome']) && !empty($_POST['mail']) && !empty($_POST['tipologia'])){
               $string = $string+count($arrayID);
               $dml = "INSERT INTO Partecipante(idPart, cognomePart, nomePart, mailPart, tipologiaPart) VALUES ('".$string."','".$POST["cognome"]."','".$POST["nome"]."','".$POST["mail"]."','".$POST["tipologia"]."');";
-              if(!$mysql->query($dml)){
-                die($mysql->error);
+              if($connessione->query($dml) === TRUE){
+                echo "caricato";
+              }else{
+                echo "noncaricato";
               }
             }else{
               echo "<p align='center'><b>COMPILA TUTTI I CAMPO</b></p><br><p align='center'>Compila tutti i campi per iscriverti e per ordinare il tuo biglietto</p>";
