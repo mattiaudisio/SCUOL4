@@ -8,20 +8,20 @@
   <meta content="" name="descriptison">
   <meta content="" name="keywords">
   <!-- Favicons -->
-  <link href="assets/img/favicon.png" rel="icon">
-  <link href="assets/img/apple-touch-icon.png" rel="apple-touch-icon">
+  <link href="/Mattia/ProgettoSQL_Convention/Sito/assets/img/favicon.png" rel="icon">
+  <link href="/Mattia/ProgettoSQL_Convention/Sito/assets/img/apple-touch-icon.png" rel="apple-touch-icon">
   <!-- Google Fonts -->
   <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,600,600i,700,700i|Muli:300,300i,400,400i,500,500i,600,600i,700,700i|Poppins:300,300i,400,400i,500,500i,600,600i,700,700i" rel="stylesheet">
   <!-- Vendor CSS Files -->
-  <link href="assets/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
-  <link href="assets/vendor/icofont/icofont.min.css" rel="stylesheet">
-  <link href="assets/vendor/boxicons/css/boxicons.min.css" rel="stylesheet">
-  <link href="assets/vendor/animate.css/animate.min.css" rel="stylesheet">
-  <link href="assets/vendor/venobox/venobox.css" rel="stylesheet">
-  <link href="assets/vendor/owl.carousel/assets/owl.carousel.min.css" rel="stylesheet">
-  <link href="assets/vendor/aos/aos.css" rel="stylesheet">
+  <link href="/Mattia/ProgettoSQL_Convention/Sito/assets/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+  <link href="/Mattia/ProgettoSQL_Convention/Sito/assets/vendor/icofont/icofont.min.css" rel="stylesheet">
+  <link href="/Mattia/ProgettoSQL_Convention/Sito/assets/vendor/boxicons/css/boxicons.min.css" rel="stylesheet">
+  <link href="/Mattia/ProgettoSQL_Convention/Sito/assets/vendor/animate.css/animate.min.css" rel="stylesheet">
+  <link href="/Mattia/ProgettoSQL_Convention/Sito/assets/vendor/venobox/venobox.css" rel="stylesheet">
+  <link href="/Mattia/ProgettoSQL_Convention/Sito/assets/vendor/owl.carousel/assets/owl.carousel.min.css" rel="stylesheet">
+  <link href="/Mattia/ProgettoSQL_Convention/Sito/assets/vendor/aos/aos.css" rel="stylesheet">
   <!-- Template Main CSS File -->
-  <link href="assets/css/style.css" rel="stylesheet">
+  <link href="/Mattia/ProgettoSQL_Convention/Sito/assets/css/style.css" rel="stylesheet">
   <!-- =======================================================
   * Template Name: Flattern - v2.0.0
   * Template URL: https://bootstrapmade.com/flattern-multipurpose-bootstrap-template/
@@ -44,10 +44,10 @@
 
       <nav class="nav-menu d-none d-lg-block">
         <ul>
-          <li><a href="index.php">Home</a></li>
-          <li><a href="index.php#speaker">Speaker</a></li>
-          <li><a href="index.php#programma">Programma</a></li>
-          <li class="active"><a href="iscriviti.php">Iscriviti</a></li>
+          <li><a href="/Mattia/ProgettoSQL_Convention/Sito/index.php">Home</a></li>
+          <li><a href="/Mattia/ProgettoSQL_Convention/Sito/index.php#speaker">Speaker</a></li>
+          <li><a href="/Mattia/ProgettoSQL_Convention/Sito/index.php#programma">Programma</a></li>
+          <li class="active"><a href="/Mattia/ProgettoSQL_Convention/Sito/iscriviti.html">Iscriviti</a></li>
         </ul>
       </nav><!-- .nav-menu -->
 
@@ -57,7 +57,7 @@
   <!-- ======= Hero Section ======= -->
   <section id="hero">
     <div id="heroCarousel" class="carousel slide carousel-fade" data-ride="carousel">
-        <div class="carousel-item active" style="background-image: url(assets/img/wallpaper.jpeg);">
+        <div class="carousel-item active" style="background-image: url(/Mattia/ProgettoSQL_Convention/Sito/assets/img/wallpaper.jpeg);">
           <div class="container">
             <div class="carousel-content animated fadeInUp">
               <h2 align="center"> <span>CONVITO</span></h2>
