@@ -1412,6 +1412,7 @@ section {
   background: #fd5c28;
 }
 
+
 @-webkit-keyframes animate-loading {
   0% {
     transform: rotate(0deg);
@@ -1920,7 +1921,7 @@ section {
   border-radius: 0 4px 4px 0;
 }
 
-.blog .sidebar .search-form form button:hover {
+.blog .sidebar .search-form form :hover {
   background: #fd5c28;
 }
 
