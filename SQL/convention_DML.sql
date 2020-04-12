@@ -14,13 +14,13 @@ INSERT INTO Sala(idSala, nPostiSala, idPiano) VALUES
 	('Sala6','150','Piano3');
 
 INSERT INTO Azienda(idAzienda, indirizzoAzienda, telefonoAzienda) VALUES
-	('Azienda1','Via Azienda 1','0175125831'),
-	('Azienda2','Via Azienda 2','0175125832'),
-	('Azienda3','Via Azienda 3','0175125833'),
-	('Azienda4','Via Azienda 4','0175125834'),
-	('Azienda5','Via Azienda 5','0175125835'),
-	('Azienda6','Via Azienda 6','0175125836'),
-	('Azienda7','Via Azienda 7','0175125837');
+	('Intel','Via Azienda 1','0175125831'),
+	('NVIDIA','Via Azienda 2','0175125832'),
+	('Dell','Via Azienda 3','0175125833'),
+	('Facebook','Via Azienda 4','0175125834'),
+	('Valve','Via Azienda 5','0175125835'),
+	('Realtek','Via Azienda 6','0175125836'),
+	('Apple','Via Azienda 7','0175125837');
 
 INSERT INTO Partecipante(idPart, cognomePart, nomePart, mailPart, tipologiaPart) VALUES
 	('par1','Rossi','Marco','par1@gmail.com','Studente'),
@@ -48,13 +48,13 @@ INSERT INTO Programma(idProgramma, fasciaOraria, idSpeech, idSala) VALUES
 	('Programma6','A','Speech2','Sala6');
 
 INSERT INTO Relatore(idRel, cognomeRel, nomeRel, idAzienda) VALUES
-	('Relatore1','Rossi','Marco','Azienda1'),
-	('Relatore2','Otta','Luca','Azienda2'),
-	('Relatore3','Verdi','Andrea','Azienda3'),
-	('Relatore4','Musso','Mattia','Azienda4'),
-	('Relatore5','Cattaneo','Giacomo','Azienda5'),
-	('Relatore6','Ferrero','Fabio','Azienda6'),
-	('Relatore7','Russo','Alessandro','Azienda7');
+	('Relatore1','Rossi','Marco','Intel'),
+	('Relatore2','Otta','Luca','NVIDIA'),
+	('Relatore3','Verdi','Andrea','Dell'),
+	('Relatore4','Musso','Mattia','Facebook'),
+	('Relatore5','Cattaneo','Giacomo','Valve'),
+	('Relatore6','Ferrero','Fabio','Realtek'),
+	('Relatore7','Russo','Alessandro','Apple');
 
 INSERT INTO Relaziona(idRel, idProgramma) VALUES
 	('Relatore1','Programma1'),
