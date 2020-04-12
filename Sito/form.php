@@ -70,9 +70,9 @@
 
   <main id="main">
     <?php
-          include 'connessione.php';
-          include 'relatore.php';
-          include 'speech.php';
+          include 'Funzioni_PHP/connessione.php';
+          include 'Funzioni_PHP/relatore.php';
+          include 'Funzioni_PHP/speech.php';
 
           $prova = 0;
           $arrayID = array();
