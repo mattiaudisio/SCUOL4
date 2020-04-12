@@ -70,9 +70,9 @@
 
   <main id="main">
     <?php
-          include 'Funzioni_PHP/connessione.php';
-          include 'Funzioni_PHP/relatore.php';
-          include 'Funzioni_PHP/speech.php';
+          include 'connessione.php';
+          include 'relatore.php';
+          include 'speech.php';
 
           $prova = 0;
           $arrayID = array();
@@ -89,7 +89,7 @@
           $risultatoPartecipante = $connessione->query($queryPartecipante);
           while($ris = $risultatoPartecipante->fetch_assoc()){
             $risNome = $ris["nomePart"];
-            $riscognome = $ris["cognomePart"];
+            $risCognome = $ris["cognomePart"];
             $risMail = $ris["mailPart"];
             if($_POST['cognome'] == $risCognome && $_POST['nome'] == $risNome && $_POST['mail'] == $risMail){
                 echo "<p align='center'><b>REGISTRAZIONE NON EFFETTUATA</b></p><br><p align='center'>Hey, sembra che qualcuno che ha il tuo stesso nome, il tuo stesso cognome e la tua stessa mail si è già registrato e ha già ordinato un biglietto.</p>";
