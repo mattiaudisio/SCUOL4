@@ -96,8 +96,8 @@
             }
           }
 
-          if(isset($_POST['send'])){
-            if(!empty($_POST['cognome']) && !empty($_POST['nome']) && !empty($_POST['mail']) && !empty($_POST['tipologia'])){
+          if(isset($_GET['send'])){
+            if(!empty($_GET['cognome']) && !empty($_GET['nome']) && !empty($_GET['mail']) && !empty($_GET['tipologia'])){
               $string = $string+count($arrayID);
               $dml = "INSERT INTO Partecipante(idPart, cognomePart, nomePart, mailPart, tipologiaPart) VALUES ('".$string."','".$POST["cognome"]."','".$POST["nome"]."','".$POST["mail"]."','".$POST["tipologia"]."');";
               if($connessione->query($dml) === TRUE){
