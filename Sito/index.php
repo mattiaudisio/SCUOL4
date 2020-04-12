@@ -73,7 +73,7 @@
           <li class="active"><a href="index.php">Home</a></li>
           <li><a href="#speaker">Speaker</a></li>
           <li><a href="#programma">Programma</a></li>
-          <li><a href="iscriviti.html">Iscriviti</a></li>
+          <li><a href="iscriviti.php">Iscriviti</a></li>
 
         </ul>
       </nav><!-- .nav-menu -->
