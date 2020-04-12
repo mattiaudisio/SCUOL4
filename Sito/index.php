@@ -137,7 +137,7 @@
             </div>
           <?php }?>
         </div>
-
+        <?php $connessione->close(); ?>
       </div>
     </section>
   </main><!-- End #main -->
