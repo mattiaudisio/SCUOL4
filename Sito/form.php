@@ -69,6 +69,7 @@
   </section><!-- End Hero -->
 
   <main id="main">
+    <br>
     <?php
           include 'Funzioni_PHP/connessione.php';
           include 'Funzioni_PHP/relatore.php';
@@ -76,6 +77,7 @@
 
           $prova = 0;
           $arrayID = array();
+          $arrayProvaPresenza = array();
           $string = "Par";
 
           $queryPartecipante = "SELECT Partecipante.idPart FROM Partecipante;";
@@ -92,25 +94,38 @@
             $risCognome = $ris["cognomePart"];
             $risMail = $ris["mailPart"];
             if($_POST['cognome'] == $risCognome && $_POST['nome'] == $risNome && $_POST['mail'] == $risMail){
-                echo "<p align='center'><b>REGISTRAZIONE NON EFFETTUATA</b></p><br><p align='center'>Hey, sembra che qualcuno che ha il tuo stesso nome, il tuo stesso cognome e la tua stessa mail si è già registrato e ha già ordinato un biglietto.</p>";
+                echo "<p align='center'><b>REGISTRAZIONE NON EFFETTUATA</b></p><br><p align='center'>Hey, sembra che qualcuno che ha il tuo stesso nome, il tuo stesso cognome e la tua stessa mail<br> si sia già registrato e abbia già ordinato un biglietto.</p>";
+                array_push($arrayProvaPresenza,"true");
+            }else{
+              array_push($arrayProvaPresenza,"false");
             }
           }
 
-          if(isset($_GET['send'])){
-            if(!empty($_GET['cognome']) && !empty($_GET['nome']) && !empty($_GET['mail']) && !empty($_GET['tipologia'])){
-              $string = $string+count($arrayID);
-              $dml = "INSERT INTO Partecipante(idPart, cognomePart, nomePart, mailPart, tipologiaPart) VALUES ('".$string."','".$POST["cognome"]."','".$POST["nome"]."','".$POST["mail"]."','".$POST["tipologia"]."');";
-              if($connessione->query($dml) === TRUE){
-                echo "caricato";
-              }else{
-                echo "noncaricato";
-              }
-            }else{
-              echo "<p align='center'><b>COMPILA TUTTI I CAMPO</b></p><br><p align='center'>Compila tutti i campi per iscriverti e per ordinare il tuo biglietto</p>";
+          $contaPresenza = 0;
+          for ($i=0; $i < count($arrayProvaPresenza); $i++) {
+            if($arrayProvaPresenza[$i] == "true"){
+                $contaPresenza = $contaPresenza + 1;
             }
           }
-          $connessione->close();
+
+          if($contaPresenza == 0){
+            if(isset($_POST['send'])){
+              if(!empty($_POST['cognome']) && !empty($_POST['nome']) && !empty($_POST['mail']) && !empty($_POST['tipologia'])){
+                $string = count($arrayID);
+                $dml = "INSERT INTO Partecipante(idPart, cognomePart, nomePart, mailPart, tipologiaPart) VALUES ('".$string."','".$_POST["cognome"]."','".$_POST["nome"]."','".$_POST["mail"]."','".$_POST["tipologia"]."');";
+                if($connessione->query($dml) === TRUE){
+                  echo "<p align='center'><b>REGISTRAZIONE EFFETTUATA</b></p><br><p align='center'>Ciao ".$_POST["nome"]." ".$_POST["cognome"].", vogliamo darti un ottima notizia, la tua registrazione è stata accettata!<br>Tra qualche minuto riceverai via mail l'invito per preordinare il tuo biglietto.</p>";
+                }else{
+                  echo "noncaricato";
+                }
+              }else{
+                echo "<p align='center'><b>COMPILA TUTTI I CAMPI</b></p><br><p align='center'>Compila tutti i campi per iscriverti e per ordinare il tuo biglietto</p>";
+              }
+            }
+            $connessione->close();
+          }
     ?>
+    <br><br>
   </main><!-- End #main -->
 
   <!-- ======= Footer ======= -->
