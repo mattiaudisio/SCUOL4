@@ -92,8 +92,7 @@
             $riscognome = $ris["cognomePart"];
             $risMail = $ris["mailPart"];
             if($_POST['cognome'] == $risCognome && $_POST['nome'] == $risNome && $_POST['mail'] == $risMail){
-                echo "<p align='center'><b>REGISTRAZIONE NON EFFETTUATA</b></p><br><p align='center'>Hey, sembra che qualcuno che ha il tuo stesso nome, il tuo stesso cognome
-                      e la tua stessa mail si è già registrato e ha già ordinato un biglietto.</p>"
+                echo "<p align='center'><b>REGISTRAZIONE NON EFFETTUATA</b></p><br><p align='center'>Hey, sembra che qualcuno che ha il tuo stesso nome, il tuo stesso cognome e la tua stessa mail si è già registrato e ha già ordinato un biglietto.</p>";
             }
           }
 
@@ -101,13 +100,11 @@
             if(!empty($_POST['cognome']) && !empty($_POST['nome']) && !empty($_POST['mail']) && !empty($_POST['tipologia'])){
               $string = $string+count($arrayID);
               $dml = "INSERT INTO Partecipante(idPart, cognomePart, nomePart, mailPart, tipologiaPart) VALUES ('".$string."','".$POST["cognome"]."','".$POST["nome"]."','".$POST["mail"]."','".$POST["tipologia"]."');";
-              if($connessione->query($dml) === TRUE){
-                  echo "";
-              } else {
-                echo "";
+              if(!$mysql->query($dml)){
+                die($mysql->error);
               }
             }else{
-              echo "<p align='center'><b>COMPILA TUTTI I CAMPO</b></p><br><p align='center'>Compila tutti i campi per iscriverti e per ordinare il tuo biglietto</p>"              
+              echo "<p align='center'><b>COMPILA TUTTI I CAMPO</b></p><br><p align='center'>Compila tutti i campi per iscriverti e per ordinare il tuo biglietto</p>";
             }
           }
     ?>
