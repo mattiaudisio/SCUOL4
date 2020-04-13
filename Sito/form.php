@@ -74,11 +74,12 @@
           include 'Funzioni_PHP/connessione.php';
           include 'Funzioni_PHP/relatore.php';
           include 'Funzioni_PHP/speech.php';
+          include 'Funzioni_PHP/programma.php';
 
           $prova = 0;
           $arrayID = array();
           $arrayProvaPresenza = array();
-          $string = "Par";
+          $arrayProgramma = array();
 
           $queryPartecipante = "SELECT Partecipante.idPart FROM Partecipante;";
           $risultatoPartecipante = $connessione->query($queryPartecipante);
@@ -119,13 +120,42 @@
                   <p align='center'><b>REGISTRAZIONE EFFETTUATA</b></p><br>
                   <p align='center'>Ciao <?php echo $_POST["nome"];?> <?php echo $_POST["cognome"];?>, vogliamo darti un ottima notizia, la tua registrazione è stata accettata!<br>ora protrai preordinare il tuo biglietto.</p>";
 
+                  <section id="testimonials" class="testimonials">
+                    <div class="container">
+                      <div class="row">
+                        <?php
+
+                          $queryProgramma = "SELECT Programma.fasciaOraria, Speech.titolo, Sala.nPostiSala FROM Programma,Speech,Sala WHERE Programma.idSpeech = Speech.idSpeech AND Programma.idSala = Sala.idSala;";
+                          $risultatoProgramma = $connessione->query($queryProgramma);
+                          while($ris = $risultatoProgramma->fetch_assoc()){
+                            $risFascia = $ris["fasciaOraria"];
+                            $risTitolo = $ris["titolo"];
+                            $risPosti = $ris["nPostiSala"];
+                            $nuovoOggetto = new Programma($risFascia,$risTitolo,$risPosti);
+                            array_push($arrayProgramma,$nuovoOggetto);
+                          }
+
+                          for($i = 0; $i < count($arrayProgramma); $i++){ ?>
+                            <div class="col-lg-6" data-aos="fade-up" data-aos-delay="100">
+                              <div class="testimonial-item mt-4 mt-lg-0">
+                                <img src="assets/img/speech.jpg" class="testimonial-img" alt="">
+                                <h3> <?php echo $arrayProgramma[$i]->getTitolo();?></h3>
+                                <h4>Fascia Oraria: <?php echo $arrayProgramma[$i]->getFasciaOraria();?></h4>
+                                <p>Numero di posti disponibili: <?php echo $arrayProgramma[$i]->getNPosti();?></p>
+                              </div>
+                            </div>
+                          <?php } ?>
+
+                      </div>
+                    </div>
+                  </section>
                   <?php
                 }
               }else{
                 echo "<p align='center'><b>COMPILA TUTTI I CAMPI</b></p><br><p align='center'>Compila tutti i campi per iscriverti e ordinare il tuo biglietto</p>";
               }
             }
-            $connessione->close();
+            //$connessione->close();
           }
     ?>
     <br><br>
