@@ -134,18 +134,20 @@
                             $nuovoOggetto = new Programma($risFascia,$risTitolo,$risPosti);
                             array_push($arrayProgramma,$nuovoOggetto);
                           }
-
-                          for($i = 0; $i < count($arrayProgramma); $i++){ ?>
-                            <div class="col-lg-6" data-aos="fade-up" data-aos-delay="100">
-                              <div class="testimonial-item mt-4 mt-lg-0">
-                                <img src="assets/img/speech.jpg" class="testimonial-img" alt="">
-                                <h3> <?php echo $arrayProgramma[$i]->getTitolo();?></h3>
-                                <h4>Fascia Oraria: <?php echo $arrayProgramma[$i]->getFasciaOraria();?></h4>
-                                <p>Numero di posti disponibili: <?php echo $arrayProgramma[$i]->getNPosti();?></p>
+                          ?>
+                          <?php for($i = 0; $i < count($arrayProgramma); $i++){ ?>
+                              <div class="col-lg-6" data-aos="fade-up" data-aos-delay="100">
+                                <div class="testimonial-item mt-4 mt-lg-0">
+                                  <img src="assets/img/speech.jpg" class="testimonial-img" alt="">
+                                  <h3> <?php echo $arrayProgramma[$i]->getTitolo();?></h3>
+                                  <h4>Fascia Oraria: <?php echo $arrayProgramma[$i]->getFasciaOraria();?></h4>
+                                  <p>Numero di posti disponibili: <?php echo $arrayProgramma[$i]->getNPosti();?></p><br>
+                                  <input type="radio" name="<?php  $arrayProgramma[$i]->getTitolo();?>" id="<?php  $arrayProgramma[$i]->getTitolo();?>" value="<?php  $arrayProgramma[$i]->getTitolo();?>"> <label for="<?php  $arrayProgramma[$i]->getTitolo();?>">ACQUISTA</label><br>
+                                </div>
                               </div>
-                            </div>
-                          <?php } ?>
-
+                              <?php } ?>
+                              <br>
+                              <div class="text-center" ><button type="submit" name="send" value="Acquista" class="bottoneIscrizione">Acquista</button></div>
                       </div>
                     </div>
                   </section>
