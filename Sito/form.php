@@ -157,7 +157,7 @@
                 echo "<p align='center'><b>COMPILA TUTTI I CAMPI</b></p><br><p align='center'>Compila tutti i campi per iscriverti e ordinare il tuo biglietto</p>";
               }
             }
-            //$connessione->close();
+            $connessione->close();
           }
     ?>
     <br><br>
