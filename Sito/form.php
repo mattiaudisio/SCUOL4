@@ -114,9 +114,12 @@
                 $string = count($arrayID);
                 $dml = "INSERT INTO Partecipante(idPart, cognomePart, nomePart, mailPart, tipologiaPart) VALUES ('".$string."','".$_POST["cognome"]."','".$_POST["nome"]."','".$_POST["mail"]."','".$_POST["tipologia"]."');";
                 if($connessione->query($dml) === TRUE){
-                  echo "<p align='center'><b>REGISTRAZIONE EFFETTUATA</b></p><br><p align='center'>Ciao ".$_POST["nome"]." ".$_POST["cognome"].", vogliamo darti un ottima notizia, la tua registrazione è stata accettata!<br>Tra qualche minuto riceverai via mail l'invito per preordinare il tuo biglietto.</p>";
-                }else{
-                  echo "noncaricato";
+                  ?>
+
+                  <p align='center'><b>REGISTRAZIONE EFFETTUATA</b></p><br>
+                  <p align='center'>Ciao <?php echo $_POST["nome"];?> <?php echo $_POST["cognome"];?>, vogliamo darti un ottima notizia, la tua registrazione è stata accettata!<br>ora protrai preordinare il tuo biglietto.</p>";
+
+                  <?php
                 }
               }else{
                 echo "<p align='center'><b>COMPILA TUTTI I CAMPI</b></p><br><p align='center'>Compila tutti i campi per iscriverti e ordinare il tuo biglietto</p>";
