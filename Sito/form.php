@@ -109,35 +109,36 @@
       if($contaPresenza == 0){
         if(isset($_POST['send'])){
           if(!empty($_POST['cognome']) && !empty($_POST['nome']) && !empty($_POST['mail'])){
-            ?>
-            <section id="about-us" class="about-us">
-              <div class="container">
-                <div class="row no-gutters">
-                  <div class="image col-xl-5 d-flex align-items-stretch justify-content-center justify-content-lg-start" data-aos="fade-right" style="background-image: url(/Mattia/ProgettoSQL_Convention/Sito/assets/img/riepilogo.jpg);"></div>
-                  <div class="col-xl-7 pl-0 pl-lg-5 pr-lg-1 d-flex align-items-stretch">
-                    <div class="content d-flex flex-column justify-content-center">
-                      <h3 data-aos="fade-up"> <?php echo $_POST["nome"]; ?> <?php echo $_POST["cognome"]; ?></h3>
-                      <p data-aos="fade-up"> <?php echo $_POST["mail"]; ?>, <?php echo $_POST["tipologia"]; ?></p>
-                      <div class="row">
-                        <?php if(isset($_POST["interessi"])){?>
-                        <div class="col-md-6 icon-box" data-aos="fade-up">
-                          <!-- <h6> <?php echo implode("",$_POST["interessi"]);?></h6> -->
+            $string = count($arrayID);
+            $dml = "INSERT INTO Partecipante(idPart, cognomePart, nomePart, mailPart, tipologiaPart) VALUES ('".$string."','".$_POST["cognome"]."','".$_POST["nome"]."','".$_POST["mail"]."','".$_POST["tipologia"]."');";
+                if($connessione->query($dml) === TRUE){?>
+                  <section id="about-us" class="about-us">
+                    <div class="container">
+                      <div class="row no-gutters">
+                        <div class="image col-xl-5 d-flex align-items-stretch justify-content-center justify-content-lg-start" data-aos="fade-right" style="background-image: url(/Mattia/ProgettoSQL_Convention/Sito/assets/img/riepilogo.jpg);"></div>
+                        <div class="col-xl-7 pl-0 pl-lg-5 pr-lg-1 d-flex align-items-stretch">
+                          <div class="content d-flex flex-column justify-content-center">
+                            <h3 data-aos="fade-up"> <?php echo $_POST["nome"]; ?> <?php echo $_POST["cognome"]; ?></h3>
+                            <p data-aos="fade-up"> <?php echo $_POST["mail"]; ?>, <?php echo $_POST["tipologia"]; ?></p>
+                            <div class="row">
+                              <?php if(isset($_POST["interessi"])){?>
+                              <div class="col-md-6 icon-box" data-aos="fade-up">
+                                <!-- <h6> <?php echo implode("",$_POST["interessi"]);?></h6> -->
+                              </div>
+                            <?php }
+                            if($_POST["tipologia"] == "docente" || $_POST["tipologia"] == "liberoProfessionista" ){
+                                  echo '<div class="col-md-6 icon-box" data-aos="fade-up">
+                                          <h4>Speech Premiazione</h4>
+                                          <p>Ordinato</p>
+                                       </div>';
+                            }?>
+                            </div>
+                          </div><!-- End .content-->
                         </div>
-                      <?php }
-                      if($_POST["tipologia"] == "docente" || $_POST["tipologia"] == "liberoProfessionista" ){
-                            echo '<div class="col-md-6 icon-box" data-aos="fade-up">
-                                    <h4>Speech Premiazione</h4>
-                                    <p>Ordinato</p>
-                                 </div>';
-                      }?>
                       </div>
-                    </div><!-- End .content-->
-                  </div>
-                </div>
-              </div>
-            </section>
-
-          <?php
+                    </div>
+                  </section>
+                <?php }
           }else{
             echo "<p align='center'><b>COMPILA TUTTI I CAMPI</b></p><br><p align='center'>Compila tutti i campi per iscriverti e ordinare il tuo biglietto</p>";
           }
