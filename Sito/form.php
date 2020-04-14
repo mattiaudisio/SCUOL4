@@ -122,7 +122,7 @@
                       <div class="row">
                         <?php if(isset($_POST["interessi"])){?>
                         <div class="col-md-6 icon-box" data-aos="fade-up">
-                          <p> <?php echo implode("",$_POST["interessi"]);?></p>
+                          <h6> <?php echo implode("",$_POST["interessi"]);?></h6>
                         </div>
                       <?php } ?>
                       </div>
