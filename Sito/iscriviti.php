@@ -119,7 +119,6 @@
                         echo '<input type="checkbox" name="interessi" value="'.$arrayProgramma[$i]->getTitolo().'">'.$arrayProgramma[$i]->getTitolo().'<br>';
                     }
                   }?>
-              <!-- <input type="checkbox" name="programmiInteressati" value="Premiazione">Premiazione<br> -->
               <div class="text-center" ><input type="submit" value="iscriviti" name="send"></div>
           </div>
         </form>

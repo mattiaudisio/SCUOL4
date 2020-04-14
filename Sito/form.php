@@ -112,7 +112,6 @@
             ?>
             <section id="about-us" class="about-us">
               <div class="container">
-
                 <div class="row no-gutters">
                   <div class="image col-xl-5 d-flex align-items-stretch justify-content-center justify-content-lg-start" data-aos="fade-right" style="background-image: url(/Mattia/ProgettoSQL_Convention/Sito/assets/img/riepilogo.jpg);"></div>
                   <div class="col-xl-7 pl-0 pl-lg-5 pr-lg-1 d-flex align-items-stretch">
@@ -122,9 +121,15 @@
                       <div class="row">
                         <?php if(isset($_POST["interessi"])){?>
                         <div class="col-md-6 icon-box" data-aos="fade-up">
-                          <h6> <?php echo implode("",$_POST["interessi"]);?></h6>
+                          <!-- <h6> <?php echo implode("",$_POST["interessi"]);?></h6> -->
                         </div>
-                      <?php } ?>
+                      <?php }
+                      if($_POST["tipologia"] == "docente" || $_POST["tipologia"] == "liberoProfessionista" ){
+                            echo '<div class="col-md-6 icon-box" data-aos="fade-up">
+                                    <h4>Speech Premiazione</h4>
+                                    <p>Ordinato</p>
+                                 </div>';
+                      }?>
                       </div>
                     </div><!-- End .content-->
                   </div>
@@ -133,9 +138,9 @@
             </section>
 
           <?php
+          }else{
+            echo "<p align='center'><b>COMPILA TUTTI I CAMPI</b></p><br><p align='center'>Compila tutti i campi per iscriverti e ordinare il tuo biglietto</p>";
           }
-        }else{
-          echo "<p align='center'><b>COMPILA TUTTI I CAMPI</b></p><br><p align='center'>Compila tutti i campi per iscriverti e ordinare il tuo biglietto</p>";
         }
       }
       $connessione->close();
