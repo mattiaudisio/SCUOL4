@@ -23,14 +23,15 @@ INSERT INTO Azienda(idAzienda, indirizzoAzienda, telefonoAzienda) VALUES
 	('Apple','Via Azienda 7','0175125837');
 
 INSERT INTO Partecipante(idPart, cognomePart, nomePart, mailPart, tipologiaPart) VALUES
-	('par1','Rossi','Marco','par1@gmail.com','Studente'),
-	('par2','Bianchi','Matteo','par2@gmail.com','Docente'),
-	('par3','Verdi','Luca','par3@gmail.com','Libero Professionista'),
-	('par4','Gialli','Mattia','par4@gmail.com','Studente'),
-	('par5','Viola','Francesco','par5@gmail.com','Docente'),
-	('par6','Verde','Nicola','par6@gmail.com','Docente'),
-	('par7','Rossi','Stefano','par7@gmail.com','Libero Professionista'),
-	('par8','Rossi','Andrea','par8@gmail.com','Libero Professionista');
+	('01','Rossi','Marco','par1@gmail.com','Studente'),
+	('02','Bianchi','Matteo','par2@gmail.com','Docente'),
+	('03','Verdi','Luca','par3@gmail.com','Libero Professionista'),
+	('04','Gialli','Mattia','par4@gmail.com','Studente'),
+	('05','Viola','Francesco','par5@gmail.com','Docente'),
+	('06','Verde','Nicola','par6@gmail.com','Docente'),
+	('07','Rossi','Stefano','par7@gmail.com','Libero Professionista'),
+	('08','Rossi','Andrea','par8@gmail.com','Libero Professionista'),
+	('09','Longo','Lucio','par9@gmail.com','Docente');
 
 INSERT INTO Speech(idSpeech, titolo, argomento, Durata) VALUES
 	('Speech1','Manjaro','Rilasciato Manjaro 19.0 Kyria', 1234),
@@ -66,11 +67,11 @@ INSERT INTO Relaziona(idRel, idProgramma) VALUES
 	('Relatore7','Programma1');
 
 INSERT INTO Composto(idPart, idProgramma, nPartecipanti) VALUES
- 	('par1', 'Programma1', 10),
-	('par2', 'Programma1', 10),
-	('par3', 'Programma1', 10),
-	('par4', 'Programma1', 10),
-	('par5', 'Programma1', 10),
-	('par6', 'Programma1', 10),
-	('par7', 'Programma1', 10),
-	('par8', 'Programma1', 10);
+ 	('01', 'Programma1', 10),
+	('02', 'Programma1', 10),
+	('03', 'Programma1', 10),
+	('04', 'Programma1', 10),
+	('05', 'Programma1', 10),
+	('06', 'Programma1', 10),
+	('07', 'Programma1', 10),
+	('08', 'Programma1', 10);
