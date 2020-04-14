@@ -120,20 +120,18 @@
                       <h3 data-aos="fade-up"> <?php echo $_POST["nome"]; ?> <?php echo $_POST["cognome"]; ?></h3>
                       <p data-aos="fade-up"> <?php echo $_POST["mail"]; ?>, <?php echo $_POST["tipologia"]; ?></p>
                       <div class="row">
-                        <?php
-                          $interessi = isset($_POST['interessi[]']) ? $_POST['interessi'] : array();
-                          foreach ($interessi as $interesse) { ?>
-                            <div class="col-md-6 icon-box" data-aos="fade-up">
-                              <i class="bx bx-receipt"></i>
-                              <h4> <?php echo$interesse ?></h4>
-                            </div>
-                        <?php  } ?>
+                        <?php if(isset($_POST["interessi"])){?>
+                        <div class="col-md-6 icon-box" data-aos="fade-up">
+                          <p> <?php echo implode("",$_POST["interessi"]);?></p>
+                        </div>
+                      <?php } ?>
                       </div>
                     </div><!-- End .content-->
                   </div>
                 </div>
               </div>
             </section>
+
           <?php
           }
         }else{
