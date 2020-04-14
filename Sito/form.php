@@ -110,23 +110,27 @@
         if(isset($_POST['send'])){
           if(!empty($_POST['cognome']) && !empty($_POST['nome']) && !empty($_POST['mail'])){
             ?>
-            <section id="speaker" class="team section-bg">
+            <section id="about-us" class="about-us">
               <div class="container">
-                <div class="section-title" data-aos="fade-up">
-                  <h2><strong>RIEPILOGO</strong></h2>
-                </div>
-                <div class="row">
-                    <div class="col-lg-3 col-md-6 d-flex align-items-stretch">
-                      <div class="member" data-aos="fade-up">
-                        <div class="member-img">
-                          <img src="assets/img/riepilogo.jpg" class="img-fluid" alt="">
-                        </div>
-                        <div class="member-info">
-                          <h4> <?php echo $_POST["nome"];?> <?php echo $_POST["cognome"];?></h4>
-                          <span> <?php echo $_POST["mail"];?><br><?php echo $_POST["tipologia"];?></span>
-                        </div>
+
+                <div class="row no-gutters">
+                  <div class="image col-xl-5 d-flex align-items-stretch justify-content-center justify-content-lg-start" data-aos="fade-right" style="background-image: url(/Mattia/ProgettoSQL_Convention/Sito/assets/img/riepilogo.jpg);"></div>
+                  <div class="col-xl-7 pl-0 pl-lg-5 pr-lg-1 d-flex align-items-stretch">
+                    <div class="content d-flex flex-column justify-content-center">
+                      <h3 data-aos="fade-up"> <?php echo $_POST["nome"]; ?> <?php echo $_POST["cognome"]; ?></h3>
+                      <p data-aos="fade-up"> <?php echo $_POST["mail"]; ?>, <?php echo $_POST["tipologia"]; ?></p>
+                      <div class="row">
+                        <?php
+                          $interessi = isset($_POST['interessi[]']) ? $_POST['interessi'] : array();
+                          foreach ($interessi as $interesse) { ?>
+                            <div class="col-md-6 icon-box" data-aos="fade-up">
+                              <i class="bx bx-receipt"></i>
+                              <h4> <?php echo$interesse ?></h4>
+                            </div>
+                        <?php  } ?>
                       </div>
-                    </div>
+                    </div><!-- End .content-->
+                  </div>
                 </div>
               </div>
             </section>
