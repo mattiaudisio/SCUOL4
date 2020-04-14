@@ -1,3 +1,23 @@
+<?php
+  include 'Funzioni_PHP/connessione.php';
+  include 'Funzioni_PHP/relatore.php';
+  include 'Funzioni_PHP/speech.php';
+  include 'Funzioni_PHP/programma.php';
+
+  $arrayProgramma = array();
+
+  $queryProgramma = "SELECT Programma.fasciaOraria, Speech.titolo, Sala.nPostiSala FROM Programma,Speech,Sala WHERE Programma.idSpeech = Speech.idSpeech AND Programma.idSala = Sala.idSala;";
+  $risultatoProgramma = $connessione->query($queryProgramma);
+  while($ris = $risultatoProgramma->fetch_assoc()){
+    $risFascia = $ris["fasciaOraria"];
+    $risTitolo = $ris["titolo"];
+    $risPosti = $ris["nPostiSala"];
+    $nuovoOggetto = new Programma($risFascia,$risTitolo,$risPosti);
+    array_push($arrayProgramma,$nuovoOggetto);
+  }
+?>
+
+
 <!DOCTYPE html>
 <html>
 
@@ -69,53 +89,7 @@
   </section><!-- End Hero -->
 
   <main id="main">
-    <div class="section-title" data-aos="fade-up">
-      <br><h2>Ecco i nostri programmi <strong>disponibili</strong></h2>
-    </div>
-    <section id="testimonials" class="testimonials">
-      <div class="container">
-        <div class="row">
-    <?php
-      include 'Funzioni_PHP/connessione.php';
-      include 'Funzioni_PHP/relatore.php';
-      include 'Funzioni_PHP/speech.php';
-      include 'Funzioni_PHP/programma.php';
-
-      $arrayProgramma = array();
-
-      $queryProgramma = "SELECT Programma.fasciaOraria, Speech.titolo, Sala.nPostiSala FROM Programma,Speech,Sala WHERE Programma.idSpeech = Speech.idSpeech AND Programma.idSala = Sala.idSala;";
-      $risultatoProgramma = $connessione->query($queryProgramma);
-      while($ris = $risultatoProgramma->fetch_assoc()){
-        $risFascia = $ris["fasciaOraria"];
-        $risTitolo = $ris["titolo"];
-        $risPosti = $ris["nPostiSala"];
-        $nuovoOggetto = new Programma($risFascia,$risTitolo,$risPosti);
-        array_push($arrayProgramma,$nuovoOggetto);
-      }
-      ?>
-      <?php for($i = 0; $i < count($arrayProgramma); $i++){
-            if($arrayProgramma[$i]->getNPosti() > 0){?>
-              <div class="col-lg-6" data-aos="fade-up" data-aos-delay="100">
-                <div class="testimonial-item mt-4 mt-lg-0">
-                  <img src="assets/img/speech.jpg" class="testimonial-img" alt="">
-                  <h3> <?php echo $arrayProgramma[$i]->getTitolo();?></h3>
-                  <h4>Fascia Oraria: <?php echo $arrayProgramma[$i]->getFasciaOraria();?></h4>
-                  <p>Numero di posti disponibili: <?php echo $arrayProgramma[$i]->getNPosti();?></p><br>
-                </div>
-              </div>
-           <?php } ?>
-          <?php } ?>
-          <div class="col-lg-6" data-aos="fade-up" data-aos-delay="100">
-            <div class="testimonial-item mt-4 mt-lg-0">
-              <img src="assets/img/speech.jpg" class="testimonial-img" alt="">
-              <h3>Speech Premiazione</h3>
-              <p><b>Possono partecipare solo professori o liberi professionisti</b></p><br>
-            </div>
-          </div>
-        </div>
-      </div>
-    </section>
-    <!-- ======= SEZIONE ISCRIVITI ======= -->
+        <!-- ======= SEZIONE ISCRIVITI ======= -->
     <section id="contact" class="contact">
     <div class="row mt-5 justify-content-center" data-aos="fade-up">
       <div class="col-lg-10">
@@ -139,15 +113,15 @@
                 <option value="docente">Docente</option>
                 <option value="liberoProfessionista">Libero Professionista</option>
               </select><br>
-              <p>Programmi</p>
+              <p>Programmi:</p>
               <?php for($i = 0; $i < count($arrayProgramma); $i++){
                     if($arrayProgramma[$i]->getNPosti() > 0){
-                        echo '<input type="radio" name="interessi[]" value="'.$arrayProgramma[$i]->getTitolo().'">'.$arrayProgramma[$i]->getTitolo().'<br>';
+                        echo '<input type="checkbox" name="interessi[]" value="'.$arrayProgramma[$i]->getTitolo().'">'.$arrayProgramma[$i]->getTitolo().'<br>';
                     }
                   }?>
-              <input type="radio" name="programmiInteressati[]" value="">
+              <input type="checkbox" name="programmiInteressati[]" value="Premiazione">Premiazione<br>
+              <div class="text-center" ><input type="submit" value="iscriviti" name="send"></div>
           </div>
-          <div class="text-center" ><button type="submit" name="send" value="Invia" class="bottoneIscrizione">Iscriviti</button></div>
         </form>
         <br>
       </div>

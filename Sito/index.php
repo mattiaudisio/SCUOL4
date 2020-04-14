@@ -2,13 +2,20 @@
   include 'Funzioni_PHP/connessione.php';
   include 'Funzioni_PHP/relatore.php';
   include 'Funzioni_PHP/speech.php';
+  include 'Funzioni_PHP/programma.php';
+
 
   $arraySpeech = array();
   $arrayRelatore = array();
+  $arrayProgramma = array();
+
   $querySpeech = "SELECT Speech.titolo, Speech.argomento FROM Speech;";
   $queryRelatori = "SELECT Relatore.cognomeRel, Relatore.nomeRel, Relatore.idAzienda FROM Relatore;";
+  $queryProgramma = "SELECT Programma.fasciaOraria, Speech.titolo, Sala.nPostiSala FROM Programma,Speech,Sala WHERE Programma.idSpeech = Speech.idSpeech AND Programma.idSala = Sala.idSala;";
+
   $risultatoSpeech = $connessione->query($querySpeech);
   $risultatoRelatori = $connessione->query($queryRelatori);
+  $risultatoProgramma = $connessione->query($queryProgramma);
 
   while($ris = $risultatoSpeech->fetch_assoc()){
     $risTitolo = $ris["titolo"];
@@ -22,6 +29,13 @@
       $risAzienda = $ris["idAzienda"];
       $nuovoOggetto = new Relatore($risCognome,$risNome,$risAzienda);
       array_push($arrayRelatore,$nuovoOggetto);
+  }
+  while($ris = $risultatoProgramma->fetch_assoc()){
+    $risFascia = $ris["fasciaOraria"];
+    $risTitolo = $ris["titolo"];
+    $risPosti = $ris["nPostiSala"];
+    $nuovoOggetto = new Programma($risFascia,$risTitolo,$risPosti);
+    array_push($arrayProgramma,$nuovoOggetto);
   }
 ?>
 <!DOCTYPE html>
@@ -73,7 +87,7 @@
           <li class="active"><a href="index.php">Home</a></li>
           <li><a href="#speaker">Speaker</a></li>
           <li><a href="#programma">Programma</a></li>
-          <li><a href="iscriviti.html">Iscriviti</a></li>
+          <li><a href="iscriviti.php">Iscriviti</a></li>
 
         </ul>
       </nav><!-- .nav-menu -->
@@ -131,11 +145,20 @@
             <div class="col-lg-4 col-md-6 portfolio-item filter-app">
               <img src="assets/img/programma.jpeg" class="img-fluid" alt="">
               <div class="portfolio-info">
-                <h4><?php echo $arraySpeech[$i]->getTitolo();?></h4>
+                <h3><?php echo $arrayProgramma[$i]->getTitolo();?></h3>
+                <h6>Fascia Oraria: <?php echo $arrayProgramma[$i]->getFasciaOraria();?></h6>
                 <p><?php echo $arraySpeech[$i]->getArgomento();?></p>
+                <p>Numero di posti disponibili: <?php echo $arrayProgramma[$i]->getNPosti();?></p>
               </div>
             </div>
           <?php }?>
+          <div class="col-lg-4 col-md-6 portfolio-item filter-app">
+            <img src="assets/img/programma.jpeg" class="img-fluid" alt="">
+            <div class="portfolio-info">
+              <h3>Speech premiazione</h3>
+              <p><b>Possono partecipare solo professori o liberi professionisti</b></p>
+            </div>
+          </div>
         </div>
         <?php $connessione->close(); ?>
       </div>

@@ -62,8 +62,8 @@ INSERT INTO Relaziona(idRel, idProgramma) VALUES
 	('Relatore3','Programma3'),
 	('Relatore4','Programma4'),
 	('Relatore5','Programma5'),
-	('Relatore6','Programma6'),
-	('Relatore7','Programma1');
+	('Relatore6','Programma1'),
+	('Relatore7','Programma2');
 
 INSERT INTO Composto(idPart, idProgramma, nPartecipanti) VALUES
  	('01', 'Programma1', 10),
@@ -71,6 +71,6 @@ INSERT INTO Composto(idPart, idProgramma, nPartecipanti) VALUES
 	('03', 'Programma3', 10),
 	('04', 'Programma4', 10),
 	('05', 'Programma5', 10),
-	('06', 'Programma6', 10),
-	('07', 'Programma7', 10),
-	('08', 'Programma8', 10);
+	('06', 'Programma1', 10),
+	('07', 'Programma2', 10),
+	('08', 'Programma3', 10);

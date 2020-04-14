@@ -47,7 +47,7 @@
           <li><a href="index.php">Home</a></li>
           <li><a href="index.php#speaker">Speaker</a></li>
           <li><a href="index.php#programma">Programma</a></li>
-          <li class="active"><a href="iscriviti.html">Iscriviti</a></li>
+          <li class="active"><a href="iscriviti.php">Iscriviti</a></li>
         </ul>
       </nav><!-- .nav-menu -->
 
@@ -69,106 +69,75 @@
   </section><!-- End Hero -->
 
   <main id="main">
-    <br>
     <?php
-          include 'Funzioni_PHP/connessione.php';
-          include 'Funzioni_PHP/relatore.php';
-          include 'Funzioni_PHP/speech.php';
-          include 'Funzioni_PHP/programma.php';
+      include 'Funzioni_PHP/connessione.php';
+      include 'Funzioni_PHP/programma.php';
 
-          $prova = 0;
-          $arrayID = array();
-          $arrayProvaPresenza = array();
-          $arrayProgramma = array();
+      $prova = 0;
+      $arrayID = array();
+      $arrayProvaPresenza = array();
+      $arrayProgramma = array();
 
-          $queryPartecipante = "SELECT Partecipante.idPart FROM Partecipante;";
-          $risultatoPartecipante = $connessione->query($queryPartecipante);
-          while($ris = $risultatoPartecipante->fetch_assoc()){
-            $risId = $ris["idPart"];
-            array_push($arrayID,$risId);
-          }
+      $queryPartecipante = "SELECT Partecipante.idPart FROM Partecipante;";
+      $risultatoPartecipante = $connessione->query($queryPartecipante);
+      while($ris = $risultatoPartecipante->fetch_assoc()){
+        $risId = $ris["idPart"];
+        array_push($arrayID,$risId);
+      }
 
-          $queryPartecipante = "SELECT Partecipante.nomePart, Partecipante.cognomePart, Partecipante.mailPart FROM Partecipante;";
-          $risultatoPartecipante = $connessione->query($queryPartecipante);
-          while($ris = $risultatoPartecipante->fetch_assoc()){
-            $risNome = $ris["nomePart"];
-            $risCognome = $ris["cognomePart"];
-            $risMail = $ris["mailPart"];
-            if($_POST['cognome'] == $risCognome && $_POST['nome'] == $risNome && $_POST['mail'] == $risMail){
-                echo "<p align='center'><b>REGISTRAZIONE NON EFFETTUATA</b></p><br><p align='center'>Hey, sembra che qualcuno che ha il tuo stesso nome, il tuo stesso cognome e la tua stessa mail<br> si sia già registrato e abbia già ordinato un biglietto.</p>";
-                array_push($arrayProvaPresenza,"true");
-            }else{
-              array_push($arrayProvaPresenza,"false");
-            }
-          }
+      $queryPartecipante = "SELECT Partecipante.nomePart, Partecipante.cognomePart, Partecipante.mailPart FROM Partecipante;";
+      $risultatoPartecipante = $connessione->query($queryPartecipante);
+      while($ris = $risultatoPartecipante->fetch_assoc()){
+        $risNome = $ris["nomePart"];
+        $risCognome = $ris["cognomePart"];
+        $risMail = $ris["mailPart"];
+        if($_POST['cognome'] == $risCognome && $_POST['nome'] == $risNome && $_POST['mail'] == $risMail){
+            echo "<p align='center'><b>REGISTRAZIONE NON EFFETTUATA</b></p><br><p align='center'>Hey, sembra che qualcuno che ha il tuo stesso nome, il tuo stesso cognome e la tua stessa mail<br> si sia già registrato e abbia già ordinato un biglietto.</p>";
+            array_push($arrayProvaPresenza,"true");
+        }else{
+          array_push($arrayProvaPresenza,"false");
+        }
+      }
 
-          $contaPresenza = 0;
-          for ($i=0; $i < count($arrayProvaPresenza); $i++) {
-            if($arrayProvaPresenza[$i] == "true"){
-                $contaPresenza = $contaPresenza + 1;
-            }
-          }
+      $contaPresenza = 0;
+      for ($i=0; $i < count($arrayProvaPresenza); $i++) {
+        if($arrayProvaPresenza[$i] == "true"){
+            $contaPresenza = $contaPresenza + 1;
+        }
+      }
 
-          if($contaPresenza == 0){
-            if(isset($_POST['send'])){
-              if(!empty($_POST['cognome']) && !empty($_POST['nome']) && !empty($_POST['mail']) && !empty($_POST['tipologia'])){
-                $string = count($arrayID);
-                $dml = "INSERT INTO Partecipante(idPart, cognomePart, nomePart, mailPart, tipologiaPart) VALUES ('".$string."','".$_POST["cognome"]."','".$_POST["nome"]."','".$_POST["mail"]."','".$_POST["tipologia"]."');";
-                if($connessione->query($dml) === TRUE){
-                  ?>
-
-                  <p align='center'><b>REGISTRAZIONE EFFETTUATA</b></p><br>
-                  <p align='center'>Ciao <?php echo $_POST["nome"];?> <?php echo $_POST["cognome"];?>, vogliamo darti un ottima notizia, la tua registrazione è stata accettata!<br>ora protrai preordinare il tuo biglietto.</p>";
-
-                  <section id="testimonials" class="testimonials">
-                    <div class="container">
-                      <div class="row">
-                        <?php
-
-                          $queryProgramma = "SELECT Programma.fasciaOraria, Speech.titolo, Sala.nPostiSala FROM Programma,Speech,Sala WHERE Programma.idSpeech = Speech.idSpeech AND Programma.idSala = Sala.idSala;";
-                          $risultatoProgramma = $connessione->query($queryProgramma);
-                          while($ris = $risultatoProgramma->fetch_assoc()){
-                            $risFascia = $ris["fasciaOraria"];
-                            $risTitolo = $ris["titolo"];
-                            $risPosti = $ris["nPostiSala"];
-                            $nuovoOggetto = new Programma($risFascia,$risTitolo,$risPosti);
-                            array_push($arrayProgramma,$nuovoOggetto);
-                          }
-                          ?>
-                          <?php for($i = 0; $i < count($arrayProgramma); $i++){ ?>
-                              <div class="col-lg-6" data-aos="fade-up" data-aos-delay="100">
-                                <div class="testimonial-item mt-4 mt-lg-0">
-                                  <img src="assets/img/speech.jpg" class="testimonial-img" alt="">
-                                  <h3> <?php echo $arrayProgramma[$i]->getTitolo();?></h3>
-                                  <h4>Fascia Oraria: <?php echo $arrayProgramma[$i]->getFasciaOraria();?></h4>
-                                  <p>Numero di posti disponibili: <?php echo $arrayProgramma[$i]->getNPosti();?></p><br>
-                                  <input type="radio" name="<?php  $arrayProgramma[$i]->getTitolo();?>" id="<?php  $arrayProgramma[$i]->getTitolo();?>" value="<?php  $arrayProgramma[$i]->getTitolo();?>"> <label for="<?php  $arrayProgramma[$i]->getTitolo();?>">ACQUISTA</label><br>
-                                </div>
-                              </div>
-                              <?php } ?>
-                              <?php if($_POST['tipologia'] == "docente" ||$_POST['tipologia'] == "liberoProfessionista"){ ?>
-                                  <div class="col-lg-6" data-aos="fade-up" data-aos-delay="100">
-                                    <div class="testimonial-item mt-4 mt-lg-0">
-                                      <img src="assets/img/speech.jpg" class="testimonial-img" alt="">
-                                      <h3> Speech Premiazione</h3>
-                                      <input type="radio" name="speechPremiazione" id="speechPremiazione" value="speechPremiazione"> <label for="speechPremiazione">ACQUISTA</label><br>
-                                    </div>
-                                  </div>
-                                  <?php } ?>
-                              <br>
+      if($contaPresenza == 0){
+        if(isset($_POST['send'])){
+          if(!empty($_POST['cognome']) && !empty($_POST['nome']) && !empty($_POST['mail'])){
+            ?>
+            <section id="speaker" class="team section-bg">
+              <div class="container">
+                <div class="section-title" data-aos="fade-up">
+                  <h2><strong>RIEPILOGO</strong></h2>
+                </div>
+                <div class="row">
+                    <div class="col-lg-3 col-md-6 d-flex align-items-stretch">
+                      <div class="member" data-aos="fade-up">
+                        <div class="member-img">
+                          <img src="assets/img/riepilogo.jpg" class="img-fluid" alt="">
+                        </div>
+                        <div class="member-info">
+                          <h4> <?php echo $_POST["nome"];?> <?php echo $_POST["cognome"];?></h4>
+                          <span> <?php echo $_POST["mail"];?><br><?php echo $_POST["tipologia"];?></span>
+                        </div>
                       </div>
-                      <div class="text-center" ><button type="submit" name="send" value="Acquista" class="bottoneIscrizione">Acquista</button></div>
                     </div>
-                  </section>
-                  <?php
-                }
-              }else{
-                 echo "<p align='center'><b>COMPILA TUTTI I CAMPI</b></p><br><p align='center'>Compila tutti i campi per iscriverti e ordinare il tuo biglietto</p>";
-               }
-            }
-            $connessione->close();
-          }?>
-    <br><br>
+                </div>
+              </div>
+            </section>
+          <?php
+          }
+        }else{
+          echo "<p align='center'><b>COMPILA TUTTI I CAMPI</b></p><br><p align='center'>Compila tutti i campi per iscriverti e ordinare il tuo biglietto</p>";
+        }
+      }
+      $connessione->close();
+    ?>
   </main><!-- End #main -->
 
   <!-- ======= Footer ======= -->
