@@ -44,10 +44,10 @@
 
       <nav class="nav-menu d-none d-lg-block">
         <ul>
-          <li><a href="index.php">Home</a></li>
-          <li><a href="index.php#speaker">Speaker</a></li>
-          <li><a href="index.php#programma">Programma</a></li>
-          <li class="active"><a href="iscriviti.html">Iscriviti</a></li>
+          <li><a href="/Mattia/ProgettoSQL_Convention/Sito/index.php">Home</a></li>
+          <li><a href="/Mattia/ProgettoSQL_Convention/Sito/index.php#speaker">Speaker</a></li>
+          <li><a href="/Mattia/ProgettoSQL_Convention/Sito/index.php#programma">Programma</a></li>
+          <li class="active"><a href="/Mattia/ProgettoSQL_Convention/Sito/iscriviti.html">Iscriviti</a></li>
         </ul>
       </nav><!-- .nav-menu -->
 
@@ -145,16 +145,6 @@
                                   <input type="radio" name="<?php  $arrayProgramma[$i]->getTitolo();?>" id="<?php  $arrayProgramma[$i]->getTitolo();?>" value="<?php  $arrayProgramma[$i]->getTitolo();?>"> <label for="<?php  $arrayProgramma[$i]->getTitolo();?>">ACQUISTA</label><br>
                                 </div>
                               </div>
-                              <?php } ?>
-                              <br>
-                              <?php if($_POST['tipologia'] == "Docente" || $_POST['tipologia'] == "Libero Professionista"){ ?>
-                                <div class="col-lg-6" data-aos="fade-up" data-aos-delay="100">
-                                  <div class="testimonial-item mt-4 mt-lg-0">
-                                    <img src="assets/img/speech.jpg" class="testimonial-img" alt="">
-                                    <h3> Speech Premiazione</h3>
-                                    <input type="radio" name="speechPremiazione" id="speechPremiazione" value="speechPremiazione"> <label for="speechPremiazione">ACQUISTA</label><br>
-                                  </div>
-                                </div>
                               <?php } ?>
                               <br>
                               <div class="text-center" ><button type="submit" name="send" value="Acquista" class="bottoneIscrizione">Acquista</button></div>
