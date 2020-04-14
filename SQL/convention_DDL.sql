@@ -56,7 +56,7 @@ CREATE TABLE IF NOT EXISTS  Speech(
 -- CREAZIONE TABELLA PROGRAMMA --
 CREATE TABLE IF NOT EXISTS  Programma(
     idProgramma VARCHAR(10) NOT NULL,
-    fasciaOraria VARCHAR(10) NOT NULL,
+    fasciaOraria VARCHAR(20) NOT NULL,
     idSpeech VARCHAR(10) NOT NULL,
     idSala VARCHAR(10) NOT NULL,
     PRIMARY KEY(idProgramma)

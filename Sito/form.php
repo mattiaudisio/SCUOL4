@@ -44,9 +44,9 @@
 
       <nav class="nav-menu d-none d-lg-block">
         <ul>
-          <li><a href="/Mattia/ProgettoSQL_Convention/Sito/index.php">Home</a></li>
-          <li><a href="/Mattia/ProgettoSQL_Convention/Sito/index.php#speaker">Speaker</a></li>
-          <li><a href="/Mattia/ProgettoSQL_Convention/Sito/index.php#programma">Programma</a></li>
+          <li><a href="index.php">Home</a></li>
+          <li><a href="index.php#speaker">Speaker</a></li>
+          <li><a href="index.php#programma">Programma</a></li>
           <li class="active"><a href="/Mattia/ProgettoSQL_Convention/Sito/iscriviti.html">Iscriviti</a></li>
         </ul>
       </nav><!-- .nav-menu -->
@@ -146,20 +146,28 @@
                                 </div>
                               </div>
                               <?php } ?>
+                              <?php if($_POST['tipologia'] == "docente" ||$_POST['tipologia'] == "liberoProfessionista"){ ?>
+                                  <div class="col-lg-6" data-aos="fade-up" data-aos-delay="100">
+                                    <div class="testimonial-item mt-4 mt-lg-0">
+                                      <img src="assets/img/speech.jpg" class="testimonial-img" alt="">
+                                      <h3> Speech Premiazione</h3>
+                                      <input type="radio" name="speechPremiazione" id="speechPremiazione" value="speechPremiazione"> <label for="speechPremiazione">ACQUISTA</label><br>
+                                    </div>
+                                  </div>
+                                  <?php } ?>
                               <br>
-                              <div class="text-center" ><button type="submit" name="send" value="Acquista" class="bottoneIscrizione">Acquista</button></div>
                       </div>
+                      <div class="text-center" ><button type="submit" name="send" value="Acquista" class="bottoneIscrizione">Acquista</button></div>
                     </div>
                   </section>
                   <?php
                 }
               }else{
-                echo "<p align='center'><b>COMPILA TUTTI I CAMPI</b></p><br><p align='center'>Compila tutti i campi per iscriverti e ordinare il tuo biglietto</p>";
-              }
+                 echo "<p align='center'><b>COMPILA TUTTI I CAMPI</b></p><br><p align='center'>Compila tutti i campi per iscriverti e ordinare il tuo biglietto</p>";
+               }
             }
             $connessione->close();
-          }
-    ?>
+          }?>
     <br><br>
   </main><!-- End #main -->
 

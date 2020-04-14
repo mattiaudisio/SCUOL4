@@ -40,12 +40,12 @@ INSERT INTO Speech(idSpeech, titolo, argomento, Durata) VALUES
 	('Speech5','Gnome','Rilasciato Gnome 3.36', 29873);
 
 INSERT INTO Programma(idProgramma, fasciaOraria, idSpeech, idSala) VALUES
-	('Programma1','A','Speech1','Sala1'),
-	('Programma2','B','Speech2','Sala2'),
-	('Programma3','C','Speech3','Sala3'),
-	('Programma4','C','Speech4','Sala4'),
-	('Programma5','B','Speech5','Sala5'),
-	('Programma6','A','Speech2','Sala6');
+	('Programma1','10.00 - 11.00','Speech1','Sala1'),
+	('Programma2','11.00 - 12.00','Speech2','Sala2'),
+	('Programma3','13.00 - 14.00','Speech3','Sala3'),
+	('Programma4','13.00 - 14.00','Speech4','Sala4'),
+	('Programma5','11.00 - 12.00','Speech5','Sala5'),
+	('Programma6','10.00 - 11.00','Speech2','Sala6');
 
 INSERT INTO Relatore(idRel, cognomeRel, nomeRel, idAzienda) VALUES
 	('Relatore1','Rossi','Marco','Intel'),
