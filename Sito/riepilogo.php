@@ -8,20 +8,20 @@
   <meta content="" name="descriptison">
   <meta content="" name="keywords">
   <!-- Favicons -->
-  <link href="assets/img/favicon.png" rel="icon">
-  <link href="assets/img/apple-touch-icon.png" rel="apple-touch-icon">
+  <link href="/Mattia/ProgettoSQL_Convention/Sito/assets/img/favicon.png" rel="icon">
+  <link href="/Mattia/ProgettoSQL_Convention/Sito/assets/img/apple-touch-icon.png" rel="apple-touch-icon">
   <!-- Google Fonts -->
   <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,600,600i,700,700i|Muli:300,300i,400,400i,500,500i,600,600i,700,700i|Poppins:300,300i,400,400i,500,500i,600,600i,700,700i" rel="stylesheet">
   <!-- Vendor CSS Files -->
-  <link href="assets/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
-  <link href="assets/vendor/icofont/icofont.min.css" rel="stylesheet">
-  <link href="assets/vendor/boxicons/css/boxicons.min.css" rel="stylesheet">
-  <link href="assets/vendor/animate.css/animate.min.css" rel="stylesheet">
-  <link href="assets/vendor/venobox/venobox.css" rel="stylesheet">
-  <link href="assets/vendor/owl.carousel/assets/owl.carousel.min.css" rel="stylesheet">
-  <link href="assets/vendor/aos/aos.css" rel="stylesheet">
+  <link href="/Mattia/ProgettoSQL_Convention/Sito/assets/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+  <link href="/Mattia/ProgettoSQL_Convention/Sito/assets/vendor/icofont/icofont.min.css" rel="stylesheet">
+  <link href="/Mattia/ProgettoSQL_Convention/Sito/assets/vendor/boxicons/css/boxicons.min.css" rel="stylesheet">
+  <link href="/Mattia/ProgettoSQL_Convention/Sito/assets/vendor/animate.css/animate.min.css" rel="stylesheet">
+  <link href="/Mattia/ProgettoSQL_Convention/Sito/assets/vendor/venobox/venobox.css" rel="stylesheet">
+  <link href="/Mattia/ProgettoSQL_Convention/Sito/assets/vendor/owl.carousel/assets/owl.carousel.min.css" rel="stylesheet">
+  <link href="/Mattia/ProgettoSQL_Convention/Sito/assets/vendor/aos/aos.css" rel="stylesheet">
   <!-- Template Main CSS File -->
-  <link href="assets/css/style.css" rel="stylesheet">
+  <link href="/Mattia/ProgettoSQL_Convention/Sito/assets/css/style.css" rel="stylesheet">
   <!-- =======================================================
   * Template Name: Flattern - v2.0.0
   * Template URL: https://bootstrapmade.com/flattern-multipurpose-bootstrap-template/
@@ -47,7 +47,7 @@
           <li><a href="index.php">Home</a></li>
           <li><a href="index.php#speaker">Speaker</a></li>
           <li><a href="index.php#programma">Programma</a></li>
-          <li class="active"><a href="iscriviti.php">Iscriviti</a></li>
+          <li class="active"><a href="iscriviti.html">Iscriviti</a></li>
         </ul>
       </nav><!-- .nav-menu -->
 
@@ -57,7 +57,7 @@
   <!-- ======= Hero Section ======= -->
   <section id="hero">
     <div id="heroCarousel" class="carousel slide carousel-fade" data-ride="carousel">
-        <div class="carousel-item active" style="background-image: url(assets/img/wallpaper.jpeg);">
+        <div class="carousel-item active" style="background-image: url(/Mattia/ProgettoSQL_Convention/Sito/assets/img/wallpaper.jpeg);">
           <div class="container">
             <div class="carousel-content animated fadeInUp">
               <h2 align="center"> <span>CONVITO</span></h2>
@@ -69,40 +69,28 @@
   </section><!-- End Hero -->
 
   <main id="main">
-    <!-- ======= SEZIONE ISCRIVITI ======= -->
-    <section id="contact" class="contact">
-    <div class="row mt-5 justify-content-center" data-aos="fade-up">
-      <div class="col-lg-10">
+        <section id="speaker" class="team section-bg">
+      <div class="container">
         <div class="section-title" data-aos="fade-up">
-          <h2>Iscriviti qua per preordinare<br> il tuo <strong>Biglietto</strong></h2>
+          <h2><strong>RIEPILOGO</strong></h2>
         </div>
-        <form action="form.php" method="post">
-          <div class="container" >
-              <p>Cognome:</p>
-              <input type="text" name="cognome"  class="form-control" id="cognome" placeholder="Inserisci il tuo cognome" data-rule="minlen:4" data-msg="Inserisci il tuo cognome" />
-              <br>
-              <p>Nome:</p>
-              <input type="text" name="nome"  class="form-control" id="nome" placeholder="Inserisci il tuo nome" data-rule="minlen:4" data-msg="Inserisci il tuo nome" />
-              <br>
-              <p>Mail:</p>
-              <input type="email" name="mail"  class="form-control" id="email" placeholder="Inserisci la tua mail" data-rule="minlen:4" data-msg="Inserisci la tua mail" />
-              <br>
-              <p>Tipologia:</p>
-              <select name="tipologia" class="form-control" method="post">
-                <option value="studente">Studente</option>
-                <option value="docente">Docente</option>
-                <option value="liberoProfessionista">Libero Professionista</option>
-              </select><br>
-          </div>
-          <div class="text-center" ><button type="submit" name="send" value="Invia" class="bottoneIscrizione">Iscriviti</button></div>
-        </form>
-        <br>
+        <div class="row">
+            <div class="col-lg-3 col-md-6 d-flex align-items-stretch">
+              <div class="member" data-aos="fade-up">
+                <div class="member-img">
+                  <img src="assets/img/riepilogo.jpg" class="img-fluid" alt="">
+                </div>
+                <div class="member-info">
+                  <h4> <!-- NOME UTENTE --> <!-- COGNOME UTENTE --></h4>
+                  <span><!-- MAIL UTENTE -->,<!-- PROFESSIONE UTENTE--></span>
+                </div>
+              </div>
+            </div>
+        </div>
       </div>
-    </div>
     </section>
+
   </main><!-- End #main -->
-
-
 
   <!-- ======= Footer ======= -->
   <footer id="footer">

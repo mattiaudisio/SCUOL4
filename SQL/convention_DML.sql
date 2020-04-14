@@ -45,8 +45,7 @@ INSERT INTO Programma(idProgramma, fasciaOraria, idSpeech, idSala) VALUES
 	('Programma2','11.00 - 12.00','Speech2','Sala2'),
 	('Programma3','13.00 - 14.00','Speech3','Sala3'),
 	('Programma4','13.00 - 14.00','Speech4','Sala4'),
-	('Programma5','11.00 - 12.00','Speech5','Sala5'),
-	('Programma6','10.00 - 11.00','Speech2','Sala6');
+	('Programma5','11.00 - 12.00','Speech5','Sala5');
 
 INSERT INTO Relatore(idRel, cognomeRel, nomeRel, idAzienda) VALUES
 	('Relatore1','Rossi','Marco','Intel'),
@@ -68,10 +67,10 @@ INSERT INTO Relaziona(idRel, idProgramma) VALUES
 
 INSERT INTO Composto(idPart, idProgramma, nPartecipanti) VALUES
  	('01', 'Programma1', 10),
-	('02', 'Programma1', 10),
-	('03', 'Programma1', 10),
-	('04', 'Programma1', 10),
-	('05', 'Programma1', 10),
-	('06', 'Programma1', 10),
-	('07', 'Programma1', 10),
-	('08', 'Programma1', 10);
+	('02', 'Programma2', 10),
+	('03', 'Programma3', 10),
+	('04', 'Programma4', 10),
+	('05', 'Programma5', 10),
+	('06', 'Programma6', 10),
+	('07', 'Programma7', 10),
+	('08', 'Programma8', 10);
