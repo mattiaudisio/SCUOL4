@@ -47,7 +47,7 @@
           <li><a href="index.php">Home</a></li>
           <li><a href="index.php#speaker">Speaker</a></li>
           <li><a href="index.php#programma">Programma</a></li>
-          <li class="active"><a href="/Mattia/ProgettoSQL_Convention/Sito/iscriviti.html">Iscriviti</a></li>
+          <li class="active"><a href="iscriviti.html">Iscriviti</a></li>
         </ul>
       </nav><!-- .nav-menu -->
 
