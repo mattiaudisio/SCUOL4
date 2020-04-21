@@ -110,8 +110,10 @@
         if(isset($_POST['send'])){
           if(!empty($_POST['cognome']) && !empty($_POST['nome']) && !empty($_POST['mail'])){
             $string = count($arrayID);
-            $dml = "INSERT INTO Partecipante(idPart, cognomePart, nomePart, mailPart, tipologiaPart) VALUES ('".$string."','".$_POST["cognome"]."','".$_POST["nome"]."','".$_POST["mail"]."','".$_POST["tipologia"]."');";
-                if($connessione->query($dml) === TRUE){?>
+            $totPersone = $arrayProgramma[$i]->getNPosti();
+            $dml1 = "INSERT INTO Partecipante(idPart, cognomePart, nomePart, mailPart, tipologiaPart) VALUES ('".$string."','".$_POST["cognome"]."','".$_POST["nome"]."','".$_POST["mail"]."','".$_POST["tipologia"]."');";
+            $dml2 = "INSERT INTO Composto(idPart, idProgramma, nPartecipanti) VALUES  ('".$string."','".$_POST["cognome"]."','".$_POST['$arrayProgramma[$i]->getTitolo();']."','".$_POST['$totPersone + 1']."');";
+                if($connessione->query($dml1) === TRUE && $connessione->query($dml2) === TRUE ){?>
                   <section id="about-us" class="about-us">
                     <div class="container">
                       <div class="row no-gutters">
