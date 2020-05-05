@@ -125,11 +125,12 @@
           if(!empty($_POST['cognome']) && !empty($_POST['nome']) && !empty($_POST['mail'])){
             $string = count($arrayID) + 1;
             $totPersone = count($arrayComposto);
+            $persone = $totPersone;
             $dml1 = "INSERT INTO Partecipante(idPart, cognomePart, nomePart, mailPart, tipologiaPart) VALUES ('".$string."','".$_POST["cognome"]."','".$_POST["nome"]."','".$_POST["mail"]."','".$_POST["tipologia"]."');";
             if($connessione->query($dml1) === TRUE){
               for($i = 0; $i < sizeof($checkbox); $i++){
-                $totPersone = $totPersone + 1;
-                $query = "INSERT INTO Composto(idPart, idProgramma, nPartecipanti) VALUES  ('".$string."','".$checkbox[$i]."','".$totPersone."');";
+                $persone = $persone + 1;
+                $query = "INSERT INTO Composto(idPart, idProgramma, nPartecipanti) VALUES  ('".$string."','".$checkbox[$i]."','".$persone."');";
                 $connessione->query($query);
               }?>
                   <section id="about-us" class="about-us">
@@ -143,10 +144,14 @@
                             <div class="row">
                               <?php if(isset($_POST["interessi"])){?>
                               <div class="col-md-6 icon-box" data-aos="fade-up">
-                                <!-- <h6> <?php echo implode("",$_POST["interessi"]);?></h6> -->
-                                <?for($i = 0; $i < sizeof($checkbox); $i++){
-                                  echo $checkbox[$i];
-                                }?>
+                                <?for($i = 0; $i < count($arrayComposto); $i++){
+                                    if($arrayComposto[i].getIdPart == $string){
+                                      echo '<div class="col-md-6 icon-box" data-aos="fade-up">
+                                              <h4>Speech Premiazione</h4>
+                                              <p>Ordinato</p>
+                                           </div>';
+                                    }
+                                  }?>
                               </div>
                             <?php }
                             if($_POST["tipologia"] == "docente" || $_POST["tipologia"] == "liberoProfessionista" ){

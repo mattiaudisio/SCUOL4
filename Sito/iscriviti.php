@@ -6,13 +6,14 @@
 
   $arrayProgramma = array();
 
-  $queryProgramma = "SELECT Programma.fasciaOraria, Speech.titolo, Sala.nPostiSala FROM Programma,Speech,Sala WHERE Programma.idSpeech = Speech.idSpeech AND Programma.idSala = Sala.idSala;";
+  $queryProgramma = "SELECT Programma.fasciaOraria,Speech.titolo, Sala.nPostiSala, Programma.idProgramma FROM Programma,Speech,Sala WHERE Programma.idSpeech = Speech.idSpeech AND Programma.idSala = Sala.idSala;";
   $risultatoProgramma = $connessione->query($queryProgramma);
   while($ris = $risultatoProgramma->fetch_assoc()){
     $risFascia = $ris["fasciaOraria"];
     $risTitolo = $ris["titolo"];
     $risPosti = $ris["nPostiSala"];
-    $nuovoOggetto = new Programma($risFascia,$risTitolo,$risPosti);
+    $risId = $ris["idProgramma"];
+    $nuovoOggetto = new Programma($risFascia,$risTitolo,$risPosti,$risId);
     array_push($arrayProgramma,$nuovoOggetto);
   }
 ?>
@@ -116,7 +117,7 @@
               <p>Programmi:</p>
               <?php for($i = 0; $i < count($arrayProgramma); $i++){
                     if($arrayProgramma[$i]->getNPosti() > 0){
-                        echo '<input type="checkbox" name="interessi[]" value="'.$arrayProgramma[$i]->getTitolo().'">'.$arrayProgramma[$i]->getTitolo().'<br>';
+                        echo '<input type="checkbox" name="interessi[]" value="'.$arrayProgramma[$i]->getIdProgramma().'">'.$arrayProgramma[$i]->getTitolo().'<br>';
                     }
                   }?>
               <div class="text-center" ><input type="submit" value="iscriviti" name="iscriviti"></div>
