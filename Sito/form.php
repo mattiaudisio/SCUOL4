@@ -72,17 +72,29 @@
     <?php
       include 'Funzioni_PHP/connessione.php';
       include 'Funzioni_PHP/programma.php';
+      include 'Funzioni_PHP/composto.php';
 
       $prova = 0;
       $arrayID = array();
       $arrayProvaPresenza = array();
       $arrayProgramma = array();
+      $arrayComposto = array();
 
       $queryPartecipante = "SELECT Partecipante.idPart FROM Partecipante;";
       $risultatoPartecipante = $connessione->query($queryPartecipante);
       while($ris = $risultatoPartecipante->fetch_assoc()){
         $risId = $ris["idPart"];
         array_push($arrayID,$risId);
+      }
+
+      $queryComposto = "SELECT * FROM Composto;";
+      $risultatoComposto = $connessione->query($queryComposto);
+      while($ris = $risultatoComposto->fetch_assoc()){
+        $risPart = $ris["idPart"];
+        $risProg = $ris["idProgramma"];
+        $risNPart = $ris["nPartecipanti"];
+        $nuovoOggetto = new Composto($risPart,$risProg,$risNPart);
+        array_push($arrayComposto,$nuovoOggetto);
       }
 
       $queryPartecipante = "SELECT Partecipante.nomePart, Partecipante.cognomePart, Partecipante.mailPart FROM Partecipante;";
@@ -106,14 +118,20 @@
         }
       }
 
+      $checkbox = $_POST['interessi'];
+
       if($contaPresenza == 0){
-        if(isset($_POST['send'])){
+        if(isset($_POST['iscriviti'])){
           if(!empty($_POST['cognome']) && !empty($_POST['nome']) && !empty($_POST['mail'])){
-            $string = count($arrayID);
-            $totPersone = $arrayProgramma[$i]->getNPosti();
+            $string = count($arrayID) + 1;
+            $totPersone = count($arrayComposto);
             $dml1 = "INSERT INTO Partecipante(idPart, cognomePart, nomePart, mailPart, tipologiaPart) VALUES ('".$string."','".$_POST["cognome"]."','".$_POST["nome"]."','".$_POST["mail"]."','".$_POST["tipologia"]."');";
-            $dml2 = "INSERT INTO Composto(idPart, idProgramma, nPartecipanti) VALUES  ('".$string."','".$_POST["cognome"]."','".$_POST['$arrayProgramma[$i]->getTitolo();']."','".$_POST['$totPersone + 1']."');";
-                if($connessione->query($dml1) === TRUE && $connessione->query($dml2) === TRUE ){?>
+            if($connessione->query($dml1) === TRUE){
+              for($i = 0; $i < sizeof($checkbox); $i++){
+                $totPersone = $totPersone + 1;
+                $query = "INSERT INTO Composto(idPart, idProgramma, nPartecipanti) VALUES  ('".$string."','".$checkbox[$i]."','".$totPersone."');";
+                $connessione->query($query);
+              }?>
                   <section id="about-us" class="about-us">
                     <div class="container">
                       <div class="row no-gutters">
