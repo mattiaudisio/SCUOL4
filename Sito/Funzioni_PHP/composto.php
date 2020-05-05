@@ -11,15 +11,15 @@
       }
 
       public function getIdPart(){
-        return $this->cognome;
+        return $this->idPart;
       }
 
       public function getIdProgramma(){
-        return $this->nome;
+        return $this->idProgramma;
       }
 
       public function getNPartecipanti(){
-        return $this->azienda;
+        return $this->nPartecipanti;
       }
 
   }
