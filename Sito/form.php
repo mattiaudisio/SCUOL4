@@ -125,11 +125,10 @@
           if(!empty($_POST['cognome']) && !empty($_POST['nome']) && !empty($_POST['mail'])){
             $string = count($arrayID) + 1;
             $totPersone = count($arrayComposto);
-            $persone = $totPersone;
             $dml1 = "INSERT INTO Partecipante(idPart, cognomePart, nomePart, mailPart, tipologiaPart) VALUES ('".$string."','".$_POST["cognome"]."','".$_POST["nome"]."','".$_POST["mail"]."','".$_POST["tipologia"]."');";
             if($connessione->query($dml1) === TRUE){
               for($i = 0; $i < sizeof($checkbox); $i++){
-                $persone = $persone + 1;
+                $persone = $totPersone + 1;
                 $query = "INSERT INTO Composto(idPart, idProgramma, nPartecipanti) VALUES  ('".$string."','".$checkbox[$i]."','".$persone."');";
                 $connessione->query($query);
               }?>
@@ -142,24 +141,49 @@
                             <h3 data-aos="fade-up"> <?php echo $_POST["nome"]; ?> <?php echo $_POST["cognome"]; ?></h3>
                             <p data-aos="fade-up"> <?php echo $_POST["mail"]; ?>, <?php echo $_POST["tipologia"]; ?></p>
                             <div class="row">
-                              <?php if(isset($_POST["interessi"])){?>
-                              <div class="col-md-6 icon-box" data-aos="fade-up">
-                                <?for($i = 0; $i < count($arrayComposto); $i++){
-                                    if($arrayComposto[i].getIdPart == $string){
-                                      echo '<div class="col-md-6 icon-box" data-aos="fade-up">
-                                              <h4>Speech Premiazione</h4>
+                            <?php
+                              $arrayAcquisti = array();
+                              $queryAcquisti = "SELECT * FROM Composto;";
+                              $risultatoAcquisti = $connessione->query($queryAcquisti);
+                              while($ris = $risultatoAcquisti->fetch_assoc()){
+                                $risIdPart = $ris["idPart"];
+                                $risIdProg = $ris["idProgramma"];
+                                $risNPosti = $ris["nPartecipanti"];
+                                $nuovoOggetto = new Composto($risPart,$risProg,$risNPart);
+                                array_push($arrayAcquisti,$nuovoOggetto);
+                              }
+                              for($i = 0; $i < count($arrayAcquisti); $i++){
+                                $risidPart = $arrayAcquisti[$i]->getIdPart();
+                                if($string == $risidPart){
+                                  $queryProgramma = "SELECT * FROM Programma;";
+                                  $risultatoProgramma = $connessione->query($queryProgramma);
+                                  while($ris = $risultatoProgramma->fetch_assoc()){
+                                    $risFascia = $ris["fasciaOraria"];
+                                    $risTitolo = $ris["titolo"];
+                                    $risPosti = $ris["nPostiSala"];
+                                    $risIdProg = $irs["idProgramma"];
+                                    $nuovoOggetto = new Programma($risFascia,$risTitolo,$risPosti,$idProgramma);
+                                    array_push($arrayProgramma,$nuovoOggetto);
+                                  }
+                                  for($j = 0; $j < count($arrayProgramma); $i++){
+                                    $risProgramma = $arrayProgramma[$j]->getIdProgramma();
+                                    $risAcquisti = $arrayAcquisti[$i]->getIdProgramma();
+                                    if( $risProgramma == $risAcquisti){
+                                      ?><div class="col-md-6 icon-box" data-aos="fade-up">
+                                              <h4><?php $arrayProgramma[$j]->getTitolo(); ?></h4>
                                               <p>Ordinato</p>
-                                           </div>';
+                                           </div>
+                                          <?php
                                     }
-                                  }?>
-                              </div>
-                            <?php }
-                            if($_POST["tipologia"] == "docente" || $_POST["tipologia"] == "liberoProfessionista" ){
-                                  echo '<div class="col-md-6 icon-box" data-aos="fade-up">
-                                          <h4>Speech Premiazione</h4>
-                                          <p>Ordinato</p>
-                                       </div>';
-                            }?>
+                                  }
+                                }
+                              }
+                               if($_POST["tipologia"] == "docente" || $_POST["tipologia"] == "liberoProfessionista" ){
+                                    echo '<div class="col-md-6 icon-box" data-aos="fade-up">
+                                            <h4>Speech Premiazione</h4>
+                                            <p>Ordinato</p>
+                                         </div>';
+                              }?>
                             </div>
                           </div><!-- End .content-->
                         </div>
