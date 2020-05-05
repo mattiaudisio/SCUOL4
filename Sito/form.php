@@ -144,6 +144,9 @@
                               <?php if(isset($_POST["interessi"])){?>
                               <div class="col-md-6 icon-box" data-aos="fade-up">
                                 <!-- <h6> <?php echo implode("",$_POST["interessi"]);?></h6> -->
+                                <?for($i = 0; $i < sizeof($checkbox); $i++){
+                                  echo $checkbox[$i];
+                                }?>
                               </div>
                             <?php }
                             if($_POST["tipologia"] == "docente" || $_POST["tipologia"] == "liberoProfessionista" ){
