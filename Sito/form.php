@@ -142,10 +142,10 @@
                             <p data-aos="fade-up"> <?php echo $_POST["mail"]; ?>, <?php echo $_POST["tipologia"]; ?></p>
                             <div class="row">
                             <?php
-                              $query = "SELECT * FROM Programma;";
+                              $query = "SELECT Programma.fasciaOraria, Programma.idProgramma, Speech.titolo, Sala.nPostiSala FROM Programma,Speech,Sala WHERE Programma.idSpeech = Speech.idSpeech AND Programma.idSala = Sala.idSala;";
                               $risQuery = $connessione->query($query);
                               while($ris = $risQuery->fetch_assoc()){
-                                $risIdProgr = $irs["idProgramma"];
+                                $risIdProgr = $ris["idProgramma"];
                                 $risFascia = $ris["fasciaOraria"];
                                 $risTitolo = $ris["titolo"];
                                 $risPosti = $ris["nPostiSala"];
@@ -155,7 +155,7 @@
                               for($i = 0; $i < count($arrayProgramma); $i++){
                                 $controllo = $arrayProgramma[$i]->getIdProgramma();
                                 for($j = 0; $j < sizeof($checkbox); $j++){
-                                  if($controllo == $checkbox[i]){
+                                  if($controllo == $checkbox[$j]){
                                     ?> <div class="col-md-6 icon-box" data-aos="fade-up">
                                             <h4><?php $arrayProgramma[$i]->getTitolo();?></h4>
                                             <p>Ordinato</p>

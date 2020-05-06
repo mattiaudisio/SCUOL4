@@ -10,7 +10,6 @@
           $this->titolo = $titolo;
           $this->nPosti = $nPosti;
           $this->idProgramma = $idProgramma;
-
       }
 
       public function getFasciaOraria(){

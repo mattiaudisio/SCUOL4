@@ -11,7 +11,7 @@
 
   $querySpeech = "SELECT Speech.titolo, Speech.argomento FROM Speech;";
   $queryRelatori = "SELECT Relatore.cognomeRel, Relatore.nomeRel, Relatore.idAzienda FROM Relatore;";
-  $queryProgramma = "SELECT Programma.fasciaOraria, Speech.titolo, Sala.nPostiSala FROM Programma,Speech,Sala WHERE Programma.idSpeech = Speech.idSpeech AND Programma.idSala = Sala.idSala;";
+  $queryProgramma = "SELECT * FROM Programma,Speech,Sala WHERE Programma.idSpeech = Speech.idSpeech AND Programma.idSala = Sala.idSala;";
 
   $risultatoSpeech = $connessione->query($querySpeech);
   $risultatoRelatori = $connessione->query($queryRelatori);
@@ -31,10 +31,11 @@
       array_push($arrayRelatore,$nuovoOggetto);
   }
   while($ris = $risultatoProgramma->fetch_assoc()){
+    $risIdProgr = $ris["idProgramma"];
     $risFascia = $ris["fasciaOraria"];
     $risTitolo = $ris["titolo"];
     $risPosti = $ris["nPostiSala"];
-    $nuovoOggetto = new Programma($risFascia,$risTitolo,$risPosti);
+    $nuovoOggetto = new Programma($risFascia,$risTitolo,$risPosti,$risIdProgr);
     array_push($arrayProgramma,$nuovoOggetto);
   }
 ?>
