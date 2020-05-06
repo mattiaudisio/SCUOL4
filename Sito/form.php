@@ -142,40 +142,25 @@
                             <p data-aos="fade-up"> <?php echo $_POST["mail"]; ?>, <?php echo $_POST["tipologia"]; ?></p>
                             <div class="row">
                             <?php
-                              $arrayAcquisti = array();
-                              $queryAcquisti = "SELECT * FROM Composto;";
-                              $risultatoAcquisti = $connessione->query($queryAcquisti);
-                              while($ris = $risultatoAcquisti->fetch_assoc()){
-                                $risIdPart = $ris["idPart"];
-                                $risIdProg = $ris["idProgramma"];
-                                $risNPosti = $ris["nPartecipanti"];
-                                $nuovoOggetto = new Composto($risPart,$risProg,$risNPart);
-                                array_push($arrayAcquisti,$nuovoOggetto);
+                              $query = "SELECT * FROM Programma;";
+                              $risQuery = $connessione->query($query);
+                              while($ris = $risQuery->fetch_assoc()){
+                                $risIdProgr = $irs["idProgramma"];
+                                $risFascia = $ris["fasciaOraria"];
+                                $risTitolo = $ris["titolo"];
+                                $risPosti = $ris["nPostiSala"];
+                                $nuovoOggetto = new Programma($risFascia,$risTitolo,$risPosti,$risIdProgr);
+                                array_push($arrayProgramma,$nuovoOggetto);
                               }
-                              for($i = 0; $i < count($arrayAcquisti); $i++){
-                                $risidPart = $arrayAcquisti[$i]->getIdPart();
-                                if($string == $risidPart){
-                                  $queryProgramma = "SELECT * FROM Programma;";
-                                  $risultatoProgramma = $connessione->query($queryProgramma);
-                                  while($ris = $risultatoProgramma->fetch_assoc()){
-                                    $risFascia = $ris["fasciaOraria"];
-                                    $risTitolo = $ris["titolo"];
-                                    $risPosti = $ris["nPostiSala"];
-                                    $risIdProg = $irs["idProgramma"];
-                                    $nuovoOggetto = new Programma($risFascia,$risTitolo,$risPosti,$idProgramma);
-                                    array_push($arrayProgramma,$nuovoOggetto);
-                                  }
-                                  for($j = 0; $j < count($arrayProgramma); $i++){
-                                    $risProgramma = $arrayProgramma[$j]->getIdProgramma();
-                                    $risAcquisti = $arrayAcquisti[$i]->getIdProgramma();
-                                    if( $risProgramma == $risAcquisti){
-                                      ?><div class="col-md-6 icon-box" data-aos="fade-up">
-                                              <h4><?php $arrayProgramma[$j]->getTitolo(); ?></h4>
-                                              <p>Ordinato</p>
-                                           </div>
-                                          <?php
-                                    }
-                                  }
+                              for($i = 0; $i < count($arrayProgramma); $i++){
+                                $controllo = $arrayProgramma[$i]->getIdProgramma();
+                                for($j = 0; $j < sizeof($checkbox); $j++){
+                                  if($controllo == $checkbox[i]){
+                                    ?> <div class="col-md-6 icon-box" data-aos="fade-up">
+                                            <h4><?php $arrayProgramma[$i]->getTitolo();?></h4>
+                                            <p>Ordinato</p>
+                                         </div>
+                              <?php }
                                 }
                               }
                                if($_POST["tipologia"] == "docente" || $_POST["tipologia"] == "liberoProfessionista" ){
