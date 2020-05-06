@@ -155,7 +155,7 @@
                                 for($i = 0; $i < count($arrayProgramma); $i++){
                                   if($arrayProgramma[$i]->getIdProgramma() == $checkbox[$j]){
                                     ?> <div class="col-md-6 icon-box" data-aos="fade-up">
-                                            <h4><?php $arrayProgramma[$i]->getTitolo();?></h4>
+                                            <h4><?php echo $arrayProgramma[$i]->getTitolo();?></h4>
                                             <p>Ordinato</p>
                                          </div>
                               <?php }
