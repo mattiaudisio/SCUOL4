@@ -151,7 +151,17 @@
                                 $nuovoOggetto = new Programma($risFascia,$risTitolo,$risPosti,$risIdProgr);
                                 array_push($arrayProgramma,$nuovoOggetto);
                               }
-                              for($i = 0; $i < count($arrayProgramma); $i++){
+                              for($j = 0; $j < sizeof($checkbox); $j++){
+                                for($i = 0; $i < count($arrayProgramma); $i++){
+                                  if($arrayProgramma[$i]->getIdProgramma() == $checkbox[$j]){
+                                    ?> <div class="col-md-6 icon-box" data-aos="fade-up">
+                                            <h4><?php $arrayProgramma[$i]->getTitolo();?></h4>
+                                            <p>Ordinato</p>
+                                         </div>
+                              <?php }
+                                }
+                              }
+                              /*for($i = 0; $i < count($arrayProgramma); $i++){
                                 $controllo = $arrayProgramma[$i]->getIdProgramma();
                                 for($j = 0; $j < sizeof($checkbox); $j++){
                                   if($controllo == $checkbox[$j]){
@@ -161,7 +171,7 @@
                                          </div>
                               <?php }
                                 }
-                              }
+                              }*/
                                if($_POST["tipologia"] == "docente" || $_POST["tipologia"] == "liberoProfessionista" ){
                                     echo '<div class="col-md-6 icon-box" data-aos="fade-up">
                                             <h4>Speech Premiazione</h4>
