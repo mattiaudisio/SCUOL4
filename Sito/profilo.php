@@ -81,7 +81,8 @@
           $risNome =  $ris["nomePart"];
           $risMail =  $ris["mailPart"];
           $risTipologia =  $ris["tipologiaPart"];
-          $nuovoOggetto = new Partecipante($risId,$risCognome,$risNome,$risMail,$risTipologia);
+          $risPassword = $ris["passwordPart"];
+          $nuovoOggetto = new Partecipante($risId,$risCognome,$risNome,$risMail,$risTipologia,$risPassword);
           array_push($arrayPartecipante,$risId);
         }
 
@@ -107,7 +108,7 @@
           array_push($arrayProgramma,$nuovoOggetto);
         }
 
-        if(!empty($_POST['mail']) && !empty($_POST['password']) ){?>
+        if(!empty($_POST['mail']) && !empty($_POST['password']) ){ ?>
           <section id="about-us" class="about-us">
             <div class="container">
               <div class="row no-gutters">
@@ -115,7 +116,8 @@
                   <div class="col-xl-7 pl-0 pl-lg-5 pr-lg-1 d-flex align-items-stretch">
                         <?php
                               for($i = 0; $i < count($arrayPartecipante); $i++){
-                                    if($arrayProgramma[$i]->getMailPart() == $_POST['mail']){ ?>
+                                    $mail = $arrayPartecipante[$i]->getMailPart();
+                                    if($mail == $_POST['mail']){ ?>
                                       <div class="content d-flex flex-column justify-content-center">
                                           <h3 data-aos="fade-up"> <?php echo $arrayProgramma[$i]->getNomePart(); ?> <?php echo $arrayProgramma[$i]->getCognomePart();?></h3>
                                           <p data-aos="fade-up"> <?php echo $arrayProgramma[$i]->getMailPart(); ?>, <?php echo $arrayProgramma[$i]->getTipologiaPart();?></p>
@@ -124,14 +126,14 @@
                                               <h2>SPEECH</h2>
                                               <?php for($j = 0; $j < count($arrayComposto); $j++){
                                                       for($z = 0; $z < count($arrayProgramma); $z++){
-                                                        if($arrayComposto[$j]->getIdProgramma() == $arrayProgramma[$z]->getIdProgramma()){?>
-                                                          <h4><?php echo $arrayProgramma[$z]->getTitolo();?></h4>
-                                                        <?php }
+                                                        if($arrayComposto[$j]->getIdProgramma() == $arrayProgramma[$z]->getIdProgramma()){
+                                                           echo '<h4>'.$arrayProgramma[$z]->getTitolo().'</h4>';
+                                                         }
                                                       }
-                                              }?>
-                                           </div>
+                                              }
+                                          echo '</div>';
                                     }
-                              }
+                              } ?>
                               </div>
                             </div><!-- End .content-->
                           </div>

@@ -9,7 +9,7 @@
 
       public function __construct($idPart,$cognomePart,$nomePart,$mailPart,$tipologiaPart,$passwordPart){
           $this->idPart = $idPart;
-          $this->congomePart = $congomePart;
+          $this->cognomePart = $cognomePart;
           $this->nomePart = $nomePart;
           $this->mailPart = $mailPart;
           $this->tipologiaPart = $tipologiaPart;

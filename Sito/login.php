@@ -68,7 +68,7 @@
           <li><a href="index.php">Home</a></li>
           <li><a href="index.php#speaker">Speaker</a></li>
           <li><a href="index.php#programma">Programma</a></li>
-          <li><a href="iscriviti.php"Iscriviti</a></li>
+          <li><a href="iscriviti.php">Iscriviti</a></li>
           <li class="active"><a href="login.php">Accedi</a></li>
         </ul>
       </nav><!-- .nav-menu -->
@@ -96,7 +96,7 @@
     <div class="row mt-5 justify-content-center" data-aos="fade-up">
       <div class="col-lg-10">
         <div class="section-title" data-aos="fade-up">
-          <h2>Iscriviti qua per preordinare<br> il tuo <strong>Biglietto</strong></h2>
+          <h2><strong>ACCEDI</strong></h2>
         </div>
         <form action="profilo.php" method="post">
           <div class="container" >
