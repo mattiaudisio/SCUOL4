@@ -158,7 +158,12 @@
                                             <h4><?php echo $arrayProgramma[$i]->getTitolo();?></h4>
                                             <p>Ordinato</p>
                                          </div>
-                              <?php }
+                              <?php
+                                    $posti = $arrayProgramma[$i]->getNPosti() - 1;
+                                    $nome = $arrayProgramma[$i]->getTitolo();
+                                    $query = "UPDATE Composto SET nPartecipanti = '.$posti.' WHERE idProgramma = '.$nome.'";
+                                    $connessione->query($query);
+                                  }
                                 }
                               }
                                if($_POST["tipologia"] == "docente" || $_POST["tipologia"] == "liberoProfessionista" ){
