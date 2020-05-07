@@ -148,6 +148,33 @@
                           </div>
                         </div>
                         <br>
+                        <section id="contact" class="contact">
+                        <div class="row mt-5 justify-content-center" data-aos="fade-up">
+                          <div class="col-lg-10">
+                            <div class="section-title" data-aos="fade-up">
+                              <h2>Acquista altri<strong>Biglietti</strong></h2>
+                            </div>
+                            <form action="form.php" method="post">
+                              <div class="container" >
+                                  <p>Mail:</p>
+                                  <input type="email" name="mail"  class="form-control" id="email" placeholder="Inserisci la tua mail" data-rule="minlen:4" data-msg="Inserisci la tua mail" />
+                                  <br>
+                                  <p>Password:</p>
+                                  <input type="password" name="password"  class="form-control" id="password" placeholder="Inserisci una password" data-rule="minlen:4" data-msg="Inserisci una password" />
+                                  <br>
+                                  <p>Programmi:</p>
+                                  <?php for($i = 0; $i < count($arrayProgramma); $i++){
+                                        if($arrayProgramma[$i]->getNPosti() > 0){
+                                            echo '<input type="checkbox" name="interessi[]" value="'.$arrayProgramma[$i]->getIdProgramma().'">'.$arrayProgramma[$i]->getTitolo().'<br>';
+                                        }
+                                      }?>
+                                  <div class="text-center" ><input type="submit" value="iscriviti" name="iscriviti"></div>
+                              </div>
+                            </form>
+                            <br>
+                          </div>
+                        </div>
+                        </section>
                         <form action="Funzioni_PHP/logout.php" method="post">
                           <input id="button" type="submit" name="logout" value="logout">
                         </form>
