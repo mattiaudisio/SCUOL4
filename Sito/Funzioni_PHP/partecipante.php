@@ -37,7 +37,7 @@
       }
 
       public function getPasswordPart(){
-        return   $this->passwordPart;
+        return $this->passwordPart;
       }
   }
 ?>

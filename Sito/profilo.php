@@ -108,7 +108,8 @@
           array_push($arrayProgramma,$nuovoOggetto);
         }
 
-        if(!empty($_POST['mail']) && !empty($_POST['password']) ){ ?>
+        if(!empty($_POST['mail']) && !empty($_POST['password']) ){
+          $password = hash('sha256',$_POST['password']);?>
           <section id="about-us" class="about-us">
             <div class="container">
               <div class="row no-gutters">
@@ -117,7 +118,8 @@
                         <?php
                               for($i = 0; $i < count($arrayPartecipante); $i++){
                                     $mail = $arrayPartecipante[$i]->getMailPart();
-                                    if($mail == $_POST['mail']){ ?>
+                                    $passwordUtente = $arrayPartecipante[$i]->getPasswordPart();
+                                    if($mail == $_POST['mail'] &&  $password == $passwordUtente){ ?>
                                       <div class="content d-flex flex-column justify-content-center">
                                           <h3 data-aos="fade-up"> <?php echo $arrayProgramma[$i]->getNomePart(); ?> <?php echo $arrayProgramma[$i]->getCognomePart();?></h3>
                                           <p data-aos="fade-up"> <?php echo $arrayProgramma[$i]->getMailPart(); ?>, <?php echo $arrayProgramma[$i]->getTipologiaPart();?></p>
