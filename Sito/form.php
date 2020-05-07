@@ -121,11 +121,12 @@
 
       if($contaPresenza == 0){
         if(isset($_POST['iscriviti'])){
-          if(!empty($_POST['cognome']) && !empty($_POST['nome']) && !empty($_POST['mail']) && !empty($_POST['password'])){
+          if(!empty($_POST['cognome']) && !empty($_POST['nome']) && !empty($_POST['mail']) && !empty($_POST['tipologia']) && !empty($_POST['password'])){
+            $passwordCifrata = hash('sha256',$_POST['password']);
             $checkbox = $_POST['interessi'];
             $string = count($arrayID) + 1;
             $totPersone = count($arrayComposto);
-            $dml1 = "INSERT INTO Partecipante(idPart, cognomePart, nomePart, mailPart, tipologiaPart) VALUES ('".$string."','".$_POST["cognome"]."','".$_POST["nome"]."','".$_POST["mail"]."','".$_POST["tipologia"]."');";
+            $dml1 = "INSERT INTO Partecipante(idPart, cognomePart, nomePart, mailPart, tipologiaPart,passwordPart) VALUES ('".$string."','".$_POST["cognome"]."','".$_POST["nome"]."','".$_POST["mail"]."','".$_POST["tipologia"]."','".$passwordCifrata."');";
             if($connessione->query($dml1) === TRUE){
               for($i = 0; $i < sizeof($checkbox); $i++){
                 $persone = $totPersone + 1;
