@@ -1,24 +1,26 @@
 <?php
   class Partecipante{
       public $idPart = "";
-      public $congomePart = "";
+      public $cognomePart = "";
       public $nomePart = "";
       public $mailPart = "";
       public $tipologiaPart = "";
+      public $passwordPart = "";
 
-      public function __construct($idPart,$congomePart,$nomePart,$mailPart,$tipologiaPart){
+      public function __construct($idPart,$cognomePart,$nomePart,$mailPart,$tipologiaPart,$passwordPart){
           $this->idPart = $idPart;
           $this->congomePart = $congomePart;
           $this->nomePart = $nomePart;
           $this->mailPart = $mailPart;
           $this->tipologiaPart = $tipologiaPart;
+          $this->passwordPart = $passwordPart;
       }
 
       public function getIdPart(){
         return $this->idPart;
       }
 
-      public function getCongomePart(){
+      public function getCognomePart(){
         return $this->congomePart;
       }
 
@@ -32,6 +34,10 @@
 
       public function getTipologiaPart(){
         return $this->tipologiaPart;
+      }
+
+      public function getPasswordPart(){
+        return   $this->passwordPart;
       }
   }
 ?>

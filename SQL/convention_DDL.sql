@@ -32,6 +32,7 @@ CREATE TABLE IF NOT EXISTS  Partecipante(
     nomePart VARCHAR(20) NULL,
     mailPart VARCHAR(30) NULL,
     tipologiaPart VARCHAR(30) NULL,
+    passwordPart VARCHAR(100) NULL,
     PRIMARY KEY(idPart)
 );
 

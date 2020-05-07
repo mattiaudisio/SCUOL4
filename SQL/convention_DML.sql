@@ -22,16 +22,16 @@ INSERT INTO Azienda(idAzienda, indirizzoAzienda, telefonoAzienda) VALUES
 	('Realtek','Via Azienda 6','0175125836'),
 	('Apple','Via Azienda 7','0175125837');
 
-INSERT INTO Partecipante(idPart, cognomePart, nomePart, mailPart, tipologiaPart) VALUES
-	('01','Rossi','Marco','par1@gmail.com','Studente'),
-	('02','Bianchi','Matteo','par2@gmail.com','Docente'),
-	('03','Verdi','Luca','par3@gmail.com','Libero Professionista'),
-	('04','Gialli','Mattia','par4@gmail.com','Studente'),
-	('05','Viola','Francesco','par5@gmail.com','Docente'),
-	('06','Verde','Nicola','par6@gmail.com','Docente'),
-	('07','Rossi','Stefano','par7@gmail.com','Libero Professionista'),
-	('08','Rossi','Andrea','par8@gmail.com','Libero Professionista'),
-	('09','Longo','Lucio','par9@gmail.com','Docente');
+INSERT INTO Partecipante(idPart, cognomePart, nomePart, mailPart, tipologiaPart,passwordPart) VALUES
+	('01','Rossi','Marco','par1@gmail.com','Studente','password123'),
+	('02','Bianchi','Matteo','par2@gmail.com','Docente','password123'),
+	('03','Verdi','Luca','par3@gmail.com','Libero Professionista','password123'),
+	('04','Gialli','Mattia','par4@gmail.com','Studente','password123'),
+	('05','Viola','Francesco','par5@gmail.com','Docente','password123'),
+	('06','Verde','Nicola','par6@gmail.com','Docente','password123'),
+	('07','Rossi','Stefano','par7@gmail.com','Libero Professionista','password123'),
+	('08','Rossi','Andrea','par8@gmail.com','Libero Professionista','password123'),
+	('09','Longo','Lucio','par9@gmail.com','Docente','password123');
 
 INSERT INTO Speech(idSpeech, titolo, argomento, Durata) VALUES
 	('Speech1','Manjaro','Rilasciato Manjaro 19.0 Kyria', 1234),
