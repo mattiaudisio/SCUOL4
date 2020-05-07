@@ -148,7 +148,8 @@
                                 $risFascia = $ris["fasciaOraria"];
                                 $risTitolo = $ris["titolo"];
                                 $risPosti = $ris["nPostiSala"];
-                                $nuovoOggetto = new Programma($risFascia,$risTitolo,$risPosti,$risIdProgr);
+                                $risIdSala = $ris["idSala"];
+                                $nuovoOggetto = new Programma($risFascia,$risTitolo,$risPosti,$risIdProgr,$risIdSala);
                                 array_push($arrayProgramma,$nuovoOggetto);
                               }
                               for($j = 0; $j < sizeof($checkbox); $j++){
@@ -160,8 +161,8 @@
                                          </div>
                               <?php
                                     $posti = $arrayProgramma[$i]->getNPosti() - 1;
-                                    $nome = $arrayProgramma[$i]->getTitolo();
-                                    $query = "UPDATE Composto SET nPartecipanti = '.$posti.' WHERE idProgramma = '.$nome.'";
+                                    $nome = $arrayProgramma[$i]->getIdSala();
+                                    $query = "UPDATE Sala SET nPostiSala = '.$posti.' WHERE idProgramma = '.$nome.'";
                                     $connessione->query($query);
                                   }
                                 }

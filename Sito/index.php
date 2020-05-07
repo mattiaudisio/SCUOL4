@@ -35,7 +35,8 @@
     $risFascia = $ris["fasciaOraria"];
     $risTitolo = $ris["titolo"];
     $risPosti = $ris["nPostiSala"];
-    $nuovoOggetto = new Programma($risFascia,$risTitolo,$risPosti,$risIdProgr);
+    $risIdSala = $ris["idSala"];
+    $nuovoOggetto = new Programma($risFascia,$risTitolo,$risPosti,$risIdProgr,$risIdSala);
     array_push($arrayProgramma,$nuovoOggetto);
   }
 ?>

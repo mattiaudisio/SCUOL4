@@ -4,12 +4,14 @@
       public $titolo = "";
       public $nPosti = 0;
       public $idProgramma = "";
+      public $idSala = "";
 
-      public function __construct($fasciaOraria,$titolo,$nPosti,$idProgramma){
+      public function __construct($fasciaOraria,$titolo,$nPosti,$idProgramma,$idSala){
           $this->fasciaOraria = $fasciaOraria;
           $this->titolo = $titolo;
           $this->nPosti = $nPosti;
           $this->idProgramma = $idProgramma;
+          $this->idSala = $idSala;
       }
 
       public function getFasciaOraria(){
@@ -26,6 +28,10 @@
 
       public function getIdProgramma(){
           return $this->idProgramma;
+      }
+
+      public function getIdSala(){
+          return $this->idSala = $idSala;
       }
   }
 ?>
