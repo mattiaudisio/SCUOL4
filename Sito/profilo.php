@@ -120,9 +120,7 @@
                   <div class="col-xl-7 pl-0 pl-lg-5 pr-lg-1 d-flex align-items-stretch">
                         <?php
                               for($i = 0; $i < count($arrayPartecipante); $i++){
-                                    $mail = $arrayPartecipante[$i]->getMailPart();
-                                    $passwordUtente = $arrayPartecipante[$i]->getPasswordPart();
-                                    if($mail == $_POST['mail'] &&  $passwordCifrata == $passwordUtente){ ?>
+                                    if($arrayPartecipante[$i]->getMailPart() == $_POST['mail'] &&  $passwordCifrata == $arrayPartecipante[$i]->getPasswordPart()){ ?>
                                       <div class="content d-flex flex-column justify-content-center">
                                           <h3 data-aos="fade-up"> <?php echo $arrayProgramma[$i]->getNomePart(); ?> <?php echo $arrayProgramma[$i]->getCognomePart();?></h3>
                                           <p data-aos="fade-up"> <?php echo $arrayProgramma[$i]->getMailPart(); ?>, <?php echo $arrayProgramma[$i]->getTipologiaPart();?></p>
@@ -130,21 +128,21 @@
                                             <div class="col-md-6 icon-box" data-aos="fade-up">
                                               <h2>SPEECH</h2>
                                               <?php for($j = 0; $j < count($arrayComposto); $j++){
-                                                      for($z = 0; $z < count($arrayProgramma); $z++){
-                                                        if($arrayComposto[$j]->getIdProgramma() == $arrayProgramma[$z]->getIdProgramma()){
-                                                           echo '<h4>'.$arrayProgramma[$z]->getTitolo().'</h4>';
-                                                         }
-                                                      }
+                                                for($z = 0; $z < count($arrayProgramma); $z++){
+                                                  if($arrayComposto[$j]->getIdProgramma() == $arrayProgramma[$z]->getIdProgramma()){
+                                                    echo '<h4>'.$arrayProgramma[$z]->getTitolo().'</h4>';
+                                                  }
+                                                }
                                               }
-                                          echo '</div>';
                                     }
                               } ?>
+                                </div>
                               </div>
                             </div><!-- End .content-->
                           </div>
                         </div>
                         <form action="Funzioni_PHP/logout.php" method="post">
-                          <input id="button" type="submit" name="logout" value="logout">
+                          <input id="button" type="submit" name="logout" value="logout" align="right">
                         </form>
                       </div>
                     </section>
