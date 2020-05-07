@@ -84,7 +84,7 @@
           $risTipologia =  $ris["tipologiaPart"];
           $risPassword = $ris["passwordPart"];
           $nuovoOggetto = new Partecipante($risId,$risCognome,$risNome,$risMail,$risTipologia,$risPassword);
-          array_push($arrayPartecipante,$risId);
+          array_push($arrayPartecipante,$nuovoOggetto);
         }
 
         $queryComposto = "SELECT * FROM Composto;";
