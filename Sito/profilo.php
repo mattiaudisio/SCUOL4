@@ -120,16 +120,22 @@
                   <div class="col-xl-7 pl-0 pl-lg-5 pr-lg-1 d-flex align-items-stretch">
                         <?php
                               for($i = 0; $i < count($arrayPartecipante); $i++){
-                                    if($arrayPartecipante[$i]->getMailPart() == $_POST['mail'] &&  $passwordCifrata == $arrayPartecipante[$i]->getPasswordPart()){ ?>
+                                $MailUtenteFor = $arrayPartecipante[$i]->getMailPart();
+                                $passwordUtente = $arrayPartecipante[$i]->getPasswordPart();
+                                    if($MailUtenteFor == $mailUtente  || $passwordUtente == $passwordCifrata){ ?>
                                       <div class="content d-flex flex-column justify-content-center">
-                                          <h3 data-aos="fade-up"> <?php echo $arrayProgramma[$i]->getNomePart(); ?> <?php echo $arrayProgramma[$i]->getCognomePart();?></h3>
-                                          <p data-aos="fade-up"> <?php echo $arrayProgramma[$i]->getMailPart(); ?>, <?php echo $arrayProgramma[$i]->getTipologiaPart();?></p>
+                                          <h3 data-aos="fade-up"> <?php echo $arrayPartecipante[$i]->getNomePart(); ?> <?php echo $arrayPartecipante[$i]->getCognomePart();?></h3>
+                                          <p data-aos="fade-up"> <?php echo $arrayPartecipante[$i]->getMailPart(); ?>, <?php echo $arrayPartecipante[$i]->getTipologiaPart();?></p>
                                           <div class="row">
                                             <div class="col-md-6 icon-box" data-aos="fade-up">
                                               <h2>SPEECH</h2>
                                               <?php for($j = 0; $j < count($arrayComposto); $j++){
                                                 for($z = 0; $z < count($arrayProgramma); $z++){
-                                                  if($arrayComposto[$j]->getIdProgramma() == $arrayProgramma[$z]->getIdProgramma()){
+                                                  $composto = $arrayComposto[$j]->getIdProgramma();
+                                                  $programma = $arrayProgramma[$z]->getIdProgramma();
+                                                  $partecipante = $arrayPartecipante[$i]->getIdPart();
+                                                  $composto2 = $arrayComposto[$j]->getIdPart();
+                                                  if($composto == $programma && $partecipante == $composto2){
                                                     echo '<h4>'.$arrayProgramma[$z]->getTitolo().'</h4>';
                                                   }
                                                 }
@@ -141,8 +147,9 @@
                             </div><!-- End .content-->
                           </div>
                         </div>
+                        <br>
                         <form action="Funzioni_PHP/logout.php" method="post">
-                          <input id="button" type="submit" name="logout" value="logout" align="right">
+                          <input id="button" type="submit" name="logout" value="logout">
                         </form>
                       </div>
                     </section>

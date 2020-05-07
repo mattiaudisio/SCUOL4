@@ -21,7 +21,7 @@
       }
 
       public function getCognomePart(){
-        return $this->congomePart;
+        return $this->cognomePart;
       }
 
       public function getNomePart(){
