@@ -68,6 +68,7 @@
         include 'Funzioni_PHP/programma.php';
         include 'Funzioni_PHP/composto.php';
         include 'Funzioni_PHP/partecipante.php';
+        include 'Funzioni_PHP/header_autenticazione.php';
 
         $arrayPartecipante = array();
         $arrayComposto = array();
@@ -109,7 +110,9 @@
         }
 
         if(!empty($_POST['mail']) && !empty($_POST['password']) ){
-          $password = hash('sha256',$_POST['password']);?>
+          $mailUtente = $_SESSION['mail'];
+          $passwordUtente = $_SESSION['password'];
+          $passwordCifrata = hash('sha256',$passwordUtente);?>
           <section id="about-us" class="about-us">
             <div class="container">
               <div class="row no-gutters">
@@ -119,7 +122,7 @@
                               for($i = 0; $i < count($arrayPartecipante); $i++){
                                     $mail = $arrayPartecipante[$i]->getMailPart();
                                     $passwordUtente = $arrayPartecipante[$i]->getPasswordPart();
-                                    if($mail == $_POST['mail'] &&  $password == $passwordUtente){ ?>
+                                    if($mail == $_POST['mail'] &&  $passwordCifrata == $passwordUtente){ ?>
                                       <div class="content d-flex flex-column justify-content-center">
                                           <h3 data-aos="fade-up"> <?php echo $arrayProgramma[$i]->getNomePart(); ?> <?php echo $arrayProgramma[$i]->getCognomePart();?></h3>
                                           <p data-aos="fade-up"> <?php echo $arrayProgramma[$i]->getMailPart(); ?>, <?php echo $arrayProgramma[$i]->getTipologiaPart();?></p>
@@ -140,6 +143,9 @@
                             </div><!-- End .content-->
                           </div>
                         </div>
+                        <form action="Funzioni_PHP/logout.php" method="post">
+                          <input id="button" type="submit" name="logout" value="logout">
+                        </form>
                       </div>
                     </section>
                   <?php }
