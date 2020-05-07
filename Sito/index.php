@@ -90,7 +90,7 @@
           <li><a href="#speaker">Speaker</a></li>
           <li><a href="#programma">Programma</a></li>
           <li><a href="iscriviti.php">Iscriviti</a></li>
-
+          <li><a href="login.php">Accedi</a></li>
         </ul>
       </nav><!-- .nav-menu -->
 
