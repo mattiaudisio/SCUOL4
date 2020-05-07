@@ -19,7 +19,6 @@
   }
 ?>
 
-
 <!DOCTYPE html>
 <html>
 
@@ -98,33 +97,15 @@
         <div class="section-title" data-aos="fade-up">
           <h2>Iscriviti qua per preordinare<br> il tuo <strong>Biglietto</strong></h2>
         </div>
-        <form action="form.php" method="post">
+        <form action="profilo.php" method="post">
           <div class="container" >
-              <p>Cognome:</p>
-              <input type="text" name="cognome"  class="form-control" id="cognome" placeholder="Inserisci il tuo cognome" data-rule="minlen:4" data-msg="Inserisci il tuo cognome" />
-              <br>
-              <p>Nome:</p>
-              <input type="text" name="nome"  class="form-control" id="nome" placeholder="Inserisci il tuo nome" data-rule="minlen:4" data-msg="Inserisci il tuo nome" />
-              <br>
               <p>Mail:</p>
               <input type="email" name="mail"  class="form-control" id="email" placeholder="Inserisci la tua mail" data-rule="minlen:4" data-msg="Inserisci la tua mail" />
               <br>
               <p>Password:</p>
               <input type="password" name="password"  class="form-control" id="password" placeholder="Inserisci una password" data-rule="minlen:4" data-msg="Inserisci una password" />
               <br>
-              <p>Tipologia:</p>
-              <select name="tipologia" class="form-control" method="post">
-                <option value="studente">Studente</option>
-                <option value="docente">Docente</option>
-                <option value="liberoProfessionista">Libero Professionista</option>
-              </select><br>
-              <p>Programmi:</p>
-              <?php for($i = 0; $i < count($arrayProgramma); $i++){
-                    if($arrayProgramma[$i]->getNPosti() > 0){
-                        echo '<input type="checkbox" name="interessi[]" value="'.$arrayProgramma[$i]->getIdProgramma().'">'.$arrayProgramma[$i]->getTitolo().'<br>';
-                    }
-                  }?>
-              <div class="text-center" ><input type="submit" value="iscriviti" name="iscriviti"></div>
+              <div class="text-center" ><input type="submit" value="accedi" name="accedi"></div>
           </div>
         </form>
         <br>
