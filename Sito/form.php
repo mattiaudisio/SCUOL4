@@ -141,8 +141,8 @@
                             <p data-aos="fade-up"> <?php echo $_POST["mail"]; ?>, <?php echo $_POST["tipologia"]; ?></p>
                             <div class="row">
                             <?php
-                              $query = "SELECT Programma.fasciaOraria, Programma.idProgramma, Speech.titolo, Sala.nPostiSala FROM Programma,Speech,Sala WHERE Programma.idSpeech = Speech.idSpeech AND Programma.idSala = Sala.idSala;";
-                              $risQuery = $connessione->query($query);
+                              $queryProgramma = "SELECT * FROM Programma,Speech,Sala WHERE Programma.idSpeech = Speech.idSpeech AND Programma.idSala = Sala.idSala;";
+                              $risQuery = $connessione->query($queryProgramma);
                               while($ris = $risQuery->fetch_assoc()){
                                 $risIdProgr = $ris["idProgramma"];
                                 $risFascia = $ris["fasciaOraria"];

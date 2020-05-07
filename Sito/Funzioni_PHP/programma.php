@@ -31,7 +31,7 @@
       }
 
       public function getIdSala(){
-          return $this->idSala = $idSala;
+          return $this->idSala;
       }
   }
 ?>
