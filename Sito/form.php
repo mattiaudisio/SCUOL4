@@ -141,16 +141,16 @@
                             <p data-aos="fade-up"> <?php echo $_POST["mail"]; ?>, <?php echo $_POST["tipologia"]; ?></p>
                             <div class="row">
                             <?php
-                              $queryProgramma = "SELECT * FROM Programma,Speech,Sala WHERE Programma.idSpeech = Speech.idSpeech AND Programma.idSala = Sala.idSala;";
-                              $risQuery = $connessione->query($queryProgramma);
-                              while($ris = $risQuery->fetch_assoc()){
-                                $risIdProgr = $ris["idProgramma"];
-                                $risFascia = $ris["fasciaOraria"];
-                                $risTitolo = $ris["titolo"];
-                                $risPosti = $ris["nPostiSala"];
-                                $risIdSala = $ris["idSala"];
-                                $nuovoOggetto = new Programma($risFascia,$risTitolo,$risPosti,$risIdProgr,$risIdSala);
-                                array_push($arrayProgramma,$nuovoOggetto);
+                                $queryProgramma = "SELECT * FROM Programma,Speech,Sala WHERE Programma.idSpeech = Speech.idSpeech AND Programma.idSala = Sala.idSala;";
+                                $risQuery = $connessione->query($queryProgramma);
+                                while($ris = $risQuery->fetch_assoc()){
+                                  $risIdProgr = $ris["idProgramma"];
+                                  $risFascia = $ris["fasciaOraria"];
+                                  $risTitolo = $ris["titolo"];
+                                  $risPosti = $ris["nPostiSala"];
+                                  $risIdSala = $ris["idSala"];
+                                  $nuovoOggetto = new Programma($risFascia,$risTitolo,$risPosti,$risIdProgr,$risIdSala);
+                                  array_push($arrayProgramma,$nuovoOggetto);
                               }
                               for($j = 0; $j < sizeof($checkbox); $j++){
                                 for($i = 0; $i < count($arrayProgramma); $i++){
