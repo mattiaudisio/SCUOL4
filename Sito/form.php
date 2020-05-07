@@ -120,7 +120,7 @@
 
       if($contaPresenza == 0){
         if(isset($_POST['iscriviti'])){
-          if(!empty($_POST['cognome']) && !empty($_POST['nome']) && !empty($_POST['mail'])){
+          if(!empty($_POST['cognome']) && !empty($_POST['nome']) && !empty($_POST['mail']) && !empty($_POST['password'])){
             $checkbox = $_POST['interessi'];
             $string = count($arrayID) + 1;
             $totPersone = count($arrayComposto);
