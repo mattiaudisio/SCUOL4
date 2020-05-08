@@ -98,19 +98,6 @@
           array_push($arrayComposto,$nuovoOggetto);
         }
 
-        $queryProgramma = "SELECT * FROM Programma,Speech,Sala WHERE Programma.idSpeech = Speech.idSpeech AND Programma.idSala = Sala.idSala;";
-        $risultatoProgramma = $connessione->query($queryProgramma);
-        while($ris = $risultatoProgramma->fetch_assoc()){
-          $risIdProgr = $ris["idProgramma"];
-          $risFascia = $ris["fasciaOraria"];
-          $risTitolo = $ris["titolo"];
-          $risPosti = $ris["nPostiSala"];
-          $risIdSala = $ris["idSala"];
-          $nuovoOggetto = new Programma($risFascia,$risTitolo,$risPosti,$risIdProgr,$risIdSala);
-          array_push($arrayProgramma,$nuovoOggetto);
-        }
-
-
         if(!isset($_POST['aquista'])){
           if(!empty($_POST['mail']) && !empty($_POST['password']) ){
             $mailUtente = $_SESSION['mail'];
@@ -124,6 +111,17 @@
                   <div class="image col-xl-5 d-flex align-items-stretch justify-content-center justify-content-lg-start" data-aos="fade-right" style="background-image: url(/Mattia/ProgettoSQL_Convention/Sito/assets/img/riepilogo.jpg);"></div>
                     <div class="col-xl-7 pl-0 pl-lg-5 pr-lg-1 d-flex align-items-stretch">
                           <?php
+                                $queryProgramma = "SELECT * FROM Programma,Speech,Sala WHERE Programma.idSpeech = Speech.idSpeech AND Programma.idSala = Sala.idSala;";
+                                $risQuery = $connessione->query($queryProgramma);
+                                while($ris = $risQuery->fetch_assoc()){
+                                  $risIdProgr = $ris["idProgramma"];
+                                  $risFascia = $ris["fasciaOraria"];
+                                  $risTitolo = $ris["titolo"];
+                                  $risPosti = $ris["nPostiSala"];
+                                  $risIdSala = $ris["idSala"];
+                                  $nuovoOggetto = new Programma($risFascia,$risTitolo,$risPosti,$risIdProgr,$risIdSala);
+                                  array_push($arrayProgramma,$nuovoOggetto);
+                                }
                                 for($i = 0; $i < count($arrayPartecipante); $i++){
                                   $MailUtenteFor = $arrayPartecipante[$i]->getMailPart();
                                   $passwordUtente = $arrayPartecipante[$i]->getPasswordPart();
@@ -132,17 +130,19 @@
                                             <div class="row">
                                               <div class="col-md-6 icon-box" data-aos="fade-up">
                                               <?php
-                                              for($j = 0; $j < sizeof($checkbox); $j++){
-                                                $persone = $totPersone + 1;
-                                                $id = $arrayPartecipante[$j]->getIdPart();
-                                                $query = "INSERT INTO Composto(idPart, idProgramma, nPartecipanti) VALUES  ('".$id."','".$checkbox[$j]."','".$persone."');";
+                                              for($z = 0; $z < count($arrayProgramma); $z++){
+                                                for($j = 0; $j < sizeof($checkbox); $j++){
+                                                  $persone = $totPersone + 1;
+                                                  $id = $arrayPartecipante[$j]->getIdPart();
+                                                  $query = "INSERT INTO Composto(idPart, idProgramma, nPartecipanti) VALUES  ('".$id."','".$checkbox[$j]."','".$persone."');";
+                                                  $connessione->query($query);
+                                                }
+                                                $posti = $arrayProgramma[$z]->getNPosti();
+                                                $posti = $posti - 1;
+                                                $nome = $arrayProgramma[$z]->getIdSala();
+                                                $query = "UPDATE Sala SET nPostiSala = '.$posti.' WHERE idProgramma = '.$nome.'";
                                                 $connessione->query($query);
                                               }
-                                              $posti = $arrayProgramma[$i]->getNPosti() - 1;
-                                              $nome = $arrayProgramma[$i]->getIdSala();
-                                              $query = "UPDATE Sala SET nPostiSala = '.$posti.' WHERE idProgramma = '.$nome.'";
-                                              $connessione->query($query);
-
                                       }
                                 }?>
                                   </div>
@@ -151,38 +151,8 @@
                             </div>
                           </div>
                           <br>
-                          <section id="contact" class="contact">
-                          <div class="row mt-5 justify-content-center" data-aos="fade-up">
-                            <div class="col-lg-10">
-                              <div class="section-title" data-aos="fade-up">
-                                <h2>Acquista altri<strong>Biglietti</strong></h2>
-                              </div>
-                              <form action="acquista.php" method="post">
-                                <div class="container" >
-                                    <p>Mail:</p>
-                                    <input type="email" name="mail"  class="form-control" id="email" placeholder="Inserisci la tua mail" data-rule="minlen:4" data-msg="Inserisci la tua mail" />
-                                    <br>
-                                    <p>Password:</p>
-                                    <input type="password" name="password"  class="form-control" id="password" placeholder="Inserisci una password" data-rule="minlen:4" data-msg="Inserisci una password" />
-                                    <br>
-                                    <p>Programmi:</p>
-                                    <?php
-                                      for($i = 0; $i < count($arrayProgramma); $i++){
-                                          if($arrayProgramma[$i]->getNPosti() > 0){
-                                              echo '<input type="checkbox" name="interessi[]" value="'.$arrayProgramma[$i]->getIdProgramma().'">'.$arrayProgramma[$i]->getTitolo().'<br>';
-                                          }
-                                        }?>
-                                    <div class="text-center" ><input type="submit" value="acquista" name="acquista"></div>
-                                </div>
-                              </form>
-                              <br>
-                            </div>
-                          </div>
-                          </section>
-                          <form action="Funzioni_PHP/logout.php" method="post">
-                            <input id="button" type="submit" name="logout" value="logout">
-                          </form>
                         </div>
+                        <<p align='center'><b>ACQUISTO EFFETTUATO</b></p><br><p align='center'>per tornare al tuo account clicca <a href="profilo.php">qui</a></p>
                       </section>
                     <?php }
         }
