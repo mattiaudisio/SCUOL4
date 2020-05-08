@@ -110,80 +110,82 @@
           array_push($arrayProgramma,$nuovoOggetto);
         }
 
-        if(!empty($_POST['mail']) && !empty($_POST['password']) ){
-          $mailUtente = $_SESSION['mail'];
-          $passwordUtente = $_SESSION['password'];
-          $passwordCifrata = hash('sha256',$passwordUtente);?>
-          <section id="about-us" class="about-us">
-            <div class="container">
-              <div class="row no-gutters">
-                <div class="image col-xl-5 d-flex align-items-stretch justify-content-center justify-content-lg-start" data-aos="fade-right" style="background-image: url(/Mattia/ProgettoSQL_Convention/Sito/assets/img/riepilogo.jpg);"></div>
-                  <div class="col-xl-7 pl-0 pl-lg-5 pr-lg-1 d-flex align-items-stretch">
-                        <?php
-                              for($i = 0; $i < count($arrayPartecipante); $i++){
-                                $MailUtenteFor = $arrayPartecipante[$i]->getMailPart();
-                                $passwordUtente = $arrayPartecipante[$i]->getPasswordPart();
-                                    if($MailUtenteFor == $mailUtente  || $passwordUtente == $passwordCifrata){ ?>
-                                      <div class="content d-flex flex-column justify-content-center">
-                                          <h3 data-aos="fade-up"> <?php echo $arrayPartecipante[$i]->getNomePart(); ?> <?php echo $arrayPartecipante[$i]->getCognomePart();?></h3>
-                                          <p data-aos="fade-up"> <?php echo $arrayPartecipante[$i]->getMailPart(); ?>, <?php echo $arrayPartecipante[$i]->getTipologiaPart();?></p>
-                                          <div class="row">
-                                            <div class="col-md-6 icon-box" data-aos="fade-up">
-                                              <h2>SPEECH</h2>
-                                              <?php for($j = 0; $j < count($arrayComposto); $j++){
-                                                for($z = 0; $z < count($arrayProgramma); $z++){
-                                                  $composto = $arrayComposto[$j]->getIdProgramma();
-                                                  $programma = $arrayProgramma[$z]->getIdProgramma();
-                                                  $partecipante = $arrayPartecipante[$i]->getIdPart();
-                                                  $composto2 = $arrayComposto[$j]->getIdPart();
-                                                  if($composto == $programma && $partecipante == $composto2){
-                                                    echo '<h4>'.$arrayProgramma[$z]->getTitolo().'</h4>';
-                                                    array_push($arrayProgrammiPartecipanti,$arrayProgramma[$z]);
-                                                  }
-                                                }
+
+        if(!isset($_POST['aquista'])){
+          if(!empty($_POST['mail']) && !empty($_POST['password']) ){
+            $mailUtente = $_SESSION['mail'];
+            $passwordUtente = $_SESSION['password'];
+            $passwordCifrata = hash('sha256',$passwordUtente);
+            $checkbox = $_POST['interessi'];
+            $totPersone = count($arrayComposto);?>
+            <section id="about-us" class="about-us">
+              <div class="container">
+                <div class="row no-gutters">
+                  <div class="image col-xl-5 d-flex align-items-stretch justify-content-center justify-content-lg-start" data-aos="fade-right" style="background-image: url(/Mattia/ProgettoSQL_Convention/Sito/assets/img/riepilogo.jpg);"></div>
+                    <div class="col-xl-7 pl-0 pl-lg-5 pr-lg-1 d-flex align-items-stretch">
+                          <?php
+                                for($i = 0; $i < count($arrayPartecipante); $i++){
+                                  $MailUtenteFor = $arrayPartecipante[$i]->getMailPart();
+                                  $passwordUtente = $arrayPartecipante[$i]->getPasswordPart();
+                                      if($MailUtenteFor == $mailUtente  || $passwordUtente == $passwordCifrata){ ?>
+                                        <div class="content d-flex flex-column justify-content-center">
+                                            <div class="row">
+                                              <div class="col-md-6 icon-box" data-aos="fade-up">
+                                              <?php
+                                              for($j = 0; $j < sizeof($checkbox); $j++){
+                                                $persone = $totPersone + 1;
+                                                $id = $arrayPartecipante[$j]->getIdPart();
+                                                $query = "INSERT INTO Composto(idPart, idProgramma, nPartecipanti) VALUES  ('".$id."','".$checkbox[$j]."','".$persone."');";
+                                                $connessione->query($query);
                                               }
-                                    }
-                              } ?>
+                                              $posti = $arrayProgramma[$i]->getNPosti() - 1;
+                                              $nome = $arrayProgramma[$i]->getIdSala();
+                                              $query = "UPDATE Sala SET nPostiSala = '.$posti.' WHERE idProgramma = '.$nome.'";
+                                              $connessione->query($query);
+
+                                      }
+                                }?>
+                                  </div>
                                 </div>
-                              </div>
-                            </div><!-- End .content-->
-                          </div>
-                        </div>
-                        <br>
-                        <section id="contact" class="contact">
-                        <div class="row mt-5 justify-content-center" data-aos="fade-up">
-                          <div class="col-lg-10">
-                            <div class="section-title" data-aos="fade-up">
-                              <h2>Acquista altri<strong>Biglietti</strong></h2>
+                              </div><!-- End .content-->
                             </div>
-                            <form action="acquista.php" method="post">
-                              <div class="container" >
-                                  <p>Mail:</p>
-                                  <input type="email" name="mail"  class="form-control" id="email" placeholder="Inserisci la tua mail" data-rule="minlen:4" data-msg="Inserisci la tua mail" />
-                                  <br>
-                                  <p>Password:</p>
-                                  <input type="password" name="password"  class="form-control" id="password" placeholder="Inserisci una password" data-rule="minlen:4" data-msg="Inserisci una password" />
-                                  <br>
-                                  <p>Programmi:</p>
-                                  <?php
-                                    for($i = 0; $i < count($arrayProgramma); $i++){
-                                        if($arrayProgramma[$i]->getNPosti() > 0){
-                                            echo '<input type="checkbox" name="interessi[]" value="'.$arrayProgramma[$i]->getIdProgramma().'">'.$arrayProgramma[$i]->getTitolo().'<br>';
-                                        }
-                                      }?>
-                                  <div class="text-center" ><input type="submit" value="acquista" name="acquista"></div>
-                              </div>
-                            </form>
-                            <br>
                           </div>
+                          <br>
+                          <section id="contact" class="contact">
+                          <div class="row mt-5 justify-content-center" data-aos="fade-up">
+                            <div class="col-lg-10">
+                              <div class="section-title" data-aos="fade-up">
+                                <h2>Acquista altri<strong>Biglietti</strong></h2>
+                              </div>
+                              <form action="acquista.php" method="post">
+                                <div class="container" >
+                                    <p>Mail:</p>
+                                    <input type="email" name="mail"  class="form-control" id="email" placeholder="Inserisci la tua mail" data-rule="minlen:4" data-msg="Inserisci la tua mail" />
+                                    <br>
+                                    <p>Password:</p>
+                                    <input type="password" name="password"  class="form-control" id="password" placeholder="Inserisci una password" data-rule="minlen:4" data-msg="Inserisci una password" />
+                                    <br>
+                                    <p>Programmi:</p>
+                                    <?php
+                                      for($i = 0; $i < count($arrayProgramma); $i++){
+                                          if($arrayProgramma[$i]->getNPosti() > 0){
+                                              echo '<input type="checkbox" name="interessi[]" value="'.$arrayProgramma[$i]->getIdProgramma().'">'.$arrayProgramma[$i]->getTitolo().'<br>';
+                                          }
+                                        }?>
+                                    <div class="text-center" ><input type="submit" value="acquista" name="acquista"></div>
+                                </div>
+                              </form>
+                              <br>
+                            </div>
+                          </div>
+                          </section>
+                          <form action="Funzioni_PHP/logout.php" method="post">
+                            <input id="button" type="submit" name="logout" value="logout">
+                          </form>
                         </div>
-                        </section>
-                        <form action="Funzioni_PHP/logout.php" method="post">
-                          <input id="button" type="submit" name="logout" value="logout">
-                        </form>
-                      </div>
-                    </section>
-                  <?php }
+                      </section>
+                    <?php }
+        }
         $connessione->close();
       ?>
     </main><!-- End #main -->
