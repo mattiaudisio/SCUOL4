@@ -153,7 +153,7 @@
                                   $risIdSala = $ris["idSala"];
                                   $nuovoOggetto = new Programma($risFascia,$risTitolo,$risPosti,$risIdProgr,$risIdSala);
                                   array_push($arrayProgramma,$nuovoOggetto);
-                              }
+                                }
                               for($j = 0; $j < sizeof($checkbox); $j++){
                                 for($i = 0; $i < count($arrayProgramma); $i++){
                                   if($arrayProgramma[$i]->getIdProgramma() == $checkbox[$j]){
@@ -162,8 +162,6 @@
                                             <p>Ordinato</p>
                                          </div>
                               <?php
-                                    $posti = $arrayProgramma[$i]->getNPosti() - 1;
-                                    $nome = $arrayProgramma[$i]->getIdSala();
                                     $posti = $arrayProgramma[$i]->getNPosti() - 1;
                                     $nome = $arrayProgramma[$i]->getIdSala();
                                     $query = $mysqli->prepare("UPDATE Sala SET nPostiSala = ?, WHERE idProgramma = ?");
