@@ -164,8 +164,9 @@
                               <?php
                                     $posti = $arrayProgramma[$i]->getNPosti() - 1;
                                     $nome = $arrayProgramma[$i]->getIdSala();
-                                    $query = "UPDATE Sala SET nPostiSala = '.$posti.' WHERE idProgramma = '.$nome.'";
-                                    $connessione->query($query);
+                                    $query = $mysqli->prepare("UPDATE Sala SET nPostiSala = ?, WHERE idProgramma = ?);
+                                    $query->bind_param('ssi',$posti,$nome);
+                                    $result = $query->execute();
                                   }
                                 }
                               }
