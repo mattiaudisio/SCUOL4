@@ -156,7 +156,7 @@
                             <div class="section-title" data-aos="fade-up">
                               <h2>Acquista altri<strong>Biglietti</strong></h2>
                             </div>
-                            <form action="acquista.php" method="post">
+                            <form action="profilo.php" method="post">
                               <div class="container" >
                                   <p>Mail:</p>
                                   <input type="email" name="mail"  class="form-control" id="email" placeholder="Inserisci la tua mail" data-rule="minlen:4" data-msg="Inserisci la tua mail" />
