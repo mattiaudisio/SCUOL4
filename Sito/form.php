@@ -162,11 +162,11 @@
                                             <p>Ordinato</p>
                                          </div>
                               <?php
-                                    $posti = $arrayProgramma[$i]->getNPosti() - 1;
+                                    $posti = $arrayProgramma[$i]->getNPosti();
+                                    $posti = $posti - 1;
                                     $nome = $arrayProgramma[$i]->getIdSala();
-                                    $query = $mysqli->prepare("UPDATE Sala SET nPostiSala = ?, WHERE idProgramma = ?");
-                                    $query->bind_param('ssi',$posti,$nome);
-                                    $result = $query->execute();
+                                    $query = "UPDATE Sala SET nPostiSala = ".$posti." , WHERE idProgramma = '".$nome."'";
+                                    $connessione->query($query);
                                   }
                                 }
                               }
