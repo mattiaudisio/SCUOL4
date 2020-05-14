@@ -211,18 +211,14 @@
                                     <?php
                                     for($i = 0; $i < count($arrayProgramma); $i++){
                                       for($j = 0; $j < count($arrayComposto); $j++){
-                                        for($z = 0; $z < count($arrayPartecipante); $z++){
                                           $nomeComposto = $arrayComposto[$j]->getIdProgramma();
                                           $partComposto = $arrayComposto[$j]->getIdPart();
                                           $nomeProgramma = $arrayProgramma[$i]->getIdProgramma();
                                           $nomi_Composto = $arrayComposto[$j]->getIdPart();
-                                              if($nomeUtente == $nomi_Composto){
-                                                if($nomeProgramma != $nomeComposto){
+                                              if($nomeUtente == $nomi_Composto && $nomeProgramma != $nomeComposto){
                                                   echo '<input type="checkbox" name="interessi[]" value="'.$arrayProgramma[$i]->getIdProgramma().'">'.$arrayProgramma[$i]->getTitolo().'<br>';
-                                                }
                                             }
                                           }
-                                    }
                                     }?>
                                     <div class="text-center" ><input type="submit" value="acquista" name="acquista"></div>
                                 </div>
