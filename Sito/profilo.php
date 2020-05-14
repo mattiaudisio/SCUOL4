@@ -214,8 +214,7 @@
                                           $nomeComposto = $arrayComposto[$j]->getIdProgramma();
                                           $partComposto = $arrayComposto[$j]->getIdPart();
                                           $nomeProgramma = $arrayProgramma[$i]->getIdProgramma();
-                                          $nomi_Composto = $arrayComposto[$j]->getIdPart();
-                                              if($nomeUtente == $nomi_Composto && $nomeProgramma != $nomeComposto){
+                                              if($nomeUtente == $partComposto && $nomeProgramma != $nomeComposto){
                                                   echo '<input type="checkbox" name="interessi[]" value="'.$arrayProgramma[$i]->getIdProgramma().'">'.$arrayProgramma[$i]->getTitolo().'<br>';
                                             }
                                           }
