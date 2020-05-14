@@ -212,15 +212,15 @@
                                       for($j = 0; $j < count($arrayComposto); $j++){
                                           $nomeComposto = $arrayComposto[$j]->getIdProgramma();
                                           $partComposto = $arrayComposto[$j]->getIdPart();
-                                              if($nomeUtente == $partComposto){
-                                                for($i = 0; $i < count($arrayProgramma); $i++){
-                                                  $nomeProgramma = $arrayProgramma[$i]->getIdProgramma();
-                                                    if($nomeProgramma == $nomeComposto){
-                                                      echo '<input type="checkbox" name="interessi[]" value="'.$arrayProgramma[$i]->getIdProgramma().'">'.$arrayProgramma[$i]->getTitolo().'<br>';
-                                                    }
+                                          if($nomeUtente == $partComposto){
+                                            for($i = 0; $i < count($arrayProgramma); $i++){
+                                              $nomeProgramma = $arrayProgramma[$i]->getIdProgramma();
+                                                if($nomeProgramma == $nomeComposto){
+                                                  echo '<input type="checkbox" name="interessi[]" value="'.$arrayProgramma[$i]->getIdProgramma().'">'.$arrayProgramma[$i]->getTitolo().'<br>';
+                                                }
                                             }
                                           }
-                                    }?>
+                                      }?>
                                     <div class="text-center" ><input type="submit" value="acquista" name="acquista"></div>
                                 </div>
                               </form>
