@@ -155,24 +155,23 @@
                                 for($i = 0; $i < count($arrayPartecipante); $i++){
                                   $MailUtenteFor = $arrayPartecipante[$i]->getMailPart();
                                   $passwordUtente = $arrayPartecipante[$i]->getPasswordPart();
-                                      if($MailUtenteFor == $mailUtente  || $passwordUtente == $passwordCifrata){ ?>
+                                      if($MailUtenteFor == $mailUtente  || $passwordUtente == $passwordCifrata){
+                                        $nomeUtente = $arrayPartecipante[$i]->getIdPart();
+                                        $cognomeUtente = $arrayPartecipante[$i]->getCognomePart();
+                                        $mailUtente = $arrayPartecipante[$i]->getMailPart(); ?>
                                         <div class="content d-flex flex-column justify-content-center">
-                                            <h3 data-aos="fade-up"> <?php echo $arrayPartecipante[$i]->getNomePart(); ?> <?php echo $arrayPartecipante[$i]->getCognomePart();?></h3>
-                                            <p data-aos="fade-up"> <?php echo $arrayPartecipante[$i]->getMailPart(); ?>, <?php echo $arrayPartecipante[$i]->getTipologiaPart();?></p>
+                                            <h3 data-aos="fade-up"> <?php echo $arrayPartecipante[$i]->getNomePart(); ?> <?php echo $cognomeUtente;?></h3>
+                                            <p data-aos="fade-up"> <?php echo $mailUtente; ?>, <?php echo $arrayPartecipante[$i]->getTipologiaPart();?></p>
                                             <div class="row">
                                               <div class="col-md-6 icon-box" data-aos="fade-up">
                                                 <h2>SPEECH</h2>
                                                 <?php
-                                                $nomeUtente = $arrayPartecipante[$i]->getIdPart();
-                                                $cognomeUtente = $arrayPartecipante[$i]->getCognomePart();
-                                                $mailUtente = $arrayPartecipante[$i]->getMailPart();
                                                  for($j = 0; $j < count($arrayComposto); $j++){
                                                   for($z = 0; $z < count($arrayProgramma); $z++){
                                                     $composto = $arrayComposto[$j]->getIdProgramma();
                                                     $programma = $arrayProgramma[$z]->getIdProgramma();
-                                                    $partecipante = $arrayPartecipante[$i]->getIdPart();
                                                     $composto2 = $arrayComposto[$j]->getIdPart();
-                                                    if($composto == $programma && $partecipante == $composto2){
+                                                    if($composto == $programma && $nomeUtente == $composto2){
                                                       echo '<h4>'.$arrayProgramma[$z]->getTitolo().'</h4>';
                                                       unset($arrayProgrammaTemporaneo[$z]);
                                                     }
@@ -216,7 +215,7 @@
                                             for($i = 0; $i < count($arrayProgramma); $i++){
                                               $nomeProgramma = $arrayProgramma[$i]->getIdProgramma();
                                                 if($nomeProgramma == $nomeComposto){
-                                                  echo '<input type="checkbox" name="interessi[]" value="'.$arrayProgramma[$i]->getIdProgramma().'">'.$arrayProgramma[$i]->getTitolo().'<br>';
+                                                  echo '<input type="checkbox" name="interessi[]" value="'.$nomeProgramma.'">'.$arrayProgramma[$i]->getTitolo().'<br>';
                                                 }
                                             }
                                           }
