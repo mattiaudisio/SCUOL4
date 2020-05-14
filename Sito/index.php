@@ -150,7 +150,12 @@
                 <h3><?php echo $arrayProgramma[$i]->getTitolo();?></h3>
                 <h6>Fascia Oraria: <?php echo $arrayProgramma[$i]->getFasciaOraria();?></h6>
                 <p><?php echo $arraySpeech[$i]->getArgomento();?></p>
-                <p>Numero di posti disponibili: <?php echo $arrayProgramma[$i]->getNPosti();?></p>
+                <? $numPosti = $arrayProgramma[$i]->getNPosti();
+                  if($numPosti == 0){
+                    echo "<p><b>POSTI ESAURITI</b></p>";
+                  }else{
+                    echo "<p>Numero di posti disponibili: ".$numPosti."</p>";
+                  }?>
               </div>
             </div>
           <?php }?>

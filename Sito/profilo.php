@@ -73,6 +73,7 @@
         $arrayPartecipante = array();
         $arrayComposto = array();
         $arrayProgramma = array();
+        $arrayProgrammaTemporaneo = array();
 
         $queryPartecipante = "SELECT * FROM Partecipante;";
         $risultatoPartecipante = $connessione->query($queryPartecipante);
@@ -109,6 +110,18 @@
           array_push($arrayProgramma,$nuovoOggetto);
         }
 
+        $queryProgramma = "SELECT * FROM Programma,Speech,Sala WHERE Programma.idSpeech = Speech.idSpeech AND Programma.idSala = Sala.idSala;";
+        $risultatoProgramma = $connessione->query($queryProgramma);
+        while($ris = $risultatoProgramma->fetch_assoc()){
+          $risIdProgr = $ris["idProgramma"];
+          $risFascia = $ris["fasciaOraria"];
+          $risTitolo = $ris["titolo"];
+          $risPosti = $ris["nPostiSala"];
+          $risIdSala = $ris["idSala"];
+          $nuovoOggetto = new Programma($risFascia,$risTitolo,$risPosti,$risIdProgr,$risIdSala);
+          array_push($arrayProgrammaTemporaneo,$nuovoOggetto);
+        }
+
         if(isset($_POST['accedi']) || isset($_POST['acquista'])){
           if(isset($_POST['acquista'])){
               $checkbox = $_POST['interessi'];
@@ -128,7 +141,7 @@
           if(!empty($_POST['mail']) && !empty($_POST['password']) ){
             $mailUtente = $_SESSION['mail'];
             $passwordUtente = $_SESSION['password'];
-            $passwordCifrata = hash('sha256',$passwordUtente);?>
+            $passwordCifrata = hash('sha256',$passwordUtente); ?>
             <section id="about-us" class="about-us">
               <div class="container">
                 <div class="row no-gutters">
@@ -153,6 +166,7 @@
                                                     $composto2 = $arrayComposto[$j]->getIdPart();
                                                     if($composto == $programma && $partecipante == $composto2){
                                                       echo '<h4>'.$arrayProgramma[$z]->getTitolo().'</h4>';
+                                                      unset($arrayProgrammaTemporaneo[$z]);
                                                     }
                                                   }
                                                 }
@@ -187,10 +201,8 @@
                                     <br>
                                     <p>Programmi:</p>
                                     <?php
-                                      for($i = 0; $i < count($arrayProgramma); $i++){
-                                          if($arrayProgramma[$i]->getNPosti() > 0){
-                                              echo '<input type="checkbox" name="interessi[]" value="'.$arrayProgramma[$i]->getIdProgramma().'">'.$arrayProgramma[$i]->getTitolo().'<br>';
-                                          }
+                                      for($i = 0; $i < count($arrayProgrammaTemporaneo); $i++){
+                                              echo '<input type="checkbox" name="interessi[]" value="'.$arrayProgrammaTemporaneo[$i]->getIdProgramma().'">'.$arrayProgrammaTemporaneo[$i]->getTitolo().'<br>';
                                         }?>
                                     <div class="text-center" ><input type="submit" value="acquista" name="acquista"></div>
                                 </div>
@@ -206,8 +218,9 @@
                       </section>
                     <?php }
           $connessione->close();
+          }
           ?>
-        }
+
     </main><!-- End #main -->
     <!-- ======= Footer ======= -->
     <footer id="footer">
