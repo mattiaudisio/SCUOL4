@@ -162,8 +162,7 @@
                                             <p>Ordinato</p>
                                          </div>
                               <?php
-                                    $posti = $arrayProgramma[$i]->getNPosti();
-                                    $posti = $posti - 1;
+                                    $posti = $arrayProgramma[$i]->getNPosti() - 1;
                                     $nome = $arrayProgramma[$i]->getIdSala();
                                     $query = "UPDATE Sala SET nPostiSala = ".$posti." , WHERE idProgramma = '".$nome."'";
                                     $connessione->query($query);
