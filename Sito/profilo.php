@@ -209,13 +209,15 @@
                                     <br>
                                     <p>Programmi:</p>
                                     <?php
-                                    for($i = 0; $i < count($arrayProgramma); $i++){
                                       for($j = 0; $j < count($arrayComposto); $j++){
                                           $nomeComposto = $arrayComposto[$j]->getIdProgramma();
                                           $partComposto = $arrayComposto[$j]->getIdPart();
-                                          $nomeProgramma = $arrayProgramma[$i]->getIdProgramma();
-                                              if($nomeUtente == $partComposto && $nomeProgramma != $nomeComposto){
-                                                  echo '<input type="checkbox" name="interessi[]" value="'.$arrayProgramma[$i]->getIdProgramma().'">'.$arrayProgramma[$i]->getTitolo().'<br>';
+                                              if($nomeUtente == $partComposto){
+                                                for($i = 0; $i < count($arrayProgramma); $i++){
+                                                  $nomeProgramma = $arrayProgramma[$i]->getIdProgramma();
+                                                    if($nomeProgramma == $nomeComposto){
+                                                      echo '<input type="checkbox" name="interessi[]" value="'.$arrayProgramma[$i]->getIdProgramma().'">'.$arrayProgramma[$i]->getTitolo().'<br>';
+                                                    }
                                             }
                                           }
                                     }?>
