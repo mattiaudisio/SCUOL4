@@ -75,6 +75,10 @@
         $arrayProgramma = array();
         $arrayProgrammaTemporaneo = array();
 
+        $nomeUtente = "";
+        $cognomeUtente = "";
+        $mailUtente = "";
+
         $queryPartecipante = "SELECT * FROM Partecipante;";
         $risultatoPartecipante = $connessione->query($queryPartecipante);
         while($ris = $risultatoPartecipante->fetch_assoc()){
@@ -158,7 +162,11 @@
                                             <div class="row">
                                               <div class="col-md-6 icon-box" data-aos="fade-up">
                                                 <h2>SPEECH</h2>
-                                                <?php for($j = 0; $j < count($arrayComposto); $j++){
+                                                <?php
+                                                $nomeUtente = $arrayPartecipante[$i]->getIdPart();
+                                                $cognomeUtente = $arrayPartecipante[$i]->getCognomePart();
+                                                $mailUtente = $arrayPartecipante[$i]->getMailPart();
+                                                 for($j = 0; $j < count($arrayComposto); $j++){
                                                   for($z = 0; $z < count($arrayProgramma); $z++){
                                                     $composto = $arrayComposto[$j]->getIdProgramma();
                                                     $programma = $arrayProgramma[$z]->getIdProgramma();
@@ -201,9 +209,21 @@
                                     <br>
                                     <p>Programmi:</p>
                                     <?php
-                                      for($i = 0; $i < count($arrayProgrammaTemporaneo); $i++){
-                                              echo '<input type="checkbox" name="interessi[]" value="'.$arrayProgrammaTemporaneo[$i]->getIdProgramma().'">'.$arrayProgrammaTemporaneo[$i]->getTitolo().'<br>';
-                                        }?>
+                                    for($i = 0; $i < count($arrayProgramma); $i++){
+                                      for($j = 0; $j < count($arrayComposto); $j++){
+                                        for($z = 0; $z < count($arrayPartecipante); $z++){
+                                          $nomeComposto = $arrayComposto[$j]->getIdProgramma();
+                                          $partComposto = $arrayComposto[$j]->getIdPart();
+                                          $nomeProgramma = $arrayProgramma[$i]->getIdProgramma();
+                                          $nomi_Composto = $arrayComposto[$j]->getIdPart();
+                                              if($nomeUtente == $nomi_Composto){
+                                                if($nomeProgramma != $nomeComposto){
+                                                  echo '<input type="checkbox" name="interessi[]" value="'.$arrayProgramma[$i]->getIdProgramma().'">'.$arrayProgramma[$i]->getTitolo().'<br>';
+                                                }
+                                            }
+                                          }
+                                    }
+                                    }?>
                                     <div class="text-center" ><input type="submit" value="acquista" name="acquista"></div>
                                 </div>
                               </form>

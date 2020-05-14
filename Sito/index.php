@@ -13,6 +13,7 @@
   $queryRelatori = "SELECT Relatore.cognomeRel, Relatore.nomeRel, Relatore.idAzienda FROM Relatore;";
   $queryProgramma = "SELECT * FROM Programma,Speech,Sala WHERE Programma.idSpeech = Speech.idSpeech AND Programma.idSala = Sala.idSala;";
 
+
   $risultatoSpeech = $connessione->query($querySpeech);
   $risultatoRelatori = $connessione->query($queryRelatori);
   $risultatoProgramma = $connessione->query($queryProgramma);

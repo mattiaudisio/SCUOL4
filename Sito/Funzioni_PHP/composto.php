@@ -2,7 +2,7 @@
   class Composto{
       public $idPart = "";
       public $idProgramma = "";
-      public $nPartecipanti = "";
+      public $nPartecipanti = 0;
 
       public function __construct($idPart,$idProgramma,$nPartecipanti){
           $this->idPart = $idPart;
