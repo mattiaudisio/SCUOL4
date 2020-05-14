@@ -73,7 +73,6 @@
         $arrayPartecipante = array();
         $arrayComposto = array();
         $arrayProgramma = array();
-        $arrayProgrammiPartecipanti = array();
 
         $queryPartecipante = "SELECT * FROM Partecipante;";
         $risultatoPartecipante = $connessione->query($queryPartecipante);
@@ -154,7 +153,6 @@
                                                     $composto2 = $arrayComposto[$j]->getIdPart();
                                                     if($composto == $programma && $partecipante == $composto2){
                                                       echo '<h4>'.$arrayProgramma[$z]->getTitolo().'</h4>';
-                                                      array_push($arrayProgrammiPartecipanti,$arrayProgramma[$z]);
                                                     }
                                                   }
                                                 }
