@@ -210,12 +210,6 @@
                               </div>
                               <form action="profilo.php" method="post">
                                 <div class="container" >
-                                    <p>Mail:</p>
-                                    <input type="email" name="mail"  class="form-control" id="email" placeholder="Inserisci la tua mail" data-rule="minlen:4" data-msg="Inserisci la tua mail" />
-                                    <br>
-                                    <p>Password:</p>
-                                    <input type="password" name="password"  class="form-control" id="password" placeholder="Inserisci una password" data-rule="minlen:4" data-msg="Inserisci una password" />
-                                    <br>
                                     <p>Programmi:</p>
                                     <?php
                                       $arrayCompostoTemp = array();
