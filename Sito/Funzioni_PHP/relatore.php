@@ -3,11 +3,13 @@
       public $cognome = "";
       public $nome = "";
       public $azienda = "";
+      public $immagine = "";
 
-      public function __construct($cognome,$nome,$azienda){
+      public function __construct($cognome,$nome,$azienda,$immagine){
           $this->cognome = $cognome;
           $this->nome = $nome;
           $this->azienda = $azienda;
+          $this->immagine = $immagine;
       }
 
       public function getCognome(){
@@ -20,6 +22,10 @@
 
       public function getAzienda(){
         return $this->azienda;
+      }
+
+      public function getImmagine(){
+        return $this->immagine;
       }
 
   }

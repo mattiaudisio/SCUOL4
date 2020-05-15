@@ -5,13 +5,15 @@
       public $nPosti = 0;
       public $idProgramma = "";
       public $idSala = "";
+      public $immagine = "";
 
-      public function __construct($fasciaOraria,$titolo,$nPosti,$idProgramma,$idSala){
+      public function __construct($fasciaOraria,$titolo,$nPosti,$idProgramma,$idSala,$immagine){
           $this->fasciaOraria = $fasciaOraria;
           $this->titolo = $titolo;
           $this->nPosti = $nPosti;
           $this->idProgramma = $idProgramma;
           $this->idSala = $idSala;
+          $this->immagine = $immagine;
       }
 
       public function getFasciaOraria(){
@@ -33,6 +35,9 @@
       public function getIdSala(){
           return $this->idSala;
       }
-  }
 
+      public function getImmagine(){
+          return $this->immagine;
+      }
+  }
 ?>

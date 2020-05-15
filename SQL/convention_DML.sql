@@ -33,12 +33,12 @@ INSERT INTO Partecipante(idPart, cognomePart, nomePart, mailPart, tipologiaPart,
 	('08','Rossi','Andrea','par8@gmail.com','Libero Professionista','password123'),
 	('09','Longo','Lucio','par9@gmail.com','Docente','password123');
 
-INSERT INTO Speech(idSpeech, titolo, argomento, Durata) VALUES
-	('Speech1','Manjaro','Rilasciato Manjaro 19.0 Kyria', 1234),
-	('Speech2','Kernel','Nuova gestione dei processi', 4321),
-	('Speech3','Raspberry','Raspberry Pi 4', 23234),
-	('Speech4','Java','Nuova release jdk', 23432),
-	('Speech5','Gnome','Rilasciato Gnome 3.36', 29873);
+INSERT INTO Speech(idSpeech, titolo, argomento, immagine ,Durata, numPosti) VALUES
+	('Speech1','Manjaro','Rilasciato Manjaro 19.0 Kyria','assets/img/Programma/manjaro.png',1234,50),
+	('Speech2','Kernel','Nuova gestione dei processi','assets/img/Programma/kernel.jpg', 4321,100),
+	('Speech3','Raspberry','Raspberry Pi 4','assets/img/Programma/raspberry.jpg', 23234,50),
+	('Speech4','Java','Nuova release jdk','assets/img/Programma/java.jpg', 23432,60),
+	('Speech5','Gnome','Rilasciato Gnome 3.36','assets/img/Programma/gnome.png', 29873,40);
 
 INSERT INTO Programma(idProgramma, fasciaOraria, idSpeech, idSala) VALUES
 	('Programma1','10.00 - 11.00','Speech1','Sala1'),
@@ -47,14 +47,14 @@ INSERT INTO Programma(idProgramma, fasciaOraria, idSpeech, idSala) VALUES
 	('Programma4','13.00 - 14.00','Speech4','Sala4'),
 	('Programma5','11.00 - 12.00','Speech5','Sala5');
 
-INSERT INTO Relatore(idRel, cognomeRel, nomeRel, idAzienda) VALUES
-	('Relatore1','Rossi','Marco','Intel'),
-	('Relatore2','Otta','Luca','NVIDIA'),
-	('Relatore3','Verdi','Andrea','Dell'),
-	('Relatore4','Musso','Mattia','Facebook'),
-	('Relatore5','Cattaneo','Giacomo','Valve'),
-	('Relatore6','Ferrero','Fabio','Realtek'),
-	('Relatore7','Russo','Alessandro','Apple');
+INSERT INTO Relatore(idRel, cognomeRel, immagineRel ,nomeRel, idAzienda) VALUES
+	('Relatore1','Rossi','assets/img/Relatore/01.jpg','Marco','Intel'),
+	('Relatore2','Otta','assets/img/Relatore/02.jpg','Luca','NVIDIA'),
+	('Relatore3','Verdi','assets/img/Relatore/03.jpg','Andrea','Dell'),
+	('Relatore4','Musso','assets/img/Relatore/04.jpg','Mattia','Facebook'),
+	('Relatore5','Cattaneo','assets/img/Relatore/05.jpg','Giacomo','Valve'),
+	('Relatore6','Ferrero','assets/img/Relatore/06.jpg','Fabio','Realtek'),
+	('Relatore7','Russo','assets/img/Relatore/07.jpg','Alessandro','Apple');
 
 INSERT INTO Relaziona(idRel, idProgramma) VALUES
 	('Relatore1','Programma1'),

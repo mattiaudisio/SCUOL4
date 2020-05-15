@@ -37,7 +37,8 @@
     $risTitolo = $ris["titolo"];
     $risPosti = $ris["nPostiSala"];
     $risIdSala = $ris["idSala"];
-    $nuovoOggetto = new Programma($risFascia,$risTitolo,$risPosti,$risIdProgr,$risIdSala);
+    $risImmagine = $ris["immagine"];
+    $nuovoOggetto = new Programma($risFascia,$risTitolo,$risPosti,$risIdProgr,$risIdSala,$risImmagine);
     array_push($arrayProgramma,$nuovoOggetto);
   }
 ?>
@@ -146,7 +147,7 @@
         <div class="row portfolio-container" data-aos="fade-up">
           <?php for($i = 0; $i < count($arraySpeech); $i++){?>
             <div class="col-lg-4 col-md-6 portfolio-item filter-app">
-              <img src="assets/img/programma.jpeg" class="img-fluid" alt="">
+              <img src="<?php echo $arrayProgramma[$i]->getImmagine();?>" class="img-fluid" alt="">
               <div class="portfolio-info">
                 <h3><?php echo $arrayProgramma[$i]->getTitolo();?></h3>
                 <h6>Fascia Oraria: <?php echo $arrayProgramma[$i]->getFasciaOraria();?></h6>
@@ -161,7 +162,7 @@
             </div>
           <?php }?>
           <div class="col-lg-4 col-md-6 portfolio-item filter-app">
-            <img src="assets/img/programma.jpeg" class="img-fluid" alt="">
+            <img src="assets/img/Programma/premiazione.jpg" class="img-fluid" alt="">
             <div class="portfolio-info">
               <h3>Speech premiazione</h3>
               <p><b>Possono partecipare solo professori o liberi professionisti</b></p>

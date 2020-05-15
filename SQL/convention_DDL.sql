@@ -40,6 +40,7 @@ CREATE TABLE IF NOT EXISTS  Partecipante(
 CREATE TABLE IF NOT EXISTS Relatore(
     idRel VARCHAR(10) NOT NULL,
     cognomeRel VARCHAR(30) NULL,
+    immagineRel VARHCAR(50) NULL,
     nomeRel VARCHAR(30) NULL,
     idAzienda VARCHAR(10) NULL,
     PRIMARY KEY(idRel)
@@ -50,7 +51,9 @@ CREATE TABLE IF NOT EXISTS  Speech(
     idSpeech VARCHAR(10) NOT NULL,
     titolo VARCHAR(30) NULL,
     argomento VARCHAR(30) NULL,
+    immagine VARCHAR(50) NULL,
     Durata INT NULL,
+    numPosti INT NULL,
     PRIMARY KEY(idSpeech)
 );
 
