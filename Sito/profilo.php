@@ -74,6 +74,8 @@
         $arrayComposto = array();
         $arrayProgramma = array();
         $arrayProgrammaTemporaneo = array();
+        $arrayID = array();
+
 
         $nomeUtente = "";
         $cognomeUtente = "";
@@ -126,8 +128,17 @@
           array_push($arrayProgrammaTemporaneo,$nuovoOggetto);
         }
 
+        $queryPartecipante = "SELECT Partecipante.idPart FROM Partecipante;";
+        $risultatoPartecipante = $connessione->query($queryPartecipante);
+        while($ris = $risultatoPartecipante->fetch_assoc()){
+          $risId = $ris["idPart"];
+          array_push($arrayID,$risId);
+        }
+
         if(isset($_POST['accedi']) || isset($_POST['acquista'])){
           if(isset($_POST['acquista'])){
+              $string = count($arrayID) + 1;
+              $totPersone = count($arrayComposto);
               $checkbox = $_POST['interessi'];
               for($i = 0; $i < sizeof($checkbox); $i++){
                 $persone = $totPersone + 1;
@@ -136,9 +147,8 @@
                 if(isset($_POST['acquista'])){
                   $posti = $arrayProgramma[$i]->getNPosti() - 1;
                   $nome = $arrayProgramma[$i]->getIdSala();
-                  $query = $mysqli->prepare("UPDATE Sala SET nPostiSala = ?, WHERE idProgramma = ?");
-                  $query->bind_param('ssi',$posti,$nome);
-                  $result = $query->execute();
+                  $query = "UPDATE Sala SET nPostiSala = ".$posti." , WHERE idProgramma = '".$nome."'";
+                  $connessione->query($query);
                 }
               }
           }
@@ -208,18 +218,21 @@
                                     <br>
                                     <p>Programmi:</p>
                                     <?php
-                                      for($j = 0; $j < count($arrayComposto); $j++){
-                                          $nomeComposto = $arrayComposto[$j]->getIdProgramma();
-                                          $partComposto = $arrayComposto[$j]->getIdPart();
-                                          if($nomeUtente == $partComposto){
-                                            for($i = 0; $i < count($arrayProgramma); $i++){
-                                              $nomeProgramma = $arrayProgramma[$i]->getIdProgramma();
-                                                if($nomeProgramma == $nomeComposto){
-                                                  echo '<input type="checkbox" name="interessi[]" value="'.$nomeProgramma.'">'.$arrayProgramma[$i]->getTitolo().'<br>';
-                                                }
-                                            }
-                                          }
-                                      }?>
+                                      $arrayCompostoTemp = array();
+                                      $queryCompostoTemp = "SELECT * FROM Composto WHERE idPart = '".$nomeUtente."';";
+                                      $risultato = $connessione->query($queryCompostoTemp);
+                                      while($news2 = $risultato->fetch_array(MYSQLI_NUM)){
+                                        array_push($arrayCompostoTemp,$news2[1]);
+                                      }
+
+                                      $queryProgramma = "SELECT * FROM Programma,Speech,Sala WHERE Programma.idSpeech = Speech.idSpeech AND Programma.idSala = Sala.idSala;";
+                                      $risultato = $connessione->query($queryProgramma);
+                                      while($whileProgramma = $risultato->fetch_array(MYSQLI_NUM)){
+                                        if(!in_array($whileProgramma[0],$arrayCompostoTemp)){
+                                          echo '<input type="checkbox" name="interessi[]" value="'.$whileProgramma[0].'">'.$whileProgramma[5].'<br>';
+                                        }
+                                      }
+                                    ?>
                                     <div class="text-center" ><input type="submit" value="acquista" name="acquista"></div>
                                 </div>
                               </form>
