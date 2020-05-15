@@ -8,7 +8,7 @@
 
   $queryProgramma = "SELECT * FROM Programma,Speech,Sala WHERE Programma.idSpeech = Speech.idSpeech AND Programma.idSala = Sala.idSala;";
   $risultatoProgramma = $connessione->query($queryProgramma);
-  while($ris = $risQuery->fetch_assoc()){
+  while($ris = $risultatoProgramma->fetch_assoc()){
     $risIdProgr = $ris["idProgramma"];
     $risFascia = $ris["fasciaOraria"];
     $risTitolo = $ris["titolo"];

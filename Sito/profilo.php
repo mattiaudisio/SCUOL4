@@ -106,7 +106,7 @@
 
         $queryProgramma = "SELECT * FROM Programma,Speech,Sala WHERE Programma.idSpeech = Speech.idSpeech AND Programma.idSala = Sala.idSala;";
         $risultatoProgramma = $connessione->query($queryProgramma);
-        while($ris = $risQuery->fetch_assoc()){
+        while($ris = $risultatoProgramma->fetch_assoc()){
           $risIdProgr = $ris["idProgramma"];
           $risFascia = $ris["fasciaOraria"];
           $risTitolo = $ris["titolo"];
@@ -115,17 +115,6 @@
           $risImmagine = $ris["immagine"];
           $nuovoOggetto = new Programma($risFascia,$risTitolo,$risPosti,$risIdProgr,$risIdSala,$risImmagine);
           array_push($arrayProgramma,$nuovoOggetto);
-        }
-        $queryProgramma = "SELECT * FROM Programma,Speech,Sala WHERE Programma.idSpeech = Speech.idSpeech AND Programma.idSala = Sala.idSala;";
-        $risultatoProgramma = $connessione->query($queryProgramma);
-        while($ris = $risultatoProgramma->fetch_assoc()){
-          $risIdProgr = $ris["idProgramma"];
-          $risFascia = $ris["fasciaOraria"];
-          $risTitolo = $ris["titolo"];
-          $risPosti = $ris["nPostiSala"];
-          $risIdSala = $ris["idSala"];
-          $nuovoOggetto = new Programma($risFascia,$risTitolo,$risPosti,$risIdProgr,$risIdSala);
-          array_push($arrayProgrammaTemporaneo,$nuovoOggetto);
         }
 
         $queryPartecipante = "SELECT Partecipante.idPart FROM Partecipante;";
