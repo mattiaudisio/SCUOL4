@@ -10,7 +10,7 @@
   $arrayProgramma = array();
 
   $querySpeech = "SELECT Speech.titolo, Speech.argomento FROM Speech;";
-  $queryRelatori = "SELECT Relatore.cognomeRel, Relatore.nomeRel, Relatore.idAzienda FROM Relatore;";
+  $queryRelatori = "SELECT * FROM Relatore;";
   $queryProgramma = "SELECT * FROM Programma,Speech,Sala WHERE Programma.idSpeech = Speech.idSpeech AND Programma.idSala = Sala.idSala;";
 
 
@@ -28,7 +28,8 @@
       $risCognome = $ris["cognomeRel"];
       $risNome = $ris["nomeRel"];
       $risAzienda = $ris["idAzienda"];
-      $nuovoOggetto = new Relatore($risCognome,$risNome,$risAzienda);
+      $risImmagine = $ris["immagineRel"];
+      $nuovoOggetto = new Relatore($risCognome,$risNome,$risAzienda,$risImmagine);
       array_push($arrayRelatore,$nuovoOggetto);
   }
   while($ris = $risultatoProgramma->fetch_assoc()){
@@ -126,7 +127,7 @@
             <div class="col-lg-3 col-md-6 d-flex align-items-stretch">
               <div class="member" data-aos="fade-up">
                 <div class="member-img">
-                  <img src="assets/img/speaker.jpg" class="img-fluid" alt="">
+                  <img src="<?php echo $arrayRelatore[$i]->getImmagine();?>" class="img-fluid" alt="">
                 </div>
                 <div class="member-info">
                   <h4><?php echo $arrayRelatore[$i]->getNome();?> <?php echo $arrayRelatore[$i]->getCognome();?></h4>
