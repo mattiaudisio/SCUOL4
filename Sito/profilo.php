@@ -136,26 +136,33 @@
         }
 
         if(isset($_POST['accedi']) || isset($_POST['acquista'])){
-          if(isset($_POST['acquista'])){
-              $string = count($arrayID) + 1;
-              $totPersone = count($arrayComposto);
-              $checkbox = $_POST['interessi'];
-              for($i = 0; $i < sizeof($checkbox); $i++){
-                $persone = $totPersone + 1;
-                $query = "INSERT INTO Composto(idPart, idProgramma, nPartecipanti) VALUES  ('".$string."','".$checkbox[$i]."','".$persone."');";
-                $connessione->query($query);
-                if(isset($_POST['acquista'])){
-                  $posti = $arrayProgramma[$i]->getNPosti() - 1;
-                  $nome = $arrayProgramma[$i]->getIdSala();
-                  $query = "UPDATE Sala SET nPostiSala = ".$posti." , WHERE idProgramma = '".$nome."'";
-                  $connessione->query($query);
-                }
-              }
-          }
           if(!empty($_POST['mail']) && !empty($_POST['password']) ){
             $mailUtente = $_SESSION['mail'];
             $passwordUtente = $_SESSION['password'];
-            $passwordCifrata = hash('sha256',$passwordUtente); ?>
+            $passwordCifrata = hash('sha256',$passwordUtente);
+            if(isset($_POST['acquista'])){
+               $mailUtente = $_SESSION['mail'];
+               $string = 0;
+               for($i = 0; $i < count($arrayPartecipante); $i++){
+                 $mailPart = $arrayPartecipante[$i]->getMailPart();
+                 if($mailUtente == $mailPart){
+                   $string = $arrayPartecipante[$i]->getIdPart();
+                   $totPersone = count($arrayComposto);
+                   $checkbox = $_POST['interessi'];
+                   for($i = 0; $i < sizeof($checkbox); $i++){
+                     $persone = $totPersone + 1;
+                     $query = "INSERT INTO Composto(idPart, idProgramma, nPartecipanti) VALUES  ('".$string."','".$checkbox[$i]."','".$persone."');";
+                     $connessione->query($query);
+                     if(isset($_POST['acquista'])){
+                       $posti = $arrayProgramma[$i]->getNPosti() - 1;
+                       $nome = $arrayProgramma[$i]->getIdSala();
+                       $query = "UPDATE Sala SET nPostiSala = ".$posti." , WHERE idProgramma = '".$nome."'";
+                       $connessione->query($query);
+                     }
+                   }
+                 }
+               }
+            }?>
             <section id="about-us" class="about-us">
               <div class="container">
                 <div class="row no-gutters">
@@ -210,6 +217,12 @@
                               </div>
                               <form action="profilo.php" method="post">
                                 <div class="container" >
+                                    <p>Mail:</p>
+                                    <input type="email" name="mail"  class="form-control" id="email" placeholder="Inserisci la tua mail" data-rule="minlen:4" data-msg="Inserisci la tua mail" />
+                                    <br>
+                                    <p>Password:</p>
+                                    <input type="password" name="password"  class="form-control" id="password" placeholder="Inserisci una password" data-rule="minlen:4" data-msg="Inserisci una password" />
+                                    <br>
                                     <p>Programmi:</p>
                                     <?php
                                       $arrayCompostoTemp = array();
