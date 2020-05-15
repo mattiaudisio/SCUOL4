@@ -106,16 +106,16 @@
 
         $queryProgramma = "SELECT * FROM Programma,Speech,Sala WHERE Programma.idSpeech = Speech.idSpeech AND Programma.idSala = Sala.idSala;";
         $risultatoProgramma = $connessione->query($queryProgramma);
-        while($ris = $risultatoProgramma->fetch_assoc()){
+        while($ris = $risQuery->fetch_assoc()){
           $risIdProgr = $ris["idProgramma"];
           $risFascia = $ris["fasciaOraria"];
           $risTitolo = $ris["titolo"];
-          $risPosti = $ris["nPostiSala"];
+          $risPosti = $ris["numPosti"];
           $risIdSala = $ris["idSala"];
-          $nuovoOggetto = new Programma($risFascia,$risTitolo,$risPosti,$risIdProgr,$risIdSala);
+          $risImmagine = $ris["immagine"];
+          $nuovoOggetto = new Programma($risFascia,$risTitolo,$risPosti,$risIdProgr,$risIdSala,$risImmagine);
           array_push($arrayProgramma,$nuovoOggetto);
         }
-
         $queryProgramma = "SELECT * FROM Programma,Speech,Sala WHERE Programma.idSpeech = Speech.idSpeech AND Programma.idSala = Sala.idSala;";
         $risultatoProgramma = $connessione->query($queryProgramma);
         while($ris = $risultatoProgramma->fetch_assoc()){
