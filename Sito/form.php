@@ -149,9 +149,10 @@
                                   $risIdProgr = $ris["idProgramma"];
                                   $risFascia = $ris["fasciaOraria"];
                                   $risTitolo = $ris["titolo"];
-                                  $risPosti = $ris["nPostiSala"];
+                                  $risPosti = $ris["numPosti"];
                                   $risIdSala = $ris["idSala"];
-                                  $nuovoOggetto = new Programma($risFascia,$risTitolo,$risPosti,$risIdProgr,$risIdSala);
+                                  $risImmagine = $ris["immagine"];
+                                  $nuovoOggetto = new Programma($risFascia,$risTitolo,$risPosti,$risIdProgr,$risIdSala,$risImmagine);
                                   array_push($arrayProgramma,$nuovoOggetto);
                                 }
                               for($j = 0; $j < sizeof($checkbox); $j++){
