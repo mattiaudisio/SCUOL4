@@ -40,7 +40,7 @@ CREATE TABLE IF NOT EXISTS  Partecipante(
 CREATE TABLE IF NOT EXISTS Relatore(
     idRel VARCHAR(10) NOT NULL,
     cognomeRel VARCHAR(30) NULL,
-    immagineRel VARHCAR(50) NULL,
+    immagineRel VARCHAR(50) NULL,
     nomeRel VARCHAR(30) NULL,
     idAzienda VARCHAR(10) NULL,
     PRIMARY KEY(idRel)
