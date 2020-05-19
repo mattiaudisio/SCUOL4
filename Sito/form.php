@@ -164,8 +164,8 @@
                                          </div>
                               <?php
                                     $posti = $arrayProgramma[$i]->getNPosti() - 1;
-                                    $nome = $arrayProgramma[$i]->getIdSala();
-                                    $query = "UPDATE Sala SET nPostiSala = ".$posti." , WHERE idProgramma = '".$nome."'";
+                                    $immagine = $arrayProgramma[$i]->getImmagine();
+                                    $query = "UPDATE Speech SET numPosti = ".$posti." , WHERE immagine = '".$nome."'";
                                     $connessione->query($query);
                                   }
                                 }
@@ -184,7 +184,7 @@
                   </section>
                 <?php }
           }else{
-            echo "<p align='center'><b>COMPILA TUTTI I CAMPI</b></p><br><p align='center'>Compila tutti i campi per iscriverti e ordinare il tuo biglietto</p>";
+            echo "<p align='center'><b>COMPILA TUTTI I CAMPI</b></p><br><p align='center'>Compila tutti i campi per iscriverti e ordinare il tuo biglietto.<br><a href='iscriviti.php'>Torna indietro</a></p>";
           }
         }
       }
