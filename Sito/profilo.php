@@ -154,7 +154,9 @@
             }
             $controllo = 0;
             for($i = 0; $i < count($arrayPartecipante); $i++){
-              if($arrayPartecipante[$i]->getMailPart() == $mailUtente && $arrayPartecipante[$i]->getPasswordPart() == $passwordUtente){
+              $mail = $arrayPartecipante[$i]->getMailPart();
+              $password = $arrayPartecipante[$i]->getPasswordPart();
+              if( $mail == $_POST['mail'] &&  $password == $_POST['password']){
                   $controllo = 1;
               }
             }
