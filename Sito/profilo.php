@@ -122,7 +122,7 @@
           $risId = $ris["idPart"];
           array_push($arrayID,$risId);
         }
-        
+
         if(isset($_POST['accedi']) || isset($_POST['acquista'])){
           if(!empty($_POST['mail']) && !empty($_POST['password']) ){
             $mailUtente = $_SESSION['mail'];
