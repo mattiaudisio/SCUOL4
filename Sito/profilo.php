@@ -116,14 +116,13 @@
           $nuovoOggetto = new Programma($risFascia,$risTitolo,$risPosti,$risIdProgr,$risIdSala,$risImmagine);
           array_push($arrayProgramma,$nuovoOggetto);
         }
-
         $queryPartecipante = "SELECT Partecipante.idPart FROM Partecipante;";
         $risultatoPartecipante = $connessione->query($queryPartecipante);
         while($ris = $risultatoPartecipante->fetch_assoc()){
           $risId = $ris["idPart"];
           array_push($arrayID,$risId);
         }
-
+        
         if(isset($_POST['accedi']) || isset($_POST['acquista'])){
           if(!empty($_POST['mail']) && !empty($_POST['password']) ){
             $mailUtente = $_SESSION['mail'];
@@ -156,110 +155,102 @@
             for($i = 0; $i < count($arrayPartecipante); $i++){
               $mail = $arrayPartecipante[$i]->getMailPart();
               $password = $arrayPartecipante[$i]->getPasswordPart();
-              if( $mail == $_POST['mail'] &&  $password == $_POST['password']){
-                  $controllo = 1;
-              }
-            }
-            if($controllo == 1){ ?>
-              <section id="about-us" class="about-us">
-                <div class="container">
-                  <div class="row no-gutters">
-                    <div class="image col-xl-5 d-flex align-items-stretch justify-content-center justify-content-lg-start" data-aos="fade-right" style="background-image: url(/Mattia/ProgettoSQL_Convention/Sito/assets/img/riepilogo.jpg);"></div>
-                      <div class="col-xl-7 pl-0 pl-lg-5 pr-lg-1 d-flex align-items-stretch">
-                            <?php
-                                  for($i = 0; $i < count($arrayPartecipante); $i++){
-                                    $MailUtenteFor = $arrayPartecipante[$i]->getMailPart();
-                                    $passwordUtente = $arrayPartecipante[$i]->getPasswordPart();
-                                        if($MailUtenteFor == $mailUtente  || $passwordUtente == $passwordCifrata){
-                                          $nomeUtente = $arrayPartecipante[$i]->getIdPart();
-                                          $cognomeUtente = $arrayPartecipante[$i]->getCognomePart();
-                                          $mailUtente = $arrayPartecipante[$i]->getMailPart(); ?>
-                                          <div class="content d-flex flex-column justify-content-center">
-                                              <h3 data-aos="fade-up"> <?php echo $arrayPartecipante[$i]->getNomePart(); ?> <?php echo $cognomeUtente;?></h3>
-                                              <p data-aos="fade-up"> <?php echo $mailUtente; ?>, <?php echo $arrayPartecipante[$i]->getTipologiaPart();?></p>
-                                              <div class="row">
-                                                <div class="col-md-6 icon-box" data-aos="fade-up">
-                                                  <h2>SPEECH</h2>
-                                                  <?php
-                                                   for($j = 0; $j < count($arrayComposto); $j++){
-                                                    for($z = 0; $z < count($arrayProgramma); $z++){
-                                                      $composto = $arrayComposto[$j]->getIdProgramma();
-                                                      $programma = $arrayProgramma[$z]->getIdProgramma();
-                                                      $composto2 = $arrayComposto[$j]->getIdPart();
-                                                      if($composto == $programma && $nomeUtente == $composto2){
-                                                        echo '<h4>'.$arrayProgramma[$z]->getTitolo().'</h4>';
-                                                        unset($arrayProgrammaTemporaneo[$z]);
-                                                      }
-                                                    }
-                                                  }
-                                                  $tipologia = $arrayPartecipante[$i]->getTipologiaPart();
-                                                  if($tipologia == "docente" || $tipologia == "liberoProfessionista" ){
-                                                       echo '<div class="col-md-6 icon-box" data-aos="fade-up">
-                                                               <h4>Speech Premiazione</h4>
-                                                               <p>Ordinato</p>
-                                                            </div>';
-                                                 }
-                                        }
-                                  } ?>
-                                    </div>
-                                  </div>
-                                </div><!-- End .content-->
-                              </div>
-                            </div>
-                            <br>
-                            <section id="contact" class="contact">
-                            <div class="row mt-5 justify-content-center" data-aos="fade-up">
-                              <div class="col-lg-10">
-                                <div class="section-title" data-aos="fade-up">
-                                  <h2>Acquista altri<strong>Biglietti</strong></h2>
-                                </div>
-                                <form action="profilo.php" method="post">
-                                  <div class="container" >
-                                      <p>Mail:</p>
-                                      <input type="email" name="mail"  class="form-control" id="email" placeholder="Inserisci la tua mail" data-rule="minlen:4" data-msg="Inserisci la tua mail" />
-                                      <br>
-                                      <p>Password:</p>
-                                      <input type="password" name="password"  class="form-control" id="password" placeholder="Inserisci una password" data-rule="minlen:4" data-msg="Inserisci una password" />
-                                      <br>
-                                      <p>Programmi:</p>
-                                      <?php
-                                        $arrayCompostoTemp = array();
-                                        $queryCompostoTemp = "SELECT * FROM Composto WHERE idPart = '".$nomeUtente."';";
-                                        $risultato = $connessione->query($queryCompostoTemp);
-                                        while($news2 = $risultato->fetch_array(MYSQLI_NUM)){
-                                          array_push($arrayCompostoTemp,$news2[1]);
-                                        }
+              if( $mail == $mailUtente &&  $password == $passwordCifrata){
+                  $controllo = 1;?>
+                  <section id="about-us" class="about-us">
+                    <div class="container">
+                      <div class="row no-gutters">
+                        <div class="image col-xl-5 d-flex align-items-stretch justify-content-center justify-content-lg-start" data-aos="fade-right" style="background-image: url(/Mattia/ProgettoSQL_Convention/Sito/assets/img/riepilogo.jpg);"></div>
+                          <div class="col-xl-7 pl-0 pl-lg-5 pr-lg-1 d-flex align-items-stretch">
+                          <?php
+                          $nomeUtente = $arrayPartecipante[$i]->getIdPart();
+                          $cognomeUtente = $arrayPartecipante[$i]->getCognomePart();
+                          $mailUtente = $arrayPartecipante[$i]->getMailPart(); ?>
+                          <div class="content d-flex flex-column justify-content-center">
+                              <h3 data-aos="fade-up"> <?php echo $arrayPartecipante[$i]->getNomePart(); ?> <?php echo $cognomeUtente;?></h3>
+                              <p data-aos="fade-up"> <?php echo $mailUtente; ?>, <?php echo $arrayPartecipante[$i]->getTipologiaPart();?></p>
+                              <div class="row">
+                                <div class="col-md-6 icon-box" data-aos="fade-up">
+                                  <h2>SPEECH</h2>
+                                  <?php
+                                   for($j = 0; $j < count($arrayComposto); $j++){
+                                    for($z = 0; $z < count($arrayProgramma); $z++){
+                                      $composto = $arrayComposto[$j]->getIdProgramma();
+                                      $programma = $arrayProgramma[$z]->getIdProgramma();
+                                      $composto2 = $arrayComposto[$j]->getIdPart();
+                                      if($composto == $programma && $nomeUtente == $composto2){
+                                        echo '<h4>'.$arrayProgramma[$z]->getTitolo().'</h4>';
+                                        unset($arrayProgrammaTemporaneo[$z]);
+                                      }
+                                    }
+                                  }
+                                  $tipologia = $arrayPartecipante[$i]->getTipologiaPart();
+                                  if($tipologia == "docente" || $tipologia == "liberoProfessionista" ){
+                                       echo '<div class="col-md-6 icon-box" data-aos="fade-up">
+                                               <h4>Speech Premiazione</h4>
+                                               <p>Ordinato</p>
+                                            </div>';
+                                 }?>
+                               </div>
+                             </div>
+                           </div><!-- End .content-->
+                         </div>
+                       </div>
+                       <br>
+                       <section id="contact" class="contact">
+                       <div class="row mt-5 justify-content-center" data-aos="fade-up">
+                         <div class="col-lg-10">
+                           <div class="section-title" data-aos="fade-up">
+                             <h2>Acquista altri<strong>Biglietti</strong></h2>
+                           </div>
+                           <form action="profilo.php" method="post">
+                             <div class="container" >
+                                 <p>Mail:</p>
+                                 <input type="email" name="mail"  class="form-control" id="email" placeholder="Inserisci la tua mail" data-rule="minlen:4" data-msg="Inserisci la tua mail" />
+                                 <br>
+                                 <p>Password:</p>
+                                 <input type="password" name="password"  class="form-control" id="password" placeholder="Inserisci una password" data-rule="minlen:4" data-msg="Inserisci una password" />
+                                 <br>
+                                 <p>Programmi:</p>
+                                 <?php
+                                   $arrayCompostoTemp = array();
+                                   $queryCompostoTemp = "SELECT * FROM Composto WHERE idPart = '".$nomeUtente."';";
+                                   $risultato = $connessione->query($queryCompostoTemp);
+                                   while($news2 = $risultato->fetch_array(MYSQLI_NUM)){
+                                     array_push($arrayCompostoTemp,$news2[1]);
+                                   }
 
-                                        $queryProgramma = "SELECT * FROM Programma,Speech,Sala WHERE Programma.idSpeech = Speech.idSpeech AND Programma.idSala = Sala.idSala;";
-                                        $risultato = $connessione->query($queryProgramma);
-                                        while($whileProgramma = $risultato->fetch_array(MYSQLI_NUM)){
-                                          if(!in_array($whileProgramma[0],$arrayCompostoTemp)){
-                                            echo '<input type="checkbox" name="interessi[]" value="'.$whileProgramma[0].'">'.$whileProgramma[5].'<br>';
-                                          }
-                                        }
-                                      ?>
-                                      <div class="text-center" ><input type="submit" value="acquista" name="acquista"></div>
-                                  </div>
-                                </form>
-                                <br>
-                              </div>
-                            </div>
-                            </section>
-                            <form action="Funzioni_PHP/logout.php" method="post">
-                              <input id="button" type="submit" name="logout" value="logout">
-                            </form>
-                          </div>
-                        </section>
-            <?php }else{
-                echo "<p align='center'><b>COMPILA TUTTI I CAMPI</b></p><br><p align='center'>Non abbiamo trovato nessun utente correlato a questa mail.<br>Se sei nuovo puoi iscriverti <a href='iscriviti.php'>qui</a></p>";
-                  }
+                                   $queryProgramma = "SELECT * FROM Programma,Speech,Sala WHERE Programma.idSpeech = Speech.idSpeech AND Programma.idSala = Sala.idSala;";
+                                   $risultato = $connessione->query($queryProgramma);
+                                   while($whileProgramma = $risultato->fetch_array(MYSQLI_NUM)){
+                                     if(!in_array($whileProgramma[0],$arrayCompostoTemp)){
+                                       echo '<input type="checkbox" name="interessi[]" value="'.$whileProgramma[0].'">'.$whileProgramma[5].'<br>';
+                                     }
+                                   }
+                                 ?>
+                                 <div class="text-center" ><input type="submit" value="acquista" name="acquista"></div>
+                             </div>
+                           </form>
+                           <br>
+                         </div>
+                       </div>
+                       </section>
+                       <form action="Funzioni_PHP/logout.php" method="post">
+                         <input id="button" type="submit" name="logout" value="logout">
+                       </form>
+                     </div>
+                   </section>
+
+              <?php  }
+                    }
+                    if($controllo == 0){
+                      echo "<p align='center'><b>COMPILA TUTTI I CAMPI</b></p><br><p align='center'>Non abbiamo trovato nessun utente correlato a questa mail.<br>Se sei nuovo puoi iscriverti <a href='iscriviti.php'>qui</a></p>";
+                    }
               }else{
                 echo "<p align='center'><b>COMPILA TUTTI I CAMPI</b></p><br><p align='center'>Compila tutti i campi per accedere al tuo account<br><a href='login.php'>Torna indietro</a></p>";
               }
           $connessione->close();
-          }
-          ?>
-
+          }?>
     </main><!-- End #main -->
     <!-- ======= Footer ======= -->
     <footer id="footer">
