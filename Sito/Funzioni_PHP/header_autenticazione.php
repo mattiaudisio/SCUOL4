@@ -1,7 +1,7 @@
 <?php
   session_start();
   if(!isset($_POST['mail']) || !isset($_POST['password'])){
-    header('location: Funzioni_PHP/login_failed.php');
+    header('location: /Mattia/ProgettoSQL_Convention/Sito/login_failed.php');
     exit;
   }else{
     $mail = $_POST['mail'];
