@@ -128,6 +128,8 @@
           array_push($arrayID,$risId);
         }
 
+
+
             $mailUtente = $_SESSION['mail_user'];
             $controllo = 0;
             for($i = 0; $i < count($arrayPartecipante); $i++){
