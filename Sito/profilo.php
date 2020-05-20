@@ -82,7 +82,6 @@
         $arrayProgrammaTemporaneo = array();
         $arrayID = array();
 
-
         $nomeUtente = "";
         $cognomeUtente = "";
         $mailUtente = "";
@@ -129,8 +128,6 @@
           array_push($arrayID,$risId);
         }
 
-        if(isset($_POST['accedi'])){
-          if(!empty($_POST['mail']) && !empty($_POST['password']) ){
             $mailUtente = $_SESSION['mail_user'];
             $controllo = 0;
             for($i = 0; $i < count($arrayPartecipante); $i++){
@@ -226,11 +223,8 @@
                     if($controllo == 0){
                       echo "<p align='center'><b>COMPILA TUTTI I CAMPI</b></p><br><p align='center'>Non abbiamo trovato nessun utente correlato a questa mail.<br>Se sei nuovo puoi iscriverti <a href='iscriviti.php'>qui</a></p>";
                     }
-              }else{
-                echo "<p align='center'><b>COMPILA TUTTI I CAMPI</b></p><br><p align='center'>Compila tutti i campi per accedere al tuo account<br><a href='login.php'>Torna indietro</a></p>";
-              }
           $connessione->close();
-          }?>
+          ?>
     </main><!-- End #main -->
     <!-- ======= Footer ======= -->
     <footer id="footer">

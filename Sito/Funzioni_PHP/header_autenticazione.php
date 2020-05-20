@@ -1,6 +1,6 @@
 <?php
   include_once(__DIR__.'/connessione.php');
-  $connesione = Connessione::apriConnessione();
+  $connessione = Connessione::apriConnessione();
 
   session_start();
 
@@ -15,8 +15,8 @@
       $password = hash('sha256',$_POST['password']);
 
       $query ="SELECT Partecipante.mailPart, Partecipante.passwordPart FROM Partecipante WHERE Partecipante.mailPart='".$mail."';";
-      $queryLogin = $connesione->query($query);
-      if($row = $queryLogin->fetch_row()){
+      $queryLogin = $connessione->query($query);
+      while($row = $queryLogin->fetch_assoc()){
         if(password_verify($password,$row[1])){
           $_SESSION['mail_user'] = $mail;
           header("location: profilo.php");
@@ -24,9 +24,6 @@
           $errore = "Mail o password non corrette";
           header("location: login.php");
         }
-      }else{
-        $errore = "Mail o password non corrette";
-        header("location: login.php");
       }
     }
     $connessione->close();
