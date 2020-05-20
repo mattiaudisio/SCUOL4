@@ -129,7 +129,6 @@
             $passwordUtente = $_SESSION['password'];
             $passwordCifrata = hash('sha256',$passwordUtente);
             if(isset($_POST['acquista'])){
-               $mailUtente = $_SESSION['mail'];
                $string = 0;
                for($i = 0; $i < count($arrayPartecipante); $i++){
                  $mailPart = $arrayPartecipante[$i]->getMailPart();
@@ -139,14 +138,12 @@
                    $checkbox = $_POST['interessi'];
                    for($i = 0; $i < sizeof($checkbox); $i++){
                      $persone = $totPersone + 1;
-                     $query = "INSERT INTO Composto(idPart, idProgramma, nPartecipanti) VALUES  ('".$string."','".$checkbox[$i]."','".$persone."');";
-                     $connessione->query($query);
-                     if(isset($_POST['acquista'])){
-                       $posti = $arrayProgramma[$i]->getNPosti() - 1;
-                       $nome = $arrayProgramma[$i]->getIdSala();
-                       $query = "UPDATE Sala SET nPostiSala = ".$posti." , WHERE idProgramma = '".$nome."'";
-                       $connessione->query($query);
-                     }
+                     $queryInserimento = "INSERT INTO Composto(idPart, idProgramma, nPartecipanti) VALUES  ('".$string."','".$checkbox[$i]."','".$persone."');";
+                     $connessione->query($queryInserimento);
+                     $posti = $arrayProgramma[$i]->getNPosti() - 1;
+                     $nome = $arrayProgramma[$i]->getIdSala();
+                     $queryUpdate = "UPDATE Sala SET nPostiSala = ".$posti." , WHERE idProgramma = '".$nome."'";
+                     $connessione->query($queryUpdate);
                    }
                  }
                }

@@ -1,9 +1,15 @@
 <?php
-    $connessione = new mysqli("localhost", "root", "", "5C_Convention");
+    Class Connesione{
+        static function apriConnessione(){
+          $connessione = new mysqli("localhost", "root", "", "5C_Convention");
 
-    if ($connessione->connect_errno) {
+          if ($connessione->connect_errno) {
             echo "Connessione fallita: ". $connessione->connect_error . ".";
-    }
+          }
 
-    $connessione->query("SET NAMES 'utf8'");
+          $connessione->query("SET NAMES 'utf8'");
+
+          return $connessione;
+        }
+    }
 ?>
