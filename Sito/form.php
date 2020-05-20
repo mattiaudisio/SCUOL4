@@ -166,8 +166,8 @@
                                          </div>
                               <?php
                                     $posti = $arrayProgramma[$i]->getNPosti() - 1;
-                                    $immagine = $arrayProgramma[$i]->getImmagine();
-                                    $query = "UPDATE Speech SET numPosti = ".$posti."  WHERE immagine = '".$immagine."'";
+                                    $titolo = $arrayProgramma[$i]->getTitolo();
+                                    $query = "UPDATE Speech SET numPosti = ".$posti."  WHERE titolo = '".$titolo."'";
                                     $connessione->query($query);
                                   }
                                 }
