@@ -3,7 +3,7 @@
 
     static function aquistaSpeech(){
       include_once(__DIR__.'/connesione.php');
-      $connesione = Connesione::apriConnessione();
+      $connessione = Connessione::apriConnessione();
 
       $errore = "";
 
@@ -14,21 +14,18 @@
         }else{
           $mail = $_POST['mail'];
           $password = $_POST['password'];
-          $queryLogin = $connesione->query("SELECT Partecipante.mailPart, Partecipante.passwordPart FROM Partecipante WHERE mailPart='".$mail."'");
-          if($row = $queryLogin->fetch_row()){
+          $queryLogin = $connessione->query("SELECT Partecipante.mailPart, Partecipante.passwordPart, Partecipante.idPart FROM Partecipante WHERE mailPart='".$mail."'");
+          while($row = $queryLogin->fetch_assoc()){
               if(password_verify($password,$row[1])){
                   $passwordCifrata = hash('sha256',$_POST['password']);
                   $checkbox = $_POST['interessi'];
-                  $string = count($arrayID) + 1;
-                  $totPersone = count($arrayComposto);
-                  $dml1 = "INSERT INTO Partecipante(idPart, cognomePart, nomePart, mailPart, tipologiaPart,passwordPart) VALUES ('".$string."','".$_POST["cognome"]."','".$_POST["nome"]."','".$_POST["mail"]."','".$_POST["tipologia"]."','".$passwordCifrata."');";
                   if($connessione->query($dml1) === TRUE){
                     for($i = 0; $i < sizeof($checkbox); $i++){
-                      $persone = $totPersone + 1;
-                      $query = "INSERT INTO Composto(idPart, idProgramma, nPartecipanti) VALUES  ('".$string."','".$checkbox[$i]."','".$persone."');";
+                      $query = "INSERT INTO Composto(idPart, idProgramma, nPartecipanti) VALUES  ('".$row[2]."','".$checkbox[$i]."','".$persone."');";
                       $connessione->query($query);
                     }
                   }
+                  $queryEliminazionePosti = $connessione->query("SELECT ");
                   header("location: profilo.php");
               }else{
                 $errore = "Errore durante l'acquisto"
