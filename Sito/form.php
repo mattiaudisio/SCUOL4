@@ -71,9 +71,9 @@
 
   <main id="main">
     <?php
-      include 'Funzioni_PHP/connessione.php';
-      include 'Funzioni_PHP/programma.php';
-      include 'Funzioni_PHP/composto.php';
+      include_once(__DIR__.'Funzioni_PHP/connessione.php');
+      include_once(__DIR__.'Funzioni_PHP/programma.php');
+      include_once(__DIR__.'Funzioni_PHP/composto.php');
 
       $prova = 0;
       $arrayID = array();
