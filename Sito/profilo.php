@@ -131,11 +131,9 @@
 
 
             $mailUtente = $_SESSION['mail_user'];
-            $controllo = 0;
             for($i = 0; $i < count($arrayPartecipante); $i++){
               $mail = $arrayPartecipante[$i]->getMailPart();
-              if( $mail == $mailUtente){
-                  $controllo = 1;?>
+              if( $mail == $mailUtente){  ?>
                   <section id="about-us" class="about-us">
                     <div class="container">
                       <div class="row no-gutters">
@@ -221,9 +219,6 @@
                    </section>
 
               <?php  }
-                    }
-                    if($controllo == 0){
-                      echo "<p align='center'><b>COMPILA TUTTI I CAMPI</b></p><br><p align='center'>Non abbiamo trovato nessun utente correlato a questa mail.<br>Se sei nuovo puoi iscriverti <a href='iscriviti.php'>qui</a></p>";
                     }
           $connessione->close();
           ?>

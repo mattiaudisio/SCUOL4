@@ -106,7 +106,7 @@
         <div class="section-title" data-aos="fade-up">
           <h2><strong>ACCEDI</strong></h2>
         </div>
-        <form action="profilo.php" method="post">
+        <form action="Funzioni_PHP/header_autenticazione.php" method="post">
           <div class="container" >
               <p>Mail:</p>
               <input type="email" name="mail"  class="form-control" id="mail" placeholder="Inserisci la tua mail" data-rule="minlen:4" data-msg="Inserisci la tua mail" />

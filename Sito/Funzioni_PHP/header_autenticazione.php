@@ -14,21 +14,20 @@
       $mail = $_POST['mail'];
       $password = hash('sha256',$_POST['password']);
 
-      $query ="SELECT Partecipante.mailPart, Partecipante.passwordPart FROM Partecipante WHERE Partecipante.mailPart='".$mail."';";
-      $queryLogin = $connessione->query($query);
-      while($row = $queryLogin->fetch_assoc()){
+      $queryLogin = $connessione->query("SELECT Partecipante.mailPart, Partecipante.passwordPart FROM Partecipante WHERE Partecipante.mailPart='".$mail."';");
+      if($row = $queryLogin->fetch_row()){
         if(password_verify($password,$row[1])){
-          $_SESSION['mail_user'] = $mail;
-          header("location: ../Sito/profilo.php");
-        }else{
           $errore = "Mail o password non corrette";
-          header("location: ../Sito/login.php");
+          header("location: ../Sito/index.php");
+        }else{
+          $_SESSION['mail_user'] = $mail;
+          header("location: ../profilo.php");
         }
       }
     }
     $connessione->close();
   }else{
     $errore = "Mail o password non corrette";
-    header("location: ../Sito/login.php");
+    header("location: ../Sito/index.php");
   }
 ?>
