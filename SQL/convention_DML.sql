@@ -23,15 +23,15 @@ INSERT INTO Azienda(idAzienda, indirizzoAzienda, telefonoAzienda) VALUES
 	('Apple','Via Azienda 7','0175125837');
 
 INSERT INTO Partecipante(idPart, cognomePart, nomePart, mailPart, tipologiaPart,passwordPart) VALUES
-	('01','Rossi','Marco','par1@gmail.com','Studente','password123'),
-	('02','Bianchi','Matteo','par2@gmail.com','Docente','password123'),
-	('03','Verdi','Luca','par3@gmail.com','Libero Professionista','password123'),
-	('04','Gialli','Mattia','par4@gmail.com','Studente','password123'),
-	('05','Viola','Francesco','par5@gmail.com','Docente','password123'),
-	('06','Verde','Nicola','par6@gmail.com','Docente','password123'),
-	('07','Rossi','Stefano','par7@gmail.com','Libero Professionista','password123'),
-	('08','Rossi','Andrea','par8@gmail.com','Libero Professionista','password123'),
-	('09','Longo','Lucio','par9@gmail.com','Docente','password123');
+	('01','Rossi','Marco','par1@gmail.com','Studente','ef92b778bafe771e89245b89ecbc08a44a4e166c06659911881f383d4473e94f'),
+	('02','Bianchi','Matteo','par2@gmail.com','Docente','ef92b778bafe771e89245b89ecbc08a44a4e166c06659911881f383d4473e94f'),
+	('03','Verdi','Luca','par3@gmail.com','Libero Professionista','ef92b778bafe771e89245b89ecbc08a44a4e166c06659911881f383d4473e94f'),
+	('04','Gialli','Mattia','par4@gmail.com','Studente','ef92b778bafe771e89245b89ecbc08a44a4e166c06659911881f383d4473e94f'),
+	('05','Viola','Francesco','par5@gmail.com','Docente','ef92b778bafe771e89245b89ecbc08a44a4e166c06659911881f383d4473e94f'),
+	('06','Verde','Nicola','par6@gmail.com','Docente','ef92b778bafe771e89245b89ecbc08a44a4e166c06659911881f383d4473e94f'),
+	('07','Rossi','Stefano','par7@gmail.com','Libero Professionista','ef92b778bafe771e89245b89ecbc08a44a4e166c06659911881f383d4473e94f'),
+	('08','Rossi','Andrea','par8@gmail.com','Libero Professionista','ef92b778bafe771e89245b89ecbc08a44a4e166c06659911881f383d4473e94f'),
+	('09','Longo','Lucio','par9@gmail.com','Docente','ef92b778bafe771e89245b89ecbc08a44a4e166c06659911881f383d4473e94f');
 
 INSERT INTO Speech(idSpeech, titolo, argomento, immagine ,Durata, numPosti) VALUES
 	('Speech1','Manjaro','Rilasciato Manjaro 19.0 Kyria','assets/img/Programma/manjaro.png',1234,50),

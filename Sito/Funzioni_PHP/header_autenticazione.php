@@ -14,7 +14,8 @@
       $mail = $_POST['mail'];
       $password = hash('sha256',$_POST['password']);
 
-      $queryLogin = $connesione->query("SELECT Partecipante.mailPart, Partecipante.passwordPart FROM Partecipante WHERE Partecipante.mailPart='".$mail."'");
+      $query ="SELECT Partecipante.mailPart, Partecipante.passwordPart FROM Partecipante WHERE Partecipante.mailPart='".$mail."';";
+      $queryLogin = $connesione->query($query);
       if($row = $queryLogin->fetch_row()){
         if(password_verify($password,$row[1])){
           $_SESSION['mail_user'] = $mail;
