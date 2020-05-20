@@ -167,7 +167,7 @@
                               <?php
                                     $posti = $arrayProgramma[$i]->getNPosti() - 1;
                                     $immagine = $arrayProgramma[$i]->getImmagine();
-                                    $query = "UPDATE Speech SET numPosti = ".$posti." , WHERE immagine = '".$immagine."'";
+                                    $query = "UPDATE Speech SET numPosti = ".$posti."  WHERE immagine = '".$immagine."'";
                                     $connessione->query($query);
                                   }
                                 }
