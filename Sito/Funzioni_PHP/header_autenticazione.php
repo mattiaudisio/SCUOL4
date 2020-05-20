@@ -9,7 +9,7 @@
   if(isset($_POST['accedi'])){
     if(empty($_POST['mail']) || empty($_POST['password']) ){
       $errore = "Mail o password non valida";
-      header("location: ../login.php");
+      header("location: ../Sito/login.php");
     }else{
       $mail = $_POST['mail'];
       $password = hash('sha256',$_POST['password']);
@@ -19,16 +19,16 @@
       while($row = $queryLogin->fetch_assoc()){
         if(password_verify($password,$row[1])){
           $_SESSION['mail_user'] = $mail;
-          header("location: ../profilo.php");
+          header("location: ../Sito/profilo.php");
         }else{
           $errore = "Mail o password non corrette";
-          header("location: ../login.php");
+          header("location: ../Sito/login.php");
         }
       }
     }
     $connessione->close();
   }else{
     $errore = "Mail o password non corrette";
-    header("location: login.php");
+    header("location: ../Sito/login.php");
   }
 ?>
