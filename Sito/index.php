@@ -4,6 +4,10 @@
   include 'Funzioni_PHP/speech.php';
   include 'Funzioni_PHP/programma.php';
 
+  if (session_status() != PHP_SESSION_NONE) {
+    session_start();
+  }
+
 
   $arraySpeech = array();
   $arrayRelatore = array();

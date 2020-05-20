@@ -4,6 +4,11 @@
   include 'Funzioni_PHP/speech.php';
   include 'Funzioni_PHP/programma.php';
 
+  if (session_status() != PHP_SESSION_NONE) {
+    session_start();
+    header("location: profilo.php");
+  }
+
   $arrayProgramma = array();
 
   $queryProgramma = "SELECT * FROM Programma,Speech,Sala WHERE Programma.idSpeech = Speech.idSpeech AND Programma.idSala = Sala.idSala;";
