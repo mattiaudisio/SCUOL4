@@ -1,5 +1,5 @@
 <?php
-    Class Connesione{
+    Class Connessione{
         static function apriConnessione(){
           $connessione = new mysqli("localhost", "root", "", "5C_Convention");
 

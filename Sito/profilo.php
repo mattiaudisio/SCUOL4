@@ -68,11 +68,13 @@
     </section><!-- End Hero -->
     <main id="main">
       <?php
-        include_once(__DIR__.'Funzioni_PHP/connessione.php');
-        include_once(__DIR__.'Funzioni_PHP/programma.php');
-        include_once(__DIR__.'Funzioni_PHP/composto.php');
-        include_once(__DIR__.'Funzioni_PHP/partecipante.php');
-        include_once(__DIR__.'Funzioni_PHP/header_autenticazione.php');
+        include_once(__DIR__.'/Funzioni_PHP/connessione.php');
+        include_once(__DIR__.'/Funzioni_PHP/programma.php');
+        include_once(__DIR__.'/Funzioni_PHP/composto.php');
+        include_once(__DIR__.'/Funzioni_PHP/partecipante.php');
+        include_once(__DIR__.'/Funzioni_PHP/header_autenticazione.php');
+
+        $connessione = Connessione::apriConnessione();
 
         $arrayPartecipante = array();
         $arrayComposto = array();
@@ -127,36 +129,13 @@
           array_push($arrayID,$risId);
         }
 
-        if(isset($_POST['accedi']) || isset($_POST['acquista'])){
+        if(isset($_POST['accedi'])){
           if(!empty($_POST['mail']) && !empty($_POST['password']) ){
-            $mailUtente = $_SESSION['mail'];
-            $passwordUtente = $_SESSION['password'];
-            $passwordCifrata = hash('sha256',$passwordUtente);
-            if(isset($_POST['acquista'])){
-               $string = 0;
-               for($i = 0; $i < count($arrayPartecipante); $i++){
-                 $mailPart = $arrayPartecipante[$i]->getMailPart();
-                 if($mailUtente == $mailPart){
-                   $string = $arrayPartecipante[$i]->getIdPart();
-                   $totPersone = count($arrayComposto);
-                   $checkbox = $_POST['interessi'];
-                   for($i = 0; $i < sizeof($checkbox); $i++){
-                     $persone = $totPersone + 1;
-                     $queryInserimento = "INSERT INTO Composto(idPart, idProgramma, nPartecipanti) VALUES  ('".$string."','".$checkbox[$i]."','".$persone."');";
-                     $connessione->query($queryInserimento);
-                     $posti = $arrayProgramma[$i]->getNPosti() - 1;
-                     $nome = $arrayProgramma[$i]->getIdSala();
-                     $queryUpdate = "UPDATE Sala SET nPostiSala = ".$posti." , WHERE idProgramma = '".$nome."'";
-                     $connessione->query($queryUpdate);
-                   }
-                 }
-               }
-            }
+            $mailUtente = $_SESSION['mail_user'];
             $controllo = 0;
             for($i = 0; $i < count($arrayPartecipante); $i++){
               $mail = $arrayPartecipante[$i]->getMailPart();
-              $password = $arrayPartecipante[$i]->getPasswordPart();
-              if( $mail == $mailUtente &&  $password == $passwordCifrata){
+              if( $mail == $mailUtente){
                   $controllo = 1;?>
                   <section id="about-us" class="about-us">
                     <div class="container">
@@ -204,7 +183,7 @@
                            <div class="section-title" data-aos="fade-up">
                              <h2>Acquista altri<strong>Biglietti</strong></h2>
                            </div>
-                           <form action="profilo.php" method="post">
+                           <form action="Funzioni_PHP/acquista.php" method="post">
                              <div class="container" >
                                  <p>Mail:</p>
                                  <input type="email" name="mail"  class="form-control" id="email" placeholder="Inserisci la tua mail" data-rule="minlen:4" data-msg="Inserisci la tua mail" />

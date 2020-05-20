@@ -1,13 +1,15 @@
 <?php
-  include_once(__DIR__.'Funzioni_PHP/connessione.php');
-  include_once(__DIR__.'Funzioni_PHP/relatore.php');
-  include_once(__DIR__.'Funzioni_PHP/speech.php');
-  include_once(__DIR__.'Funzioni_PHP/programma.php');
+  include_once(__DIR__.'/Funzioni_PHP/connessione.php');
+  include_once(__DIR__.'/Funzioni_PHP/speech.php');
+  include_once(__DIR__.'/Funzioni_PHP/relatore.php');
+  include_once(__DIR__.'/Funzioni_PHP/programma.php');
 
   if (session_status() != PHP_SESSION_NONE) {
     session_start();
     header("location: profilo.php");
   }
+
+  $connessione = Connessione::apriConnessione();
 
   $arrayProgramma = array();
 
