@@ -9,7 +9,7 @@
   if(isset($_POST['accedi'])){
     if(empty($_POST['mail']) || empty($_POST['password']) ){
       $errore = "Mail o password non valida";
-      header("location: ../Sito/login.php");
+      header("location: ../login.php");
     }else{
       $mail = $_POST['mail'];
       $password = hash('sha256',$_POST['password']);
@@ -18,7 +18,7 @@
       if($row = $queryLogin->fetch_row()){
         if(password_verify($password,$row[1])){
           $errore = "Mail o password non corrette";
-          header("location: ../Sito/index.php");
+          header("location: ../index.php");
         }else{
           $_SESSION['mail_user'] = $mail;
           header("location: ../profilo.php");
