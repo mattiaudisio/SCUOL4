@@ -9,9 +9,8 @@
   $connessione = Connessione::apriConnessione();
 
   if (session_status() == PHP_SESSION_NONE) {
-
     session_start();
-}
+  }
 ?>
 <html>
 <head>

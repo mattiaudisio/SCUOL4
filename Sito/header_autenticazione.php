@@ -16,7 +16,7 @@
       $queryLogin = $connessione->query("SELECT Partecipante.mailPart, Partecipante.passwordPart FROM Partecipante WHERE Partecipante.mailPart='".$mail."';");
 
       if($row = $queryLogin->fetch_assoc()){ //controllo se la mail esiste nel db
-        if(password_verify($password, $row['passwordPart'])){ //controllo password
+        if(password_verify($password, $row['passwordPart'])){ 
           $_SESSION['mail_user'] = $mail;
           header("location: utente/profilo.php");
         }else {
