@@ -9,8 +9,8 @@
 
       if(isset($_POST['acqusita'])){
         if(!empty($_POST['mail']) || !empty($_POST['password'])){
-          $errore = "Errore durante l'acquisto"
-          header("location: profilo.php");
+          $errore = "Errore durante l'acquisto";
+          header("location: ../Sito/profilo.php");
         }else{
           $mail = $_POST['mail'];
           $password = $_POST['password'];
@@ -23,7 +23,7 @@
                     for($i = 0; $i < sizeof($checkbox); $i++){
                       $query = "INSERT INTO Composto(idPart, idProgramma, nPartecipanti) VALUES  ('".$row[2]."','".$checkbox[$i]."','".$persone."');";
                       $connessione->query($query);
-                      $quey2 = "SELECT Speech.numPosti FROM Speech"
+                      $quey2 = "SELECT Speech.numPosti FROM Speech";
                       while($var = $quey2->fetch_assoc()){
                         $posti = $var[0] - 1;
                         $query3 = "UPDATE Speech SET numPosti = ".$posti."  WHERE titolo = '".$row[3]."'";
@@ -32,19 +32,16 @@
                     }
                   }
                   $queryEliminazionePosti = $connessione->query("SELECT ");
-                  header("location: profilo.php");
+                  header("location: ../Sito/profilo.php");
               }else{
-                $errore = "Errore durante l'acquisto"
-                header("location: profilo.php");
+                $errore = "Errore durante l'acquisto";
+                header("location: ../Sito/profilo.php");
               }
-          }else{
-              $errore = "Errore durante l'acquisto"
-              header("location: profilo.php");
           }
         }
       }else{
-        $errore = "Errore durante l'acquisto"
-        header("location: profilo.php");
+        $errore = "Errore durante l'acquisto";
+        header("location: ../Sito/profilo.php");
       }
     }
   }

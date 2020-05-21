@@ -106,7 +106,7 @@
         <div class="section-title" data-aos="fade-up">
           <h2><strong>ACCEDI</strong></h2>
         </div>
-        <form action="header_autenticazione.php" method="post">
+        <form action="profilo.php" method="post">
           <div class="container" >
               <p>Mail:</p>
               <input type="email" name="mail"  class="form-control" id="mail" placeholder="Inserisci la tua mail" data-rule="minlen:4" data-msg="Inserisci la tua mail" />
@@ -114,7 +114,7 @@
               <p>Password:</p>
               <input type="password" name="password"  class="form-control" id="password" placeholder="Inserisci una password" data-rule="minlen:4" data-msg="Inserisci una password" />
               <br>
-              <div class="text-center" ><input type="submit" value="accedi" name="accedi"></div>
+              <div class="text-center" ><input type="submit" name="submit" id="accedi"></div>
           </div>
         </form>
         <br>
