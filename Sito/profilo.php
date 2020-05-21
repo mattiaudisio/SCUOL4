@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 <?php
-  if (session_status() != PHP_SESSION_NONE) {
+  if (session_status() == PHP_SESSION_NONE) {
     session_start();
   }
 ?>
@@ -72,7 +72,7 @@
         include_once(__DIR__.'/Funzioni_PHP/programma.php');
         include_once(__DIR__.'/Funzioni_PHP/composto.php');
         include_once(__DIR__.'/Funzioni_PHP/partecipante.php');
-        include_once(__DIR__.'/Funzioni_PHP/header_autenticazione.php');
+        include_once(__DIR__.'/header_autenticazione.php');
 
         $connessione = Connessione::apriConnessione();
 
