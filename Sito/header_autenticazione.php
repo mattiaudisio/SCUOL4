@@ -1,5 +1,5 @@
 <?php
-  include_once(__DIR__.'/connessione.php');
+  include_once(__DIR__.'/Funzioni_PHP/connessione.php');
   $connessione = Connessione::apriConnessione();
 
   session_start();
