@@ -16,7 +16,7 @@
       $queryLogin = $connessione->query("SELECT Partecipante.passwordPart FROM Partecipante WHERE Partecipante.mailPart='".$mail."';");
 
       if($row = $queryLogin->fetch_assoc()){
-        if(password_verify($password, $row)){
+        if(password_verify($password, $row['passwordPart'])){
           $_SESSION['mail_user'] = $mail;
           header("location: ../Sito/profilo.php");
         }else {
