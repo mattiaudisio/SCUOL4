@@ -11,7 +11,8 @@
       header("location: login.php");
     }else{
       $mail = $_POST['mail'];
-      $password = hash('sha256',$_POST['password']);
+      //$password = hash('sha256',$_POST['password']);
+      $password = $_POST['password'];
 
       $queryLogin = $connessione->query("SELECT Partecipante.passwordPart FROM Partecipante WHERE Partecipante.mailPart='".$mail."';");
 

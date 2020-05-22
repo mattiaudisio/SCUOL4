@@ -48,7 +48,7 @@
           <li><a href="index.php#speaker">Speaker</a></li>
           <li><a href="index.php#programma">Programma</a></li>
           <li class="active"><a href="iscriviti.php">Iscriviti</a></li>
-          <li><a href="login.php">Accedi</a></li>
+          <li><a href="login.php">Profilo</a></li>
         </ul>
       </nav><!-- .nav-menu -->
 
@@ -124,7 +124,8 @@
       if($contaPresenza == 0){
         if(isset($_POST['iscriviti'])){
           if(!empty($_POST['cognome']) && !empty($_POST['nome']) && !empty($_POST['mail']) && !empty($_POST['tipologia']) && !empty($_POST['password'])){
-            $passwordCifrata = hash('sha256',$_POST['password']);
+            //$passwordCifrata = hash('sha256',$_POST['password']);
+            $passwordCifrata = $_POST['password'];
             $checkbox = $_POST['interessi'];
             $string = count($arrayID) + 1;
             $totPersone = count($arrayComposto);
