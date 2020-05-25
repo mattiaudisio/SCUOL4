@@ -106,7 +106,7 @@
         <div class="section-title" data-aos="fade-up">
           <h2>Iscriviti qua per preordinare<br> il tuo <strong>Biglietto</strong></h2>
         </div>
-        <form action="form.php" method="post">
+        <form action="iscrizione.php" method="post">
           <div class="container" >
               <p>Cognome:</p>
               <input type="text" name="cognome"  class="form-control" id="cognome" placeholder="Inserisci il tuo cognome" data-rule="minlen:4" data-msg="Inserisci il tuo cognome" />
