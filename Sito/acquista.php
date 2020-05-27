@@ -8,10 +8,6 @@
       $errore = "";
 
       if(isset($_POST['acqusita'])){
-        if(!empty($_POST['mail']) || !empty($_POST['password'])){
-          $errore = "Errore durante l'acquisto";
-          header("location: ../Sito/profilo.php");
-        }else{
           $mail = $_POST['mail'];
           $password = $_POST['password'];
           $queryLogin = $connessione->query("SELECT Partecipante.mailPart, Partecipante.passwordPart, Partecipante.idPart, Speech.titolo FROM Partecipante, Speech WHERE mailPart='".$mail."'");
@@ -35,13 +31,12 @@
                   header("location: ../Sito/profilo.php");
               }else{
                 $errore = "Errore durante l'acquisto";
-                header("location: ../Sito/profilo.php");
+                header("location: ../Sito/index.php#speaker.php");
               }
           }
-        }
       }else{
         $errore = "Errore durante l'acquisto";
-        header("location: ../Sito/profilo.php");
+        header("location: ../Sito/index.php#programma.php.php");
       }
     }
   }
