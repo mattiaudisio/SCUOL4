@@ -54,6 +54,7 @@
         //$passwordCifrata = hash('sha256',$_POST['password']);
         $passwordCifrata = $_POST['password'];
         $checkbox = $_POST['interessi'];
+        $_SESSION['mail_user'] = $_POST['mail'];
         $string = count($arrayID) + 1;
         $totPersone = count($arrayComposto);
         $dml1 = "INSERT INTO Partecipante(idPart, cognomePart, nomePart, mailPart, tipologiaPart,passwordPart) VALUES ('".$string."','".$_POST["cognome"]."','".$_POST["nome"]."','".$_POST["mail"]."','".$_POST["tipologia"]."','".$passwordCifrata."');";

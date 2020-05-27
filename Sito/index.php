@@ -171,7 +171,7 @@
             <img src="assets/img/Programma/premiazione.jpg" class="img-fluid" alt="">
             <div class="portfolio-info">
               <h3>Speech premiazione</h3>
-              <p><b>Possono partecipare solo professori o liberi professionisti</b></p>
+              <p><b>Possono partecipare solo professori e liberi professionisti</b></p>
             </div>
           </div>
         </div>
