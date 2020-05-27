@@ -4,7 +4,7 @@
   include_once(__DIR__.'/Funzioni_PHP/speech.php');
   include_once(__DIR__.'/Funzioni_PHP/programma.php');
 
-  if (session_status() != PHP_SESSION_NONE) {
+  if (session_status() == PHP_SESSION_NONE) {
     session_start();
   }
 

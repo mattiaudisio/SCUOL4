@@ -151,7 +151,7 @@
                               <p data-aos="fade-up"> <?php echo $mailUtente; ?>, <?php echo $arrayPartecipante[$i]->getTipologiaPart();?></p>
                               <div class="row">
                                 <div class="col-md-6 icon-box" data-aos="fade-up">
-                                  <h2>SPEECH</h2>
+                                  <h2>SPEECH</h2><br>
                                   <?php
                                    for($j = 0; $j < count($arrayComposto); $j++){
                                     for($z = 0; $z < count($arrayProgramma); $z++){
@@ -159,7 +159,7 @@
                                       $programma = $arrayProgramma[$z]->getIdProgramma();
                                       $composto2 = $arrayComposto[$j]->getIdPart();
                                       if($composto == $programma && $nomeUtente == $composto2){
-                                        echo '<h4>'.$arrayProgramma[$z]->getTitolo().'</h4>';
+                                        echo '<h4>'.$arrayProgramma[$z]->getTitolo().'</h4><p>'.$arrayProgramma[$z]->getIdSala().'</p>';
                                         unset($arrayProgrammaTemporaneo[$z]);
                                       }
                                     }
