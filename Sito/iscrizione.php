@@ -51,8 +51,8 @@
   if($contaPresenza == 0){
     if(isset($_POST['iscriviti'])){
       if(!empty($_POST['cognome']) && !empty($_POST['nome']) && !empty($_POST['mail']) && !empty($_POST['tipologia']) && !empty($_POST['password'])){
-        //$passwordCifrata = hash('sha256',$_POST['password']);
-        $passwordCifrata = $_POST['password'];
+        $passwordCifrata = hash('sha256',$_POST['password']);
+        //$passwordCifrata = $_POST['password'];
         $checkbox = $_POST['interessi'];
         $_SESSION['mail_user'] = $_POST['mail'];
         $string = count($arrayID) + 1;
