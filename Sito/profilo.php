@@ -219,11 +219,12 @@
                                <div class="container" >
                                    <p>Programmi:</p>
                                    <?php
-                                     $queryProgramma = "SELECT * FROM Programma,Speech,Sala WHERE Programma.idSpeech = Speech.idSpeech AND Programma.idSala = Sala.idSala;";
-                                     $risultato = $connessione->query($queryProgramma);
-                                     while($whileProgramma = $risultato->fetch_array(MYSQLI_NUM)){
-                                         echo '<input type="checkbox" name="interessi[]" value="'.$whileProgramma[0].'">'.$whileProgramma[5].'<br>';
-                                     }
+                                   $queryProgramma = "SELECT * FROM Programma,Speech,Sala WHERE Programma.idSpeech = Speech.idSpeech AND Programma.idSala = Sala.idSala;";
+                                   $risultato = $connessione->query($queryProgramma);
+                                   while($whileProgramma = $risultato->fetch_array(MYSQLI_NUM)){
+                                     if(in_array($whileProgramma[0],$arrayCompostoTemp)){
+                                       echo '<input type="checkbox" name="interessi[]" value="'.$whileProgramma[0].'">'.$whileProgramma[5].'<br>';
+                                     }                                   }
                                    ?>
                                    <div class="text-center" ><input type="submit" value="elimina" name="elimina"></div>
                                </div>
