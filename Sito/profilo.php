@@ -184,7 +184,7 @@
                              <h2>Acquista altri<strong>Biglietti</strong></h2>
                              <p>Grazie a questo form potrai acquistare i biglietti<br> per gli Speech rimanenti</p>
                            </div>
-                           <form action="acquista.php" method="post">
+                           <form action="funzioni.php" method="post">
                              <div class="container" >
                                  <p>Programmi:</p>
                                  <?php
@@ -215,7 +215,7 @@
                                <h2>Elimina<strong>Speech</strong></h2>
                                <p>Grazie a questo form potrai eliminare dai tuoi speech<br> quello a cui non potrai parteciapre</p>
                              </div>
-                             <form action="acquista.php" method="post">
+                             <form action="funzioni.php" method="post">
                                <div class="container" >
                                    <p>Programmi:</p>
                                    <?php
