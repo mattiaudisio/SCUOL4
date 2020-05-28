@@ -220,11 +220,13 @@
                              <div class="container" >
                                  <p>Programmi:</p>
                                  <?php
-                                    /*for($i = 0; $i < count($arrayProgramma); $i++){
-                                      echo '<input type="checkbox" name="interessi[]" value="'.$arrayProgramma[$i]->getIdProgramma().'">'.$arrayProgramma[$i]->getTitolo().'<br>';
-                                    }*/
+                                   $queryProgramma = "SELECT * FROM Programma,Speech,Sala WHERE Programma.idSpeech = Speech.idSpeech AND Programma.idSala = Sala.idSala;";
+                                   $risultato = $connessione->query($queryProgramma);
+                                   while($whileProgramma = $risultato->fetch_array(MYSQLI_NUM)){
+                                       echo '<input type="checkbox" name="interessi[]" value="'.$whileProgramma[0].'">'.$whileProgramma[5].'<br>';
+                                   }
                                  ?>
-                                 <div class="text-center" ><input type="submit" value="acquista" name="acquista"></div>
+                                 <div class="text-center" ><input type="submit" value="elimina" name="elimina"></div>
                              </div>
                            </form>
                            <br>

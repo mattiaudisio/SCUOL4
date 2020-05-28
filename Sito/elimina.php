@@ -6,7 +6,7 @@
 
       $errore = "";
 
-      if(isset($_POST['acquista'])){
+      if(isset($_POST['elimina'])){
 
         $checkbox = $_POST['interessi'];
 
@@ -14,12 +14,14 @@
         $queryLogin = $connessione->query($query0);
         if($row = $queryLogin->fetch_assoc()){
           for($i = 0; $i < sizeof($checkbox); $i++){
-            $queryNum = "SELECT Composto.nPartecipanti FROM Composto WHERE idPart='".$row["idPart"]."';";
+            $idPart = $row['idPart'];
+            $queryNum = "SELECT Composto.nPartecipanti FROM Composto WHERE idPart='$idPart'";
             $queryNumero = $connessione->query($queryNum);
             if($var = $queryNumero->fetch_assoc()){
               $persone = $var['nPartecipanti'] - 1;
             }
-            $query = "DELETE FROM Compsoto WHERE idPart = $row['idPart']";
+            $idPart = $row['idPart'];
+            $query = "DELETE FROM Compsoto WHERE idPart = $idPart";
             $connessione->query($query);
             for($i = 0; $i < sizeof($checkbox); $i++){
               $query2 = "SELECT Speech.numPosti, Speech.titolo FROM Speech";
