@@ -209,15 +209,13 @@
                            <br>
                          </div>
                        </div>
-                       </section>
-                       <section id="contact" class="contact">
                          <div class="row mt-5 justify-content-center" data-aos="fade-up">
                            <div class="col-lg-10">
                              <div class="section-title" data-aos="fade-up">
                                <h2>Elimina<strong>Speech</strong></h2>
                                <p>Grazie a questo form potrai eliminare dai tuoi speech<br> quello a cui non potrai parteciapre</p>
                              </div>
-                             <form action="elimina.php" method="post">
+                             <form action="acquista.php" method="post">
                                <div class="container" >
                                    <p>Programmi:</p>
                                    <?php

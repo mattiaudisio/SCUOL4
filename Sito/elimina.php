@@ -8,9 +8,7 @@
 
 
     if(isset($_POST['elimina'])){
-
         $checkbox = $_POST['interessi'];
-
         $query0 = "SELECT Partecipante.passwordPart, Partecipante.idPart FROM Partecipante WHERE Partecipante.idPart='".$_SESSION["idPart"]."';";
         $queryLogin = $connessione->query($query0);
         if($row = $queryLogin->fetch_assoc()){

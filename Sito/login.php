@@ -2,10 +2,8 @@
 <?php
   session_start();
 
-  if(!isset($_SESSION['idPart'])){
-    header('location:login.php');
-  }else{
-    header('location:profilo.php');    
+  if(isset($_SESSION['idPart'])){
+    header('location:profilo.php');
   }
 ?>
 
