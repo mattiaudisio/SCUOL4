@@ -1,33 +1,28 @@
 <?php
-  include_once(__DIR__.'/Funzioni_PHP/connessione.php');
-  $connessione = Connessione::apriConnessione();
+include_once(__DIR__.'/Funzioni_PHP/connessione.php');
+include_once(__DIR__.'/Funzioni_PHP/funzioni.php');
 
-  session_start();
+$connessione = Connessione::apriConnessione();
 
-  $errore = '';
-  if (isset($_POST['submit'])) {
-    if (empty($_POST['mail']) || empty($_POST['password'])) {
-      $error = "Mail o password non valida";
-      header("location: login.php");
-    }else{
-      $_SESSION['mail_user'] = $_POST['mail'];
+session_start();
+session_destroy();
+
+  if(isset($_POST['login'])){
+    if(!empty($_POST['mail'])|| !empty($_POST['password'])){
+      $mail = $_POST['mail'];
       $password = hash('sha256',$_POST['password']);
 
-      $queryLogin = $connessione->query("SELECT Partecipante.passwordPart FROM Partecipante WHERE Partecipante.mailPart='".$_SESSION["mail_user"]."';");
+      $queryLogin = $connessione->query("SELECT Partecipante.idPart FROM Partecipante WHERE Partecipante.mailPart='$mail' AND Partecipante.passwordPart='$password';");
 
-      if($row = $queryLogin->fetch_assoc()){
-        if(password_verify($password, $row['passwordPart'])){
-          header("location: ../Sito/profilo.php");
-        }else {
-          header("location: ../Sito/login.php");
+      if($queryLogin -> num_rows){
+        while ($riga = $queryLogin -> fetch_assoc()){
+          session_start();
+          $_SESSION['idPart'] = $riga['idPart'];
+          header('location:profilo.php');
         }
       }else{
-        header("location: ../Sito/login.php");
+        echo "<script type='text/javascript'>alert('I dati inseriti sono errati, correggili per accedere');</script>";
       }
     }
-    $connessione->close();
-  }else{
-    $errore = "Mail o password non corrette";
-    header("location: ../Sito/login.php");
   }
 ?>

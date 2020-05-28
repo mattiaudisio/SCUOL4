@@ -4,13 +4,18 @@
   include_once(__DIR__.'/Funzioni_PHP/programma.php');
   include_once(__DIR__.'/Funzioni_PHP/composto.php');
   include_once(__DIR__.'/Funzioni_PHP/partecipante.php');
+  include_once(__DIR__.'/Funzioni_PHP/funzioni.php');
+
 
   $connessione = Connessione::apriConnessione();
 
-  if (session_status() == PHP_SESSION_NONE) {
-    session_start();
+  session_start();
+
+  if(!isset($_SESSION['idPart'])){
+    header('location:login.php');
   }
-?>
+
+  ?>
 <html>
 <head>
   <meta charset="utf-8">
@@ -86,7 +91,6 @@
 
         $nomeUtente = "";
         $cognomeUtente = "";
-        $mailUtente = "";
 
         $queryPartecipante = "SELECT * FROM Partecipante;";
         $risultatoPartecipante = $connessione->query($queryPartecipante);
@@ -132,10 +136,9 @@
 
 
 
-            $mailUtente = $_SESSION['mail_user'];
             for($i = 0; $i < count($arrayPartecipante); $i++){
-              $mail = $arrayPartecipante[$i]->getMailPart();
-              if( $mail == $mailUtente){  ?>
+              $idPartecipante = $arrayPartecipante[$i]->getIdPart();
+              if( $idPartecipante == $_SESSION['idPart']){  ?>
                   <section id="about-us" class="about-us">
                     <div class="container">
                       <div class="row no-gutters">
@@ -143,11 +146,10 @@
                           <div class="col-xl-7 pl-0 pl-lg-5 pr-lg-1 d-flex align-items-stretch">
                           <?php
                           $nomeUtente = $arrayPartecipante[$i]->getIdPart();
-                          $cognomeUtente = $arrayPartecipante[$i]->getCognomePart();
-                          $mailUtente = $arrayPartecipante[$i]->getMailPart(); ?>
+                          $cognomeUtente = $arrayPartecipante[$i]->getCognomePart();?>
                           <div class="content d-flex flex-column justify-content-center">
                               <h3 data-aos="fade-up"> <?php echo $arrayPartecipante[$i]->getNomePart(); ?> <?php echo $cognomeUtente;?></h3>
-                              <p data-aos="fade-up"> <?php echo $mailUtente; ?>, <?php echo $arrayPartecipante[$i]->getTipologiaPart();?></p>
+                              <p data-aos="fade-up"> <?php echo $arrayPartecipante[$i]->getMailPart(); ?>, <?php echo $arrayPartecipante[$i]->getTipologiaPart();?></p>
                               <div class="row">
                                 <div class="col-md-6 icon-box" data-aos="fade-up">
                                   <h2>SPEECH</h2><br>

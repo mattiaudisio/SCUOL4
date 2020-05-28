@@ -1,32 +1,3 @@
-<?php
-  include_once(__DIR__.'/Funzioni_PHP/connessione.php');
-  include_once(__DIR__.'/Funzioni_PHP/speech.php');
-  include_once(__DIR__.'/Funzioni_PHP/relatore.php');
-  include_once(__DIR__.'/Funzioni_PHP/programma.php');
-
-  if (session_status() != PHP_SESSION_NONE) {
-    session_start();
-    header("location: profilo.php");
-  }
-
-  $connessione = Connessione::apriConnessione();
-
-  $arrayProgramma = array();
-
-  $queryProgramma = "SELECT * FROM Programma,Speech,Sala WHERE Programma.idSpeech = Speech.idSpeech AND Programma.idSala = Sala.idSala;";
-  $risultatoProgramma = $connessione->query($queryProgramma);
-  while($ris = $risultatoProgramma->fetch_assoc()){
-    $risIdProgr = $ris["idProgramma"];
-    $risFascia = $ris["fasciaOraria"];
-    $risTitolo = $ris["titolo"];
-    $risPosti = $ris["numPosti"];
-    $risIdSala = $ris["idSala"];
-    $risImmagine = $ris["immagine"];
-    $nuovoOggetto = new Programma($risFascia,$risTitolo,$risPosti,$risIdProgr,$risIdSala,$risImmagine);
-    array_push($arrayProgramma,$nuovoOggetto);
-  }
-?>
-
 <!DOCTYPE html>
 <html>
 
@@ -106,17 +77,17 @@
         <div class="section-title" data-aos="fade-up">
           <h2><strong>ACCEDI</strong></h2>
         </div>
-        <form action="profilo.php" method="post">
-          <div class="container" >
-              <p>Mail:</p>
-              <input type="email" name="mail"  class="form-control" id="mail" placeholder="Inserisci la tua mail" data-rule="minlen:4" data-msg="Inserisci la tua mail" />
-              <br>
-              <p>Password:</p>
-              <input type="password" name="password"  class="form-control" id="password" placeholder="Inserisci una password" data-rule="minlen:4" data-msg="Inserisci una password" />
-              <br>
-              <div class="text-center" ><input type="submit" name="submit" id="accedi"></div>
-          </div>
-        </form>
+          <form action="header_autenticazione.php" method="post">
+            <div class="container" >
+                <p>Mail:</p>
+                <input type="email" name="mail"  class="form-control" id="mail" placeholder="Inserisci la tua mail" data-rule="minlen:4" data-msg="Inserisci la tua mail" />
+                <br>
+                <p>Password:</p>
+                <input type="password" name="password"  class="form-control" id="password" placeholder="Inserisci una password" data-rule="minlen:4" data-msg="Inserisci una password" />
+                <br>
+                <div class="text-center" ><input type="submit" value="login" name="login"></div>
+            </div>
+          </form>
         <br>
       </div>
     </div>
