@@ -182,6 +182,7 @@
                          <div class="col-lg-10">
                            <div class="section-title" data-aos="fade-up">
                              <h2>Acquista altri<strong>Biglietti</strong></h2>
+                             <p>Grazie a questo form potrai acquistare i biglietti<br> per gli Speech rimanenti</p>
                            </div>
                            <form action="acquista.php" method="post">
                              <div class="container" >
@@ -209,6 +210,26 @@
                          </div>
                        </div>
                        </section>
+                       <div class="row mt-5 justify-content-center" data-aos="fade-up">
+                         <div class="col-lg-10">
+                           <div class="section-title" data-aos="fade-up">
+                             <h2>Elimina<strong>Speech</strong></h2>
+                             <p>Grazie a questo form potrai eliminare dai tuoi speech<br> quello a cui non potrai parteciapre</p>
+                           </div>
+                           <form action="elimina.php" method="post">
+                             <div class="container" >
+                                 <p>Programmi:</p>
+                                 <?php
+                                    /*for($i = 0; $i < count($arrayProgramma); $i++){
+                                      echo '<input type="checkbox" name="interessi[]" value="'.$arrayProgramma[$i]->getIdProgramma().'">'.$arrayProgramma[$i]->getTitolo().'<br>';
+                                    }*/
+                                 ?>
+                                 <div class="text-center" ><input type="submit" value="acquista" name="acquista"></div>
+                             </div>
+                           </form>
+                           <br>
+                         </div>
+                       </div>
                        <form action="Funzioni_PHP/logout.php" method="post">
                          <input id="button" type="submit" name="logout" value="logout">
                        </form>
