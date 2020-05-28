@@ -210,28 +210,30 @@
                          </div>
                        </div>
                        </section>
-                       <div class="row mt-5 justify-content-center" data-aos="fade-up">
-                         <div class="col-lg-10">
-                           <div class="section-title" data-aos="fade-up">
-                             <h2>Elimina<strong>Speech</strong></h2>
-                             <p>Grazie a questo form potrai eliminare dai tuoi speech<br> quello a cui non potrai parteciapre</p>
-                           </div>
-                           <form action="elimina.php" method="post">
-                             <div class="container" >
-                                 <p>Programmi:</p>
-                                 <?php
-                                   $queryProgramma = "SELECT * FROM Programma,Speech,Sala WHERE Programma.idSpeech = Speech.idSpeech AND Programma.idSala = Sala.idSala;";
-                                   $risultato = $connessione->query($queryProgramma);
-                                   while($whileProgramma = $risultato->fetch_array(MYSQLI_NUM)){
-                                       echo '<input type="checkbox" name="interessi[]" value="'.$whileProgramma[0].'">'.$whileProgramma[5].'<br>';
-                                   }
-                                 ?>
-                                 <div class="text-center" ><input type="submit" value="elimina" name="elimina"></div>
+                       <section id="contact" class="contact">
+                         <div class="row mt-5 justify-content-center" data-aos="fade-up">
+                           <div class="col-lg-10">
+                             <div class="section-title" data-aos="fade-up">
+                               <h2>Elimina<strong>Speech</strong></h2>
+                               <p>Grazie a questo form potrai eliminare dai tuoi speech<br> quello a cui non potrai parteciapre</p>
                              </div>
-                           </form>
-                           <br>
+                             <form action="elimina.php" method="post">
+                               <div class="container" >
+                                   <p>Programmi:</p>
+                                   <?php
+                                     $queryProgramma = "SELECT * FROM Programma,Speech,Sala WHERE Programma.idSpeech = Speech.idSpeech AND Programma.idSala = Sala.idSala;";
+                                     $risultato = $connessione->query($queryProgramma);
+                                     while($whileProgramma = $risultato->fetch_array(MYSQLI_NUM)){
+                                         echo '<input type="checkbox" name="interessi[]" value="'.$whileProgramma[0].'">'.$whileProgramma[5].'<br>';
+                                     }
+                                   ?>
+                                   <div class="text-center" ><input type="submit" value="elimina" name="elimina"></div>
+                               </div>
+                             </form>
+                             <br>
+                           </div>
                          </div>
-                       </div>
+                       </section>
                        <form action="Funzioni_PHP/logout.php" method="post">
                          <input id="button" type="submit" name="logout" value="logout">
                        </form>

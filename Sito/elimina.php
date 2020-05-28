@@ -6,7 +6,8 @@
 
       $errore = "";
 
-      if(isset($_POST['elimina'])){
+
+    if(isset($_POST['elimina'])){
 
         $checkbox = $_POST['interessi'];
 
