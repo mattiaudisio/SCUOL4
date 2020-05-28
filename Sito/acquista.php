@@ -25,8 +25,9 @@
               $query2 = "SELECT Speech.numPosti, Speech.titolo FROM Speech";
               $querySpeech = $connessione->query($query2);
               while($var  = $querySpeech->fetch_assoc()){
-                $query3 = "UPDATE Speech SET numPosti = ".$var['numPosti'] - 1."  WHERE titolo = '".$row['titolo']."'";
-                $connessione->query($query3);
+                $posti = $var['numPosti'] - 1;
+                $titolo = $var['titolo'];
+                $connessione->query("UPDATE Speech SET numPosti = $posti  WHERE titolo = '$titolo'");
               }
             }
             header("location: ../Sito/profilo.php");
