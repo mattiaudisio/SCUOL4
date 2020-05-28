@@ -21,16 +21,15 @@
             }
             $query = "INSERT INTO Composto(idPart, idProgramma, nPartecipanti) VALUES  ('".$row["idPart"]."','".$checkbox[$i]."','".$persone."');";
             $connessione->query($query);
-              for($i = 0; $i < sizeof($checkbox); $i++){
-                $query2 = "SELECT Speech.numPosti FROM Speech";
-                $queryLogin = $connessione->query($query0);
-                while($var  = $queryLogin->fetch_assoc()){
-                  $posti = $var[0] - 1;
-                  $query3 = "UPDATE Speech SET numPosti = ".$posti."  WHERE titolo = '".$row[3]."'";
-                  $connessione->query($query3);
-                }
+            for($i = 0; $i < sizeof($checkbox); $i++){
+              $query2 = "SELECT Speech.numPosti, Speech.titolo FROM Speech";
+              $querySpeech = $connessione->query($query2);
+              while($var  = $querySpeech->fetch_assoc()){
+                $query3 = "UPDATE Speech SET numPosti = ".$var['numPosti'] - 1."  WHERE titolo = '".$row['titolo']."'";
+                $connessione->query($query3);
               }
-              header("location: ../Sito/profilo.php");
+            }
+            header("location: ../Sito/profilo.php");
           }
         }
       }
