@@ -8,7 +8,7 @@ i partecipanti possono prenotarsi agli speach e possono avere 3 tipologie fisse:
 Alla fine della giornata c'è un unico speach speciale, speach premiazione, che non ha nessuno speach in contemporanea ed è l'ultimo, possono partecipare solo i professionisti e gli insegnanti, vienne fatta all'auditorium (dove si fa solo questo speach).</p>
 
 <b>Schema E/R</b><br />
-![Schema E/R](https://raw.githubusercontent.com/mattiaudisio/ProgettoSQL_Convention/master/Schemi/Schema_ER.png)
+![Schema E/R](https://raw.githubusercontent.com/mattiaudisio/Sandbox/master/Convention/Schemi/Schema_ER.png)
 
 <b>Schema Logico</b><br />
 Relatore(__idRel__,mailRel,cognomeRel,nomeRel,~~idAzienda~~);<br />
@@ -22,4 +22,4 @@ Relaziona(__idRel,idProgramma__);<br />
 Sceglie(__idPart,idProgramma__);<br />
 
 <b>Schema Fisico</b><br />
-![Schema Fisico](https://raw.githubusercontent.com/mattiaudisio/ProgettoSQL_Convention/master/Schemi/Schema_Fisico.png)
+![Schema Fisico](https://raw.githubusercontent.com/mattiaudisio/Sandbox/master/Convention/Schemi/Schema_Fisico.png)
