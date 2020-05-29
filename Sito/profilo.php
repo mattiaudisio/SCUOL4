@@ -60,6 +60,11 @@
             <li><a href="index.php#programma">Programma</a></li>
             <li><a href="iscriviti.php">Iscriviti</a></li>
             <li class="active"><a href="login.php">Profilo</a></li>
+            <?php
+            if(isset($_SESSION['idPart'])){
+              echo '<li class="active"><a href="Funzioni_PHP/logout.php">Logout</a></li>';
+            }
+            ?>
           </ul>
         </nav><!-- .nav-menu -->
       </div>

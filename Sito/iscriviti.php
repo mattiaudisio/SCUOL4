@@ -4,6 +4,8 @@
   include_once(__DIR__.'/Funzioni_PHP/speech.php');
   include_once(__DIR__.'/Funzioni_PHP/programma.php');
 
+  session_start();
+
   $connessione = Connessione::apriConnessione();
 
   $arrayProgramma = array();
@@ -74,6 +76,11 @@
           <li><a href="index.php#programma">Programma</a></li>
           <li class="active"><a href="iscriviti.php">Iscriviti</a></li>
           <li><a href="login.php">Profilo</a></li>
+          <?php
+          if(isset($_SESSION['idPart'])){
+            echo '<li class="active"><a href="Funzioni_PHP/logout.php">Logout</a></li>';
+          }
+          ?>
         </ul>
       </nav><!-- .nav-menu -->
 
