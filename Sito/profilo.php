@@ -62,7 +62,7 @@
             <li class="active"><a href="login.php">Profilo</a></li>
             <?php
             if(isset($_SESSION['idPart'])){
-              echo '<li class="active"><a href="Funzioni_PHP/logout.php">Logout</a></li>';
+              echo '<li><a href="Funzioni_PHP/logout.php">Logout</a></li>';
             }
             ?>
           </ul>
@@ -214,6 +214,8 @@
                            <br>
                          </div>
                        </div>
+                     </section>
+                     <section>
                          <div class="row mt-5 justify-content-center" data-aos="fade-up">
                            <div class="col-lg-10">
                              <div class="section-title" data-aos="fade-up">
@@ -238,9 +240,6 @@
                            </div>
                          </div>
                        </section>
-                       <form action="Funzioni_PHP/logout.php" method="post">
-                         <input id="button" type="submit" name="logout" value="logout">
-                       </form>
                      </div>
                    </section>
 
