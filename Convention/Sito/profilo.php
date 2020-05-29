@@ -23,20 +23,20 @@
   <meta content="" name="descriptison">
   <meta content="" name="keywords">
   <!-- Favicons -->
-  <link href="/Mattia/ProgettoSQL_Convention/Sito/assets/img/favicon.png" rel="icon">
-  <link href="/Mattia/ProgettoSQL_Convention/Sito/assets/img/apple-touch-icon.png" rel="apple-touch-icon">
+  <link href="/Mattia/Convention/Sito/assets/img/favicon.png" rel="icon">
+  <link href="/Mattia/Convention/Sito/assets/img/apple-touch-icon.png" rel="apple-touch-icon">
   <!-- Google Fonts -->
   <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,600,600i,700,700i|Muli:300,300i,400,400i,500,500i,600,600i,700,700i|Poppins:300,300i,400,400i,500,500i,600,600i,700,700i" rel="stylesheet">
   <!-- Vendor CSS Files -->
-  <link href="/Mattia/ProgettoSQL_Convention/Sito/assets/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
-  <link href="/Mattia/ProgettoSQL_Convention/Sito/assets/vendor/icofont/icofont.min.css" rel="stylesheet">
-  <link href="/Mattia/ProgettoSQL_Convention/Sito/assets/vendor/boxicons/css/boxicons.min.css" rel="stylesheet">
-  <link href="/Mattia/ProgettoSQL_Convention/Sito/assets/vendor/animate.css/animate.min.css" rel="stylesheet">
-  <link href="/Mattia/ProgettoSQL_Convention/Sito/assets/vendor/venobox/venobox.css" rel="stylesheet">
-  <link href="/Mattia/ProgettoSQL_Convention/Sito/assets/vendor/owl.carousel/assets/owl.carousel.min.css" rel="stylesheet">
-  <link href="/Mattia/ProgettoSQL_Convention/Sito/assets/vendor/aos/aos.css" rel="stylesheet">
+  <link href="/Mattia/Convention/Sito/assets/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+  <link href="/Mattia/Convention/Sito/assets/vendor/icofont/icofont.min.css" rel="stylesheet">
+  <link href="/Mattia/Convention/Sito/assets/vendor/boxicons/css/boxicons.min.css" rel="stylesheet">
+  <link href="/Mattia/Convention/Sito/assets/vendor/animate.css/animate.min.css" rel="stylesheet">
+  <link href="/Mattia/Convention/Sito/assets/vendor/venobox/venobox.css" rel="stylesheet">
+  <link href="/Mattia/Convention/Sito/assets/vendor/owl.carousel/assets/owl.carousel.min.css" rel="stylesheet">
+  <link href="/Mattia/Convention/Sito/assets/vendor/aos/aos.css" rel="stylesheet">
   <!-- Template Main CSS File -->
-  <link href="/Mattia/ProgettoSQL_Convention/Sito/assets/css/style.css" rel="stylesheet">
+  <link href="/Mattia/Convention/Sito/assets/css/style.css" rel="stylesheet">
   <!-- =======================================================
   * Template Name: Flattern - v2.0.0
   * Template URL: https://bootstrapmade.com/flattern-multipurpose-bootstrap-template/
@@ -72,7 +72,7 @@
     <!-- ======= Hero Section ======= -->
     <section id="hero">
       <div id="heroCarousel" class="carousel slide carousel-fade" data-ride="carousel">
-          <div class="carousel-item active" style="background-image: url(/Mattia/ProgettoSQL_Convention/Sito/assets/img/wallpaper.jpeg);">
+          <div class="carousel-item active" style="background-image: url(/Mattia/Convention/Sito/assets/img/wallpaper.jpeg);">
             <div class="container">
               <div class="carousel-content animated fadeInUp">
                 <h2 align="center"> <span>CONVITO</span></h2>
@@ -146,7 +146,7 @@
                   <section id="about-us" class="about-us">
                     <div class="container">
                       <div class="row no-gutters">
-                        <div class="image col-xl-5 d-flex align-items-stretch justify-content-center justify-content-lg-start" data-aos="fade-right" style="background-image: url(/Mattia/ProgettoSQL_Convention/Sito/assets/img/riepilogo.jpg);"></div>
+                        <div class="image col-xl-5 d-flex align-items-stretch justify-content-center justify-content-lg-start" data-aos="fade-right" style="background-image: url(/Mattia/Convention/Sito/assets/img/riepilogo.jpg);"></div>
                           <div class="col-xl-7 pl-0 pl-lg-5 pr-lg-1 d-flex align-items-stretch">
                           <?php
                           $nomeUtente = $arrayPartecipante[$i]->getIdPart();
