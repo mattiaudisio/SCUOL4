@@ -1,4 +1,4 @@
-# ProgettoSQL_Convention
+# Convention
 
 <b>Realtà</b><br />
 <p>Organizzazione Convention, 1 giorno più relatori  (appartiene ad una determinata azienda) che presentano degli speach (presentazione 20 minuti) che possono essere replicate.
