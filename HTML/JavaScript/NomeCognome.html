@@ -1,0 +1,22 @@
+<html>
+    <head>
+        <title> Passaggio Mouse </title>
+        <script type="text/javascript">
+            function riepilogo(){
+                nom=document.getElementById("CasellaNome");
+                cog=document.getElementById("CasellaCognome");
+                messaggio="Ciao "+nom.value+" "+cog.value;
+                alert(messaggio);
+
+            }
+        </script>
+    </head>
+
+    <body>
+        <form>
+            Nome: <input type="text" id="CasellaNome" />
+            Cognome: <input type="text" id="CasellaCognome" />
+            <input type="button" value="invia" onclick="riepilogo();"/>
+        </form>
+    </body>
+</html>   

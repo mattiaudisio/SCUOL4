@@ -1,0 +1,24 @@
+<html>
+	<head>
+		<script>
+			function controllo(){
+				var casellaNome = document.querySelector("nomeProdotto");
+				var casellaQuantita = document.querySelector("numeroProdotto");
+				if(casellaNome.value != null || casellaNome.value != undefined || casellaNome.value. != "" && casellaQuantita.value != null || casellaQuantita.value != undefined || casellaQuantita.value. != ""){
+					document.getElementById("mioForm").submit();
+				}
+			}
+		</script>
+	</head>
+	<body>
+		<form action="http://127.0.0.1:1245/salva" method="GET" id="mioForm">
+			<input type="text" name="nomeProdotto" id="casellaNomeProdotto"><br />
+			<input type="number" name="numeroProdotto" id="casellaNumeroProdotto"><br />
+			<input type="button" onclick="controllo()" value="INSERISCI">
+		</form>
+		<br />
+		<a href="http://127.0.0.1:1245/raccolta">Raccolta</a>
+		<br />
+		<p>Hai finito di acquistare? Allora procedi col <a href="http://127.0.0.1:1245/riepilogo">Riepilogo</a></p>
+	</body>
+</html>

@@ -1,0 +1,191 @@
+[
+{
+    "Movimenti":[{
+                "Movimento":"L'età Postunitaria",
+                "Autori":[{
+                            "Autore":"Giosuè Carducci",
+                            "Opere":[{
+                                    "Opera":"Pianto anctico",
+                                    "Brani":
+                                        [ {"Brano":"Nome brano 1","testo":"bla bla bla","commento":"ciao ciao cioa"} ]
+                                }]
+                        }
+                    ]
+    
+            },{
+                "Movimento":"Naturalismo e verismo",
+                "Autori":[{
+                            "Autore":"Gustave Flaubert",
+                            "Opere":[{
+                                    "Opera":"Madame Bovary",
+                                    "Brani":
+                                        [ {"Brano":"Nome brano 1","testo":"bla bla bla","commento":"ciao ciao cioa"} ]
+                                }]
+                        },{
+                            "Autore":"Giovanni Verga",
+                            "Opere":
+                            [{
+                                    "Opera":"Rosso Malpelo",
+                                    "Brani":
+                                        [ {"Brano":"Nome brano 1","testo":"bla bla bla","commento":"ciao ciao cioa"} ]
+                                },{
+                                    "Opera":"I Malavoglia",
+                                    "Brani": [
+                                            {"Brano":"Il mondo arcaico e l’irruzione della storia","testo":"bla bla bla","commento":"ciao ciao cioa"},
+                                            {"Brano":"I Malavoglia e la dimensione economica","testo":"bla bla bla","commento":"ciao ciao cioa"},
+                                            {"Brano":"La conclusione del romanzo","testo":"bla bla bla","commento":"ciao ciao cioa"}
+                                        ]
+                                },{
+                                    "Opera":"Mastro Don Gesualdo",
+                                    "Brani":[
+                                            {"Brano":"La morte di Mastro Don Gesualdo","testo":"bla bla bla","commento":"ciao ciao cioa"}
+                                        ]   
+                            }]
+                        }]    
+            },{
+                "Movimento":"Il Decadentismo",
+                "Autori": [{
+                            "Autore":"Charles Baudelaire",
+                            "Opere":[{
+                                    "Opera":"L’Abatros",
+                                    "Brani":
+                                        [ {"Brano":"Nome brano 1","testo":"bla bla bla","commento":"ciao ciao cioa"} ]
+                                }]
+                        },{
+                            "Autore":"Gabriele D’Annunzio",
+                            "Opere":[{
+                                    "Opera":"Il piacere",
+                                    "Brani":
+                                        [ {"Brano":"Andrea Sperelli e Elena Muti","testo":"bla bla bla","commento":"ciao ciao cioa"} ]
+                                },{
+                                    "Opera":"Alcyone",
+                                    "Brani":
+                                        [ {"Brano":"La pioggia nel pineto","testo":"bla bla bla","commento":"ciao ciao cioa"} ]
+                                }]
+                        },{
+                            "Autore":"Giovanni Pascoli",
+                            "Opere":[{
+                                    "Opera":"Myriace",
+                                    "Brani":
+                                        [
+                                            {"Brano":"X agosto","testo":"bla bla bla","commento":"ciao ciao cioa"},
+                                            {"Brano":"Temporale","testo":"bla bla bla","commento":"ciao ciao cioa"},
+                                            {"Brano":"Novembre","testo":"bla bla bla","commento":"ciao ciao cioa"},
+                                            {"Brano":"Il lampo","testo":"bla bla bla","commento":"ciao ciao cioa"}
+                                        ]
+                                },{
+                                    "Opera":"Poemetti",
+                                    "Brani":
+                                        [ {"Brano":"Italy","testo":"bla bla bla","commento":"ciao ciao cioa"} ]
+                                }]
+                        }]  
+            },{
+                "Movimento":"Il primo Novecento",
+                "Autori":[{
+                            "Autore":"I Futuristi",
+                            "Opere":
+                                [ {"Brano":"Brano1","testo":"bla bla bla","commento":"ciao ciao cioa"} ]
+                        },{
+                            "Autore":"Italo Svevo",
+                            "Opere":[{
+                                    "Opera":"Una vita",
+                                    "Brani":
+                                        [ {"Brano":"Brano1","testo":"bla bla bla","commento":"ciao ciao cioa"} ]
+                                },{
+                                    "Opera":"Senilità",
+                                    "Brani":
+                                        [ {"Brano":"Brano1","testo":"bla bla bla","commento":"ciao ciao cioa"} ]
+                                },{
+                                    "Opera":"La coscienza di Zeno",
+                                    "Brani": [
+                                            {"Brano":"Il fumo","testo":"bla bla bla","commento":"ciao ciao cioa"},
+                                            {"Brano":"La morte del padre","testo":"bla bla bla","commento":"ciao ciao cioa"}
+                                        ]}
+                            ]
+                        },{
+                            "Autore":"Luigi Pirandello",
+                            "Opere":[{
+                                    "Opera":"Novelle per un Anno",
+                                    "Brani":
+                                        [ {"Brano":"Il treno ha fischiato","testo":"bla bla bla","commento":"ciao ciao cioa"} ]
+                                },{
+                                    "Opera":"Il fu Mattia Pascal",
+                                    "Brani":
+                                        [ {"Brano":"brano1","testo":"bla bla bla","commento":"ciao ciao cioa"} ]
+                                },{
+                                    "Opera":"Sei personaggi in cerca d’autore",
+                                    "Brani":
+                                        [ {"Brano":"brano1","testo":"bla bla bla","commento":"ciao ciao cioa"} ]
+                                }]
+                        }]  
+            },{ 
+                "Movimento":"Tra le due guerre",
+                "Autori":[{
+                            "Autore":"Franz Kafka",
+                            "Opere":
+                            [{
+                                    "Opera":"Le Metamorfosi",
+                                    "Brani": [ {"Brano":"L’incubo del risveglio","testo":"bla bla bla","commento":"ciao ciao cioa"} ]
+                                }]
+                        },{
+                            "Autore":"James Joyce",
+                            "Opere": [{
+                                    "Opera":"Ulisse",
+                                    "Brani":
+                                        [ {"Brano":"Il monologo di Molly","testo":"bla bla bla","commento":"ciao ciao cioa"} ]
+                                }]
+                        },{
+                            "Autore":"Umberto Saba",
+                            "Opere": [{
+                                    "Opera":"Il Canzoniere",
+                                    "Brani":[
+                                            {"Brano":"La capra","testo":"bla bla bla","commento":"ciao ciao cioa"},
+                                            {"Brano":"Città vecchia","testo":"bla bla bla","commento":"ciao ciao cioa"}
+                                        ]
+                                }]
+                        },{
+                            "Autore":"Giuseppe Ungaretti",
+                            "Opere":[{
+                                    "Opera":"L’allegria",
+                                    "Brani":
+                                        [
+                                            {"Brano":"Il porto sepolto","testo":"bla bla bla","commento":"ciao ciao cioa"},
+                                            {"Brano":"Fratelli","testo":"bla bla bla","commento":"ciao ciao cioa"},
+                                            {"Brano":"Veglia","testo":"bla bla bla","commento":"ciao ciao cioa"},
+                                            {"Brano":"San Martino del Carso","testo":"bla bla bla","commento":"ciao ciao cioa"},
+                                            {"Brano":"Soldati","testo":"bla bla bla","commento":"ciao ciao cioa"}
+                                        ] 
+                                    }]
+                        },{
+                            "Autore":"Salvatore Quasimodo",
+                            "Opere":[{
+                                    "Opera":"Ed è subito sera",
+                                    "Brani":
+                                        [ {"Brano":"Brano1","testo":"bla bla bla","commento":"ciao ciao cioa"} ]
+                                },{
+                                    "Opera":"Alle fronde dei salici",
+                                    "Brani":
+                                        [ {"Brano":"Brano1","testo":"bla bla bla","commento":"ciao ciao cioa"} ]
+                                }]
+                        },{
+                            "Autore":"Eugenio Montale",
+                            "Opere":[{
+                                    "Opera":"Ossi di seppia",
+                                    "Brani":[ {"Brano":"Meriggiare pallido e assorto","testo":"bla bla bla","commento":"ciao ciao cioa"},
+                                              {"Brano":"Spesso il male di vivere ho incontrato","testo":"bla bla bla","commento":"ciao ciao cioa"} ]
+                                }]
+                        }
+                    ]  
+            },{
+                "Movimento":"Dal dopo guerra ai giorni nostri",
+                "Autori":[{
+                            "Autore":"Leonardo Sciascia",
+                            "Opere": [{
+                                    "Opera":"Il giorno della civetta",
+                                    "Brani":[ {"Brano":"L’Italia civile e l’Italia mafiosa","testo":"bla bla bla","commento":"ciao ciao cioa"} ]
+                                }]
+                        }]
+            }       
+        ]
+}
+]

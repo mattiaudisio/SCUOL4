@@ -1,0 +1,14 @@
+{
+	"nome":"Pino",
+	"telefono":[{
+		"tipo":"ufficio",
+		"numero":"+39 011 9989677"
+		},
+		{
+		"tipo":"cellulare",
+		"numero":"+39 333 253 48 22"}
+		],
+	"email":{
+		"casa":"pino@gmail.com",
+		"lavoro":"pino@lavoro.it"}
+}

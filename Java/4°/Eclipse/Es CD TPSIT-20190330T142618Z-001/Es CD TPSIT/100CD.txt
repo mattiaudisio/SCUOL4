@@ -1,0 +1,141 @@
+Nome CD;Autore;Numero CD; Durata
+Gioventu bruciata; Mahmood; 10; 1800
+Colpa delle favole; Ultimo; 6; 1100
+Serpenti a sonagli; Sfera Ebbasta; 7; 1300
+Plume; Irama; 7; 1330
+Bye bye; Annalisa; 5; 1000
+Siamo solo noise; Benji e Fede; 4; 900
+Sinatra; Gue Pequeno; 8; 1500
+Non abbiamo armi; Ermal Meta; 6; 1150
+10; Alessandra amoroso; 5; 1100
+Essere qui; Emma Marrone; 6; 1200
+Rokstar;Sfera Ebbasta;11;2040
+Mowgli;Tedua;14;2820
+20;Capo Plaza;14;2760
+Davide;Gemitaiz;15;3060
+Playlist;Salmo;13;2280
+Astroworld;Travis Scott;17;3480
+Scorpion;Drake;25;5340
+Trap phone;Gué Pequeno;12;2160
+Dove gli occhi non arrivano;Rkomi;13;2160
+Fenomeno;Fabri Fibra;17;3660
+The Poison;Bullet For My Valentine;13;3206
+Musica per bambini;Rancore;10;2558
+Mutter;Rammstein;11;2694
+Smells Like Children;Marilyn Manson;16;3292
+The Black parade;My Chemical Romance;14;3117
+Il sogno del gorilla bianco;Tre Allegri Ragazzi Morti;13;2140
+Follow the leader;Korn;14;4201
+Master of Puppets;Metallica;8;3285
+Habemus Capa;Caparezza;20;3544
+Automatic for the people;R.E.M;12;2932
+Time to raise the party;Partyraiser;3;780
+Raise & revolt;Angerfist;70;13800
+Magnet;Miss K8;37;10200
+More Dutchcore;SRB;36;10080
+Acid Bomb;Dr. Peacock;19;4200
+Undeground Empire;DRS;15;3670
+Hai La Noi;NSD;3;730
+Louder Than A Bomber;N;Vitral;22;5000
+Sincere Hate;Hyrule War;4;800
+Lovin'aint Greazy;GPF;22;5470
+Una nuova rosalba in città ;Arisa;7;1380
+Parole nuove;Einar;9;2156
+Musiche che resta;Il volo;5;1056
+Amici;Irama;12;2584
+Abbi cura di me;Simone Cristicchi;12;2269
+Per un milione;Boomdabash;3;618
+Cosa ti aspetti;Loredana Bertè;13;2746
+Dov'è l'Italia;Motta;6;1285
+Ragazzi;Negrita;4;896
+Sarà pronto;Nek;14;3187
+Waka Waka;Shakira;5;2760
+Hello;Adele;11;2906
+Perfect;Ed Sheeran;16;2774
+Sweet Home Alabama;Lynyrd Skynyrd;8;2235
+Don’t let me down;The Chainsmokers;5;1080
+Flames;David Guetta;15;5340
+Hola;Marco Mengoni;15;3022
+Another Brick In The Wall;Pink Floyd;26;4854 
+Bohemian Rhapsody;Queen;12;2588
+Gli anni;883;1;292
+Ogni Maledetto Giorno;Mostro;16;3000
+Bellaria;Vegas Jones;15;3180
+Enemy;Noyz Narcos;15;2880
+68;Ernia;12;2280
+Back Home;MadMan;12;2220
+Suicidol;Nitro;15;3420
+Nonostante Tutto;Gemitaiz;16;3300
+Hellvisback;Salmo;13;3000
+Terza Stagione;Emis Killa;17;3600
+Chic;Izi;15;3011
+Oh vita!;Jovanotti;14;3704 
+News of the World;Queen;11;2370
+Buon compleanno Elvis;Ligabue;14;3282
+Nessun pericolo... per te;Vasco Rossi;10;2843
+Kamikaze;Eminem;13;2749
+Thriller;Michael Jackson;9;2539
+The Dark Side of the Moon;Pink Floyd;9;2577
+OK Computer;Radiohead;11;3206
+Europop;Eiffel 65;14;3926
+Nevermind;Nirvana;12;3563
+Midnite;Salmo;15;3000
+Highway to Hell;AC/DC;10;2520
+Icona;Baby K;10;1980
+thank u; next;Ariana Grande;12;2460
+Tenebra è la notte ed altri racconti di buio e crepuscoli;Murubutu;15;3720
+L’uomo che viaggiava nel vento;Murubutu;14;3240
+Gli ammutinati del Bouncin’;Murubutu;16;4020
+Other People’s Heartache;Bastille;7;1440
+Paninaro;Il Pagante;10;1980
+Entro in pass;Il Pagante;12;2400
+Rebel Heart;Madonna;14;3303
+Peter Pan;Ultimo;16;3360
+Gentleman;Guè Pequeno;14;2880
+XDVR;Sfera Ebbasta;15;2880
+Kiss Kiss Bang Bang;Baby K;14;2700
+Pop;Holista;Fedez;20;3900
+Artpop;Lady Gaga;15;3540
+Simili;Laura Pausini;15;3240
+Splende;Annalisa;11;2280
+Beat it;Michael Jackson;9;2520
+Linkin Park;Hybrid Theory;12;2265
+Linkin Park;Meteora;13;2190
+Linkin Park;Minutes to Midnight;12;2606
+Linkin Park;A Thousand Suns;15;2870
+Linkin Park;Living Things;12;2219
+Linkin Park;The Hunting Party;12;2710
+Linkin Park;One More Light;10;2119
+Linkin Park;Reanimation;20;3649
+Linkin Park;Recharged;14;4121
+Linkin Park;One More Light Live;16;4070
+Infection of a different kind;Aurora Aksnes;8;1998
+Blow up your video;ACDC;10;2580
+All the little thing;Passenger;10;2747
+The Wall;Pink Floyd;26;4872
+Highway to hell;ACDC;10;2460
+All my demon greeting me as a friend;Aurora Aksnes;12;2808
+All kind of magic;Queen;9;2442
+Queen;Queen;10;2280
+Wish you where here;Pink Floyd;5;2658
+Evolve;Imagine Dragon;11;2952
+Black Cat;Zucchero;13;47:27
+Il mestiere della vita;Tiziano Ferro;13;46:27
+Canzoni per metà;Dente;20;45:20
+Oronero;Giorgia;15;49:13
+Non solo leali;Fausto Leali;10;47:35
+Mind of Mine;Zayn;14;46:02
+Combattente;Florella Mannoia;11;53:02
+VascoNonStop;Vasco Rossi;51;4:02:56
+Canzoni della Cupa;Vinicio Capossela;28;42:20
+Canzoni di contrabbando;Eugenio Bennato;13;45:26
+Fabri Fibra;Mr.Simpatia;16;1500
+Neffa;Aspettando il sole;12;1200
+Club Dogo;Mifist;15;1400
+Fabri Fibra;Turbegiovanili;16; 1100
+Bassi Maestro;Leva78;11;2000
+Noyz Narcos;Monster;11;1800
+Fabri Fibra;Tradimento;24;2600
+Claver Gold;Requiem;17;1300
+Fabri Fibra;Sindrome di fine millenio;16;1000
+Noyz Narcos;Guilty;10;1200

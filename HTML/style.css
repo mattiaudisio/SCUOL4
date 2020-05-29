@@ -1,0 +1,64 @@
+body{
+	background-image: url("i29bJIz.jpg"); /* fc0 --> ffcc00 */
+	color: #000;
+	background-position: center center;	
+}
+
+header{
+	background-color: #def2fc;
+	color: #422270;
+	font: bold 80% Arial, Helvetica, sans-serif; /* sans-serif --> senza grazie */
+	/*font-weight: bold;*/
+	width:100%;
+	height:150px;
+	margin-top: 30px;
+	padding-top:5pt;
+}
+nav{
+	margin:3px 0px 5px 0px;
+}
+
+nav ul{
+	list-style:none;
+}
+
+nav li{
+	display:inline;
+	padding-right: 30px;
+	border-top: 1px solid gray;
+	border-bottom: 1px solid gray;
+}
+
+p {
+	color:green;
+	font-weight: bold;
+}
+
+#uno {
+	font: 170% Tahoma;
+}	
+	
+.testoblu {
+	text-align: center;
+	color:white;
+}
+
+nav a:hover{	
+	background: #000;
+	color: #fff;
+	text-transform:uppercase;	
+}	
+	
+nav a: link{
+		text-decoration:none; 
+}
+
+aside{
+	border: solid 2px #000;
+	width: 15%;
+	float: left;
+}	
+
+h1{
+	text-shadow:2px 2px 5px #33C;
+}

@@ -1,0 +1,83 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".CaricaAcitivity">
+
+    <TextView
+        android:id="@+id/txtInfoNome"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="72dp"
+        android:layout_marginTop="81dp"
+        android:text="@string/txtInfoNome"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <EditText
+        android:id="@+id/txtNomeNuovo"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="2dp"
+        android:ems="10"
+        android:inputType="textPersonName"
+        android:text="@string/nomeContatto"
+        app:layout_constraintStart_toStartOf="@+id/txtInfoNome"
+        app:layout_constraintTop_toBottomOf="@+id/txtInfoNome"
+        android:autofillHints="" />
+
+    <TextView
+        android:id="@+id/txtInfoCognome"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="3dp"
+        android:layout_marginTop="84dp"
+        android:layout_marginEnd="2dp"
+        android:text="@string/cognomeContatto"
+        app:layout_constraintEnd_toEndOf="@+id/txtInfoNome"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="@+id/txtInfoNumero"
+        app:layout_constraintTop_toBottomOf="@+id/txtNomeNuovo" />
+
+    <EditText
+        android:id="@+id/txtCognomeNuovo"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:ems="10"
+        android:inputType="textPersonName"
+        android:text="@string/cognomeContatto"
+        app:layout_constraintStart_toStartOf="@+id/txtInfoCognome"
+        app:layout_constraintTop_toBottomOf="@+id/txtInfoCognome" />
+
+    <TextView
+        android:id="@+id/txtInfoNumero"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="72dp"
+        android:layout_marginTop="76dp"
+        android:text="@string/numeroContatto"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/txtCognomeNuovo" />
+
+    <Button
+        android:id="@+id/btnCaricaNuovo"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="136dp"
+        android:layout_marginBottom="144dp"
+        android:text="@string/carica"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="parent" />
+
+    <EditText
+        android:id="@+id/txtNumeroNuovo"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:ems="10"
+        android:inputType="number"
+        android:text="@string/numeroContatto"
+        app:layout_constraintStart_toStartOf="@+id/txtInfoNumero"
+        app:layout_constraintTop_toBottomOf="@+id/txtInfoNumero" />
+</androidx.constraintlayout.widget.ConstraintLayout>

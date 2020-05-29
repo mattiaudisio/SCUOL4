@@ -1,0 +1,13 @@
+In una mensa universitaria, gli studenti dopo aver mangiato, depongono i vassoi in 2 contenitori, ognuno di 5 ripiani.
+ Periodicamente il cameriere Ambrogio sceglie un contenitore tra quelli in cui non ci sono più ripiani liberi, lo svuota, 
+lava i piatti e riporta il contenitore in sala. Quando tutti gli studenti hanno consumato il pasto, Ambrogio chiude la mensa 
+e ripulisce il locale.
+
+*********************************************************
+
+Modificare la soluzione proposta in modo tale che ci siano 3 contenitori disponibili e lo studente verifichi la disponibilità 
+di un ripiano libero su uno dei tre carrelli
+
+
+
+cameriere:	crea memoria,crea semaforo

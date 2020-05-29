@@ -1,0 +1,8 @@
+<resources>
+    <string name="app_name">Esercizio_40619</string>
+    <string name="txtNome">Nome</string>
+    <string name="txtCognome">Cognome</string>
+    <string name="txtMail">Mail</string>
+    <string name="txtMatricola">Matricola</string>
+    <string name="btnStampa">Stampa</string>
+</resources>

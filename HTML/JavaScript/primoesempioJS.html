@@ -1,0 +1,50 @@
+<html>
+    <head>
+        <title>Primo Esempio JS</title>
+        <script type="text/javascript">
+            function apri(){
+                alert("Salutato"):
+                nom=document.getElementById("CasellaNome");
+                cog=document.getElementById("CasellaCognome");
+                messaggio="Ciao "+nom.value+" "+cog.value;
+                alert(messaggio);                      
+               
+            }
+            function ita(){
+                alert("Ciao"); 
+                nom=document.getElementById("CasellaNome");
+                cog=document.getElementById("CasellaCognome");
+                messaggio="Ciao "+nom.value+" "+cog.value;
+                alert(messaggio);                       
+               
+            }
+            function en(){
+                alert("Hello"); 
+                nom=document.getElementById("CasellaNome");
+                cog=document.getElementById("CasellaCognome");
+                messaggio="Ciao "+nom.value+" "+cog.value;
+                alert(messaggio);                      
+               
+            }
+            function fr(){
+                alert("Bonjour"); 
+                nom=document.getElementById("CasellaNome");
+                cog=document.getElementById("CasellaCognome");
+                messaggio="Ciao "+nom.value+" "+cog.value;
+                alert(messaggio);                      
+            }
+
+        </script>
+    </head>
+
+    <body>
+        <h1>JAVA SCRIPT</h1>
+        <br />
+          Nome: <input type="text" id="CasellaNome" />
+          Cognome: <input type="text" id="CasellaCognome" />
+        <input type="button" value="Saluta in italiano" onclick="ita();"/>
+        <input type="button" value="Saluta in inglese" onclick="en();"/>          
+        <input type="button" value="Saluta in francese" onclick="fr();"/>
+        <input type="button" value="Saluta" onclick="apri();"/>
+    </body>
+</html>                                                                                                                                                                        
