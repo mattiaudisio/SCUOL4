@@ -55,6 +55,20 @@
   * Author: BootstrapMade.com
   * License: https://bootstrapmade.com/license/
   ======================================================== -->
+  <style>
+  input[type=submit] {
+    background: #f03c02;
+    border: 0;
+    padding: 10px 24px;
+    color: #fff;
+    transition: 0.4s;
+    border-radius: 4px;
+  }
+
+  input[type=submit]:hover {
+    background-color: #cc3808;
+  }
+  </style>
 </head>
 
 <body>
