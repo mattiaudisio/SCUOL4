@@ -4,8 +4,7 @@ Per creare una cartella:<br />
 		- sudo chmod 777: da i permessi
 		- sudo mkdir nomeCartella: crea la cartella		
 <br />
-$_POST: La variabile $_POST è "collegata" a un form fisico html, serve a ricavare
-				__un dato inserito in un campo di un form html; le informazioni sono nascoste__	
+$_POST: La variabile $_POST è "collegata" a un form fisico html, serve a ricavare un dato inserito in un campo di un form html; le informazioni sono nascoste
 <br />				
 $_GET: 	i dati si vedono nella barra di ricerca; le informazioni sono nascoste
 <br />
@@ -21,8 +20,8 @@ C'è anche da dire che per controllare se una variabile è vuota è possibile an
 non usare alcuna funzione, ma metterla normalmente in una parentesi.
 <br />
 Una variabile di sessione si definisce con:
-	__$_SESSION[nomesessione] = "valore";__
+	$_SESSION[nomesessione] = "valore";
 <br />		
-__$_SESSION['username'] = "Matteo"; //Stabiliamo la  variabile sessione di nome username__
+	$_SESSION['username'] = "Matteo"; //Stabiliamo la  variabile sessione di nome username
 <br />
 se faccio session_start() in un altro file e questa session vede che c'è un'altra session attiva, questa session si collega a quella creata in precedenza
