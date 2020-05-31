@@ -19,7 +19,14 @@
 <head>
   <meta charset="utf-8">
   <meta content="width=device-width, initial-scale=1.0" name="viewport">
-  <title>Convito | Convention Torinese</title>
+  <title><?php
+  if(isset($_SESSION['idPart'])){
+    $query = "SELECT Partecipante.nomePart, Partecipante.cognomePart FROM Partecipante WHERE Partecipante.idPart = '".$_SESSION['idPart']."'";
+    $queryNomeCognome =  $connessione->query($query);
+    if($var = $queryNomeCognome->fetch_assoc()){?>
+      <?php echo $var['nomePart'];?> <?php echo $var['cognomePart'];?> | Convito<?php
+    }
+  }?></title>
   <meta content="" name="descriptison">
   <meta content="" name="keywords">
   <!-- Favicons -->
