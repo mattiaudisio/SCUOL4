@@ -69,11 +69,17 @@
           <li><a href="index.php">Home</a></li>
           <li><a href="index.php#speaker">Speaker</a></li>
           <li><a href="index.php#programma">Programma</a></li>
-          <li><a href="iscriviti.php">Iscriviti</a></li>
-          <li class="active"><a href="login.php">Profilo</a></li>
           <?php
           if(isset($_SESSION['idPart'])){
-            echo '<li><a href="Funzioni_PHP/logout.php">Logout</a></li>';
+            $query = "SELECT Partecipante.nomePart, Partecipante.cognomePart FROM Partecipante WHERE Partecipante.idPart = '".$_SESSION['idPart']."'";
+            $queryNomeCognome =  $connessione->query($query);
+            if($var = $queryNomeCognome->fetch_assoc()){
+              ?> <li class="active"><a href="login.php"> <?php echo $var['nomePart']?>' '<?php echo $var['cognomePart']?>'</a></li>
+                    <li><a href="Funzioni_PHP/logout.php">Logout</a></li>'; <?php
+            }
+          }else{
+            ?><li><a href="iscriviti.php">Iscriviti</a></li>
+              <li class="active"><a href="login.php">Login</a></li><?php
           }
           ?>
         </ul>

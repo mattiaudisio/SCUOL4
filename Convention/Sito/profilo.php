@@ -72,14 +72,20 @@
             <li><a href="index.php">Home</a></li>
             <li><a href="index.php#speaker">Speaker</a></li>
             <li><a href="index.php#programma">Programma</a></li>
-            <li><a href="iscriviti.php">Iscriviti</a></li>
-            <li class="active"><a href="login.php">Profilo</a></li>
             <?php
             if(isset($_SESSION['idPart'])){
-              echo '<li><a href="Funzioni_PHP/logout.php">Logout</a></li>';
+              $query = "SELECT Partecipante.nomePart, Partecipante.cognomePart FROM Partecipante WHERE Partecipante.idPart = '".$_SESSION['idPart']."'";
+              $queryNomeCognome =  $connessione->query($query);
+              if($var = $queryNomeCognome->fetch_assoc()){
+                ?> <li class="active"><a href="login.php"> <?php echo $var['nomePart']?> <?php echo $var['cognomePart']?></a></li>
+                      <li><a href="Funzioni_PHP/logout.php">Logout</a></li> <?php
+              }
+            }else{
+              ?><li><a href="iscriviti.php">Iscriviti</a></li>
+                <li class="active"><a href="login.php">Login</a></li><?php
             }
             ?>
-          </ul>
+                    </ul>
         </nav><!-- .nav-menu -->
       </div>
     </header><!-- End Header -->
@@ -152,8 +158,6 @@
           array_push($arrayID,$risId);
         }
 
-
-
             for($i = 0; $i < count($arrayPartecipante); $i++){
               $idPartecipante = $arrayPartecipante[$i]->getIdPart();
               if( $idPartecipante == $_SESSION['idPart']){  ?>
@@ -214,7 +218,7 @@
                                      array_push($arrayCompostoTemp,$news2[1]);
                                    }
 
-                                   $queryProgramma = "SELECT * FROM Programma,Speech,Sala WHERE Programma.idSpeech = Speech.idSpeech AND Programma.idSala = Sala.idSala;";
+                                   $queryProgramma = "SELECT * FROM Programma,Speech,Sala WHERE Programma.idSpeech = Speech.idSpeech AND Programma.idSala = Sala.idSala AND Speech.numPosti != 0;";
                                    $risultato = $connessione->query($queryProgramma);
                                    while($whileProgramma = $risultato->fetch_array(MYSQLI_NUM)){
                                      if(!in_array($whileProgramma[0],$arrayCompostoTemp)){
