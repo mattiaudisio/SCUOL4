@@ -28,6 +28,7 @@
   <link href="assets/vendor/venobox/venobox.css" rel="stylesheet">
   <link href="assets/vendor/owl.carousel/assets/owl.carousel.min.css" rel="stylesheet">
   <link href="assets/vendor/aos/aos.css" rel="stylesheet">
+  <link href="assets/css_input.css" rel="stylesheet">
   <!-- Template Main CSS File -->
   <link href="assets/css/style.css" rel="stylesheet">
   <!-- =======================================================
@@ -36,20 +37,6 @@
   * Author: BootstrapMade.com
   * License: https://bootstrapmade.com/license/
   ======================================================== -->
-  <style>
-  input[type=submit] {
-    background: #f03c02;
-    border: 0;
-    padding: 10px 24px;
-    color: #fff;
-    transition: 0.4s;
-    border-radius: 4px;
-  }
-
-  input[type=submit]:hover {
-    background-color: #cc3808;
-  }
-  </style>
 </head>
 
 <body>
@@ -110,7 +97,7 @@
         <div class="section-title" data-aos="fade-up">
           <h2><strong>ACCEDI</strong></h2>
         </div>
-          <form action="header_autenticazione.php" method="post">
+          <form action="funzioni.php" method="post">
             <div class="container" >
                 <p>Mail:</p>
                 <input type="email" name="mail"  class="form-control" id="mail" placeholder="Inserisci la tua mail" data-rule="minlen:4" data-msg="Inserisci la tua mail" />
