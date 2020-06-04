@@ -69,6 +69,7 @@
     <link href="assets/vendor/venobox/venobox.css" rel="stylesheet">
     <link href="assets/vendor/owl.carousel/assets/owl.carousel.min.css" rel="stylesheet">
     <link href="assets/vendor/aos/aos.css" rel="stylesheet">
+    <link href="assets/css_input.css" rel="stylesheet">
     <!-- Template Main CSS File -->
     <link href="assets/css/style.css" rel="stylesheet">
     <!-- =======================================================
@@ -98,11 +99,11 @@
               $query = "SELECT Partecipante.nomePart, Partecipante.cognomePart FROM Partecipante WHERE Partecipante.idPart = '".$_SESSION['idPart']."'";
               $queryNomeCognome =  $connessione->query($query);
               if($var = $queryNomeCognome->fetch_assoc()){
-                echo '<li><a href="login.php">'.$var['nomePart'].' '. $var['cognomePart'].'</a></li>
+                echo '<li><a href="profilo.php">'.$var['nomePart'].' '. $var['cognomePart'].'</a></li>
                       <li><a href="Funzioni_PHP/logout.php">Logout</a></li>';
               }
             }else{
-              ?> <li><a href="iscriviti.php">Iscriviti</a></li> <li><a href="login.php">Login</a></li><?php
+              ?> <li><a href="#iscriviti">Iscriviti</a></li> <li><a href="#login">Login</a></li><?php
             }
             ?>
           </ul>
@@ -176,10 +177,74 @@
               </div>
             </div>
           </div>
-          <?php $connessione->close(); ?>
         </div>
       </section>
+      <?php
+        if(!isset($_SESSION['idPart'])){ ?>
+          <section id="iscriviti" class="contact">
+          <div class="row mt-5 justify-content-center" data-aos="fade-up">
+            <div class="col-lg-10">
+              <div class="section-title" data-aos="fade-up">
+                <h2>Iscriviti qua per preordinare<br> il tuo <strong>Biglietto</strong></h2>
+              </div>
+              <form action="iscrizione.php" method="post">
+                <div class="container" >
+                    <p>Cognome:</p>
+                    <input type="text" name="cognome"  class="form-control" id="cognome" placeholder="Inserisci il tuo cognome" data-rule="minlen:4" data-msg="Inserisci il tuo cognome" />
+                    <br>
+                    <p>Nome:</p>
+                    <input type="text" name="nome"  class="form-control" id="nome" placeholder="Inserisci il tuo nome" data-rule="minlen:4" data-msg="Inserisci il tuo nome" />
+                    <br>
+                    <p>Mail:</p>
+                    <input type="email" name="mail"  class="form-control" id="email" placeholder="Inserisci la tua mail" data-rule="minlen:4" data-msg="Inserisci la tua mail" />
+                    <br>
+                    <p>Password:</p>
+                    <input type="password" name="password"  class="form-control" id="password" placeholder="Inserisci una password" data-rule="minlen:4" data-msg="Inserisci una password" />
+                    <br>
+                    <p>Tipologia:</p>
+                    <select name="tipologia" class="form-control" method="post">
+                      <option value="studente">Studente</option>
+                      <option value="docente">Docente</option>
+                      <option value="liberoProfessionista">Libero Professionista</option>
+                    </select><br>
+                    <p>Programmi:</p>
+                    <?php for($i = 0; $i < count($arrayProgramma); $i++){
+                          if($arrayProgramma[$i]->getNPosti() > 0){
+                              echo '<input type="checkbox" name="interessi[]" value="'.$arrayProgramma[$i]->getIdProgramma().'">'.$arrayProgramma[$i]->getTitolo().'<br>';
+                          }
+                        }?>
+                    <div class="text-center" ><input type="submit" value="iscriviti" name="iscriviti"></div>
+                </div>
+              </form>
+              <br>
+            </div>
+          </div>
+          </section>
+          <section id="login" class="contact">
+          <div class="row mt-5 justify-content-center" data-aos="fade-up">
+            <div class="col-lg-10">
+              <div class="section-title" data-aos="fade-up">
+                <h2><strong>ACCEDI</strong></h2>
+              </div>
+                <form action="funzioni.php" method="post">
+                  <div class="container" >
+                      <p>Mail:</p>
+                      <input type="email" name="mail"  class="form-control" id="mail" placeholder="Inserisci la tua mail" data-rule="minlen:4" data-msg="Inserisci la tua mail" />
+                      <br>
+                      <p>Password:</p>
+                      <input type="password" name="password"  class="form-control" id="password" placeholder="Inserisci una password" data-rule="minlen:4" data-msg="Inserisci una password" />
+                      <br>
+                      <div class="text-center" ><input type="submit" value="login" name="login"></div>
+                  </div>
+                </form>
+              <br>
+            </div>
+          </div>
+          </section>
+        <?php }
+      ?>
     </main><!-- End #main -->
+    <?php $connessione->close(); ?>
     <!-- ======= Footer ======= -->
     <footer id="footer">
       <div class="footer-top">
