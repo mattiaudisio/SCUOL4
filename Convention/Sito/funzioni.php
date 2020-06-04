@@ -3,7 +3,6 @@
   $connessione = Connessione::apriConnessione();
 
   session_start();
-  session_destroy();
 
   $errore = "";
 
@@ -57,11 +56,11 @@
         }
       }else{
         echo "<script type='text/javascript'>alert('I dati inseriti sono errati, correggili per accedere');</script>";
-        header('location:login.php');
+        header('location: index.php#login');
       }
     }else{
       echo "<script type='text/javascript'>alert('I Inserisci tutti i dati');</script>";
-      header('location:login.php');
+      header('location: index.php#login');
     }
   }
 ?>
