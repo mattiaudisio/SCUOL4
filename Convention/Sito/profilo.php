@@ -11,7 +11,7 @@
   session_start();
 
   if(!isset($_SESSION['idPart'])){
-    header('location:login.php');
+    header('location:index.php#login');
   }
 
   ?>
@@ -71,12 +71,12 @@
               $query = "SELECT Partecipante.nomePart, Partecipante.cognomePart FROM Partecipante WHERE Partecipante.idPart = '".$_SESSION['idPart']."'";
               $queryNomeCognome =  $connessione->query($query);
               if($var = $queryNomeCognome->fetch_assoc()){
-                ?> <li class="active"><a href="login.php"> <?php echo $var['nomePart']?> <?php echo $var['cognomePart']?></a></li>
+                ?> <li class="active"><a href="index.php#login"> <?php echo $var['nomePart']?> <?php echo $var['cognomePart']?></a></li>
                       <li><a href="Funzioni_PHP/logout.php">Logout</a></li> <?php
               }
             }else{
-              ?><li><a href="iscriviti.php">Iscriviti</a></li>
-                <li class="active"><a href="login.php">Login</a></li><?php
+              ?><li><a href="index.php#iscriviti">Iscriviti</a></li>
+                <li class="active"><a href="index.php#login">Login</a></li><?php
             }
             ?>
                     </ul>
