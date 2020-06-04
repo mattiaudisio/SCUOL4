@@ -37,7 +37,7 @@
     $risCognome = $ris["cognomePart"];
     $risMail = $ris["mailPart"];
     if($_POST['cognome'] == $risCognome && $_POST['nome'] == $risNome && $_POST['mail'] == $risMail){
-        header("location:iscriviti.php");
+        header("location:index.php#iscriviti");
     }
   }
 
@@ -79,13 +79,12 @@
           $titolo = $arrayProgramma[$i]->getTitolo();
           $query = "UPDATE Speech SET numPosti = ".$posti."  WHERE titolo = '".$titolo."'";
           $connessione->query($query);
-          header("location:profilo.php");
+          header("location:index.php#login");
         }
       }else{
-        header("location:iscriviti.php");
+        header("location:index.php#iscriviti");
       }
     }
   }
   $connessione->close();
 ?>
-
