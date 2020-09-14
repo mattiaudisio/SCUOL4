@@ -1,4 +1,4 @@
-#PHP
+# PHP
 
 Per creare una cartella:<br />
 		- sudo chmod 777: da i permessi
