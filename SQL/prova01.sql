@@ -1110,3 +1110,130 @@ WHERE Posizioni.CodMacchinetta = Macchinette.CodMacchinetta
 AND Merende.codMerenda = Posizioni.codMerenda
 AND Macchinette.CodScuola = Scuole.CodScuola
 GROUP BY Macchinette.TipoMacchinetta;			    
+
+-- ComandiSQL_x_db_palestra_QL --
+
+/* Interrogazioni al DB Palestra */
+
+/* Elenco dei dati degli istruttori */
+Select *
+From istruttori;
+
+/* Dati completi di tutti gli istruttori che si chiamano "Barbara" */
+Select *
+From istruttori
+Where istruttori.nome='Barbara';
+
+/* Cognome e telefono di tutti gli istruttori che si chiamano "Barbara" */
+/* QUESTA E' UNA PROIEZIONE */
+Select istruttori.cognome, istruttori.tel
+From istruttori
+Where istruttori.nome='Barbara';
+
+/* Numero di posti del corso di pesi */
+Select corsi.num_posti
+From corsi
+Where corsi.descrizione='pesi';
+
+/* Elenco iscritti (nome e cognome) al corso aerobica con inner join */
+Select clienti.nome,clienti.cognome, corsi.num_posti
+From clienti
+Inner join clienti_corsi On clienti.pk_cliente=clienti_corsi.fk_cliente
+Inner join corsi On corsi.pk_corso=clienti_corsi.fk_corso
+Where corsi.descrizione='aerobica';
+
+/* Elenco iscritti (nome e cognome) al corso di aerobica con join implicito*/
+Select clienti.nome,clienti.cognome
+From clienti, clienti_corsi,corsi
+Where (corsi.descrizione='aerobica'
+OR corsi.descrizione='pesi')
+AND clienti.pk_cliente=clienti_corsi.fk_cliente
+AND corsi.pk_corso=clienti_corsi.fk_corso;
+
+/* Elenco dei dati degli istruttori */
+Select *
+From istruttori
+ORDER BY istruttori.cognome, istruttori.nome;
+
+-- 5C_Palestra --
+
+CREATE DATABASE 5C_Palestra;
+USE 5C_PALESTRA;
+
+CREATE TABLE `Specializzazioni`(
+	`pk_specializzazione` INT(11) NULL,
+	`descrizione` VARCHAR(50) NULL;
+	PRIMARY KEY(`pk_specializzazione`);
+);
+
+CREATE TABLE `Istruttori_specializzazioni`(
+	`fk_istruttore` INT(11) NULL,
+	`fk_specializzazione` INT(11) NULL;
+);
+
+CREATE TABLE `Istruttori`(
+	`pk_istruttore` INT(11) NULL,
+	`nome` VARCHAR(50) NULL,
+	`cognome` VARCHAR(50) NULL,
+	`tel` VARCHAR(20) NULL;
+	PRIMARY KEY(`pk_istruttore`);
+);
+
+CREATE TABLE `Istruttori_corsi`(
+	`fk_istruttore` INT(11) NULL,
+	`fk_corso` INT(11) NULL;
+);
+
+CREATE TABLE `Corsi`(
+	`pk_corso` INT(11) NULL,
+	`descrizione` VARCHAR(50) NULL,
+	`num_posti` INT(11) NULL,
+	`anno` YEAR NULL;
+	PRIMARY KEY(`pk_specializzazione`);
+);
+
+CREATE TABLE `Orari`(
+	`giorno_settimana` VARCHAR(9) NULL,
+	`ora_inizio` TIME NULL,
+	`ora_fine` TIME NULL,
+	`fk_corso` INT(11) NULL;
+	PRIMARY KEY(`fk_corso`);
+);
+
+CREATE TABLE `Clienti_corsi`(
+	`fk_cliente` INT(11) NULL,
+	`fk_corso` INT(11) NULL;
+	PRIMARY KEY(`pk_corso`);
+);
+
+CREATE TABLE `Certificati`(
+	`pk_certificato` INT(11) NULL,
+	`data_certificato` DATE NULL,
+	`fk_cliente` INT(11)
+	PRIMARY KEY(`fk_cliente`);
+);
+
+CREATE TABLE `Clienti`(
+	`pk_cliente` INT(11) NULL,
+	`nome` VARCHAR(50) NULL,
+	`cognome` VARCHAR(50) NULL,
+	`tel` VARCHAR(20) NULL,
+	`email` VARCHAR(20) NULL;
+	PRIMARY KEY(`pk_specializzazione`);
+);
+
+ALTER TABLE `istruttori_specializzazioni`
+    ADD KEY `fk_specializzazione` (`pk_specializzazione`),
+    ADD KEY `fk_istruttore` (`pk_istruttore`),
+	ADD PRIMARY KEY(`fk_specializzazione`);
+
+ALTER TABLE `istruttori_corsi`
+    ADD KEY `fk_corso` (`pk_corso`),
+    ADD KEY `fk_istruttore` (`pk_istruttore`),
+	ADD PRIMARY KEY(`fk_corso`);
+
+ALTER TABLE `clienti_corsi`
+    ADD KEY `fk_cliente` (`pk_corso`),
+    ADD KEY `fk_corso` (`pk_corso`),
+	ADD PRIMARY KEY(`fk_corso`);
+			    
