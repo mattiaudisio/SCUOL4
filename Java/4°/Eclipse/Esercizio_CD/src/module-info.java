@@ -1,2 +1,0 @@
-module Esercizio_CD {
-}
