@@ -10,7 +10,7 @@ public class Cane implements Animale{
 	
 	public void mangia() {
 		// TODO Auto-generated method stub
-		
+		System.out.println("Sto mangiando");		
 	}
 
 }
