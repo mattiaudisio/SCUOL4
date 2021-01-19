@@ -1,5 +1,5 @@
 package provaClasseAstratta;
-//1 superclass N interfaces: posso avere una sola superclasse mentre posso avere più interfacce
+//1 superclass N interfaces: posso avere una sola superclasse mentre posso avere piÃ¹ interfacce
 public  class Gatto implements Animale {
 
 	public void verso() {
@@ -10,7 +10,7 @@ public  class Gatto implements Animale {
 
 	public void mangia() {
 		// TODO Auto-generated method stub
-		
+		System.out.println("Sto mangiando");		
 	}
 	
 }
