@@ -1,8 +1,8 @@
 # PHP
 
 Per creare una cartella:<br />
-		- sudo chmod 777: da i permessi
-		- sudo mkdir nomeCartella: crea la cartella		
+	-sudo chmod 777: da i permessi
+ 	-sudo mkdir nomeCartella: crea la cartella		
 <br />
 $_POST: La variabile $_POST è "collegata" a un form fisico html, serve a ricavare un dato inserito in un campo di un form html; le informazioni sono nascoste
 <br />				
