@@ -16,20 +16,17 @@ In ciascun parco, un responsabile (guardia parco) raccoglie le informazioni attr
 un’interfaccia web tramite il dispositivo mobile in dotazione e, dopo avere acquisito i dati dalle
 maschere di immissione, li invia al sistema centrale della Regione per la memorizzazione nel
 database regionale.<br />
-Il candidato, formulate le opportune ipotesi aggiuntive, realizzi:<br />
+Il candidato, ___formulate le opportune ipotesi aggiuntive___, realizzi:<br />
  • Un’analisi della realtà di riferimento, completa dello schema funzionale dell'architettura
  proposta (a livello locale e regionale), evidenziandone le principali componenti, le
  caratteristiche hardware e software, i protocolli necessari, la tecnologia utilizzata per la
  trasmissione delle informazioni e le tecniche per garantire la sicurezza perimetrale dei dati.<br />
  • Un piano opportuno di indirizzamento locale e per la comunicazione tra le sedi.<br />
  • Uno schema concettuale ed uno schema logico del database.<br />
- • La definizione delle relazioni e le seguenti interrogazioni espresse in linguaggio SQL,
- opportunamente commentate in ogni loro parte:<br />
- 1. Visualizzare l'elenco di tutti gli esemplari di fauna, ordinati per specie, presenti nei
- vari parchi.<br />
+ • La definizione delle relazioni e le seguenti interrogazioni espresse in linguaggio SQL,__opportunamente commentate in ogni loro parte__:<br />
+ 1. Visualizzare l'elenco di tutti gli esemplari di fauna, ordinati per specie, presenti nei  vari parchi.<br />
  2. Visualizzare quante specie diverse di pino sono presenti in ciascun parco.<br />
- 3. Visualizzare il nome della specie di animale con il più alto numero di esemplari
- censiti nei vari parchi della regione.<br />
+ 3. Visualizzare il nome della specie di animale con il più alto numero di esemplari censiti nei vari parchi della regione.<br />
  
 La codifica in PHP (HTML-CSS-JS) di:<br />
  • form di autenticazione (login) del guardia parco all’interfaccia web;<br />
