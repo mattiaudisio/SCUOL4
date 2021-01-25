@@ -76,3 +76,10 @@ Si è scelto di inserire anche il database all’interno della DMZ perché, al s
 salvate anche le mail e le password delle guardie e, nonostante la cifratura in hash che viene fatta
 alle password prima di caricarle sul database, si è optato, per evitare eventuali furti di mail
 password, di inserirlo all’interno della DMZ.<br />
+
+![ ](https://github.com/mattiaudisio/prjScuola/blob/master/Maturita/elaborato_audisio/img/01.PNG)
+
+# Diagramma E/R
+*premessa*:
+ - La relazione Parco-GuardiaParco è stata resa una relazione 1-N perché si è ipotizzato che, all’interno di un parco, possano lavorare più guardie ma che solamente una è adibita all’invio dei dati
+- La relazione Parco-Fauna e la relazione Parco-Flora sono state rese delle relazioni 1-N perché si è ipotizzato che un determinato tipo di animali o un determinato tipo di pianta possono vivere o si possono trovare all’interno di un solo parco
