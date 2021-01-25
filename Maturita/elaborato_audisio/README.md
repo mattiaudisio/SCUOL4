@@ -29,7 +29,8 @@ Il candidato, formulate le opportune ipotesi aggiuntive, realizzi:<br />
  vari parchi.<br />
  2. Visualizzare quante specie diverse di pino sono presenti in ciascun parco.<br />
  3. Visualizzare il nome della specie di animale con il più alto numero di esemplari
- censiti nei vari parchi della regione.<br /><br />
+ censiti nei vari parchi della regione.<br />
+ 
 La codifica in PHP (HTML-CSS-JS) di:<br />
  • form di autenticazione (login) del guardia parco all’interfaccia web;<br />
  • una pagina per la visualizzazione del risultato di una query a scelta tra quelle proposte.<br />
