@@ -83,3 +83,69 @@ password, di inserirlo all’interno della DMZ.<br />
 *premessa*:
  - La relazione Parco-GuardiaParco è stata resa una relazione 1-N perché si è ipotizzato che, all’interno di un parco, possano lavorare più guardie ma che solamente una è adibita all’invio dei dati
 - La relazione Parco-Fauna e la relazione Parco-Flora sono state rese delle relazioni 1-N perché si è ipotizzato che un determinato tipo di animali o un determinato tipo di pianta possono vivere o si possono trovare all’interno di un solo parco
+
+![ ](https://github.com/mattiaudisio/prjScuola/blob/master/Maturita/elaborato_audisio/img/02.PNG)
+
+__*Valori che assumono alcuni attributi*__<br />
+sesso:  *F* = femmina *M* = maschio<br />
+sessoGuardia: *F* = femmina *M* = maschio<br />
+eta: *A* = adulto *C* = cucciolo<br />
+nomeOrdine: *mammiferi rettili uccelli*<br />
+stagioneFioritura: *primavera estate autunno inverno*<br />
+
+# Schema Logico
+Parco (__codiceParco__,nomeParco);<br />
+Fauna (__codiceFauna__,specie,eta,sesso, *codiceOrdine, codiceParco*);<br />
+Ordine (__codiceOrdine__,nomeOrdine);<br />
+Flora (__codiceFlora__,nome,categoria,stagioneFioritura,*codiceParco*);<br />
+GuardiaParco
+(__codGuardia__,nomeGuardia,cognomeGuardia,anniGuardia,sessoGuardia,mailGuard
+ia,passwordGuardia,*codiceParco*);<br />
+
+# Creazione database
+
+__*DDL*__<br />
+create table parchi_audisio;<br />
+use parchi_audisio;<br />
+create table if not exists Parchi(<br />
+ codiceParco varchar(10) not null,<br />
+ nomeParco varchar(100) null,<br />
+ primary key(codiceParco)<br />
+);<br />
+create table if not exists GuardiaParco(<br />
+ codGuardia varchar(10) not null,<br />
+ nomeGuardia varchar(50) null,<br />
+ cognomeGuardia varchar(50) null,<br />
+ anniGuardia int null,<br />
+ sessoGuardia varchar(10) null,<br />
+ mailGuardia varchar(50) null,<br />
+ passwordGuardia varchar(100) null,<br />
+ codiceParco varchar(10) not null,<br />
+ primary key(codGuardia)<br />
+);<br />
+create table if not exists Fauna(<br />
+ codiceFauna varchar(10) not null,<br />
+ specie varchar(100) null,<br />
+ eta varchar(10) null,<br />
+ sesso varchar(10) null,<br />
+ codiceOrdine varchar(10) not null,<br />
+ codiceParco varchar(10) not null,<br />
+ primary key(codiceFauna)<br />
+);<br />
+create table if not exists Ordine(<br />
+ codiceOrdine varchar(10) not null,<br />
+ nomeOrdine varchar(100) null,<br />
+ primary key(codiceOrdine)<br />
+);<br />
+create table if not exists Flora(<br />
+ codiceFlora varchar(10) not null,<br />
+ nome varchar(100) null,<br />
+ categoria varchar(10) null,<br />
+ stagioneFioritura varchar(100) null,<br />
+ codiceParco varchar(10) not null,<br />
+ primary key(codiceFlora)<br />
+);<br />
+alter table GuardiaParco add foreign key (codiceParco) references Parchi(codiceParco);<br />
+alter table Flora add foreign key (codiceParco) references Parchi(codiceParco);<br />
+alter table Fauna add foreign key (codiceParco) references Parchi(codiceParco);<br />
+alter table Fauna add foreign key (codiceOrdine) references Ordine(codiceOrdine);<br />
