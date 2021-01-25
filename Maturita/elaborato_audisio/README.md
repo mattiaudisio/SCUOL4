@@ -32,7 +32,7 @@ Il candidato, formulate le opportune ipotesi aggiuntive, realizzi:<br />
  censiti nei vari parchi della regione.<br /><br />
 La codifica in PHP (HTML-CSS-JS) di:<br />
  • form di autenticazione (login) del guardia parco all’interfaccia web;<br />
- • una pagina per la visualizzazione del risultato di una query a scelta tra quelle proposte<br />
+ • una pagina per la visualizzazione del risultato di una query a scelta tra quelle proposte.<br />
  
  # Sviluppo della rete
 Ipotizzando la difficoltà di una connessione di rete permanente nelle aree dei parchi naturali si
