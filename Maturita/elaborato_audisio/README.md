@@ -183,3 +183,23 @@ insert into Flora (codiceFlora,nome,categoria,stagioneFioritura,codiceParco) val
  ('Flora3','pino','piante','estate','Parcho3'),<br />
  ('Flora4','pino','alberi','inverno','Parcho4'),<br />
  ('Flora5','pino','arbusti','autunno','Parcho5');<br />
+
+# Query sql
+__1) Visualizzare l'elenco di tutti gli esemplari di fauna, ordinati per specie, presenti nei vari parchi__<br /><br />
+select Fauna.specie, Parchi.nomeParco<br />
+from Fauna, Parchi<br />
+where Parchi.codiceParco = Fauna.codiceParco<br />
+order by Fauna.specie;<br />
+
+__2) Visualizzare quante specie diverse di pino sono presenti in ciascun parco__<br /><br />
+select Parchi.nomeParco, count(Flora.codiceFlora) as numPini<br />
+from Flora, Parchi<br />
+where Parchi.codiceParco = Flora.codiceParco<br />
+and Flora.nome = “pino"<br />
+group by Parchi.nomeParco;<br />
+
+__3) Visualizzare il nome della specie di animale con il più alto numero di esemplari censiti nei vari parchi della regione__<br /><br />
+create view numeroEsemplari(parco,specie,numero) as<br />
+select Parchi.nomeParco, Fauna.specie, count(Parchi.nomeParco)<br />
+from Fauna, Parchi<br />
+where Parchi.codiceParco = Fauna.codiceParco<br />
