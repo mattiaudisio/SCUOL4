@@ -149,3 +149,37 @@ alter table GuardiaParco add foreign key (codiceParco) references Parchi(codiceP
 alter table Flora add foreign key (codiceParco) references Parchi(codiceParco);<br />
 alter table Fauna add foreign key (codiceParco) references Parchi(codiceParco);<br />
 alter table Fauna add foreign key (codiceOrdine) references Ordine(codiceOrdine);<br />
+__*DML*__<br />
+use parchi_audisio;<br />
+insert into Parchi (codiceParco,nomeParco) values<br />
+ ('Parcho1','Gran Paradiso'),<br />
+ ('Parcho2','Val Grande'),<br />
+ ('Parcho3','Val Troncea'),<br />
+ ('Parcho4','Lanca di San Michele'),<br />
+ ('Parcho5','Monviso');<br />
+insert into GuardiaParco (codGuardia,nomeGuardia,cognomeGuardia,anniGuardia,sessoGuardia,mailGuardia,passwordGuardia,codiceParco) values<br />
+
+('Guardia1','Marco','Longo',30,'M','guardia1@mail.com','ef92b778bafe771e89245b89ecbc08a44a4e166c06659911881f383d4473e94f','Parcho1'),<br />
+('Guardia2','Luca','Rossi',29,'M','guardia2@mail.com','ef92b778bafe771e89245b89ecbc08a44a4e166c06659911881f383d4473e94f','Parcho2'),<br />
+('Guardia3','Stefano','Verdi',49,'M','guardia3@mail.com','ef92b778bafe771e89245b89ecbc08a44a4e166c06659911881f383d4473e94f','Parcho3'),<br />
+('Guardia4','Lorenzo','Giolitti',41,'M','guardia4@mail.com','ef92b778bafe771e89245b89ecbc08a44a4e166c06659911881f383d4473e94f','Parcho4'),<br />
+('Guardia5','Giacomo','Saba',56,'M','guardia5@mail.com','ef92b778bafe771e89245b89ecbc08a44a4e166c06659911881f383d4473e94f','Parcho5');<br />
+
+insert into Ordine (codiceOrdine,nomeOrdine) values<br />
+ ('ordine1','mammiferi'),<br />
+ ('ordine2','rettili'),<br />
+ ('ordine3','uccelli');<br />
+ 
+insert into Fauna (codiceFauna,specie,eta,sesso,codiceOrdine,codiceParco) values<br />
+ ('Fauna1','scoiattolo','A','M','ordine1','Parcho1'),<br />
+ ('Fauna2','volpe','C','F','ordine1','Parcho2'),<br />
+ ('Fauna3','orso','A','M','ordine1','Parcho3'),<br />
+ ('Fauna4','vipera','C','F','ordine2','Parcho4'),<br />
+ ('Fauna5','falco','A','M','ordine3','Parcho5');<br />
+
+insert into Flora (codiceFlora,nome,categoria,stagioneFioritura,codiceParco) values<br />
+ ('Flora1',' pino','piante','primavera','Parcho1'),<br />
+ ('Flora2','pino','piante','autunno','Parcho2'),<br />
+ ('Flora3','pino','piante','estate','Parcho3'),<br />
+ ('Flora4','pino','alberi','inverno','Parcho4'),<br />
+ ('Flora5','pino','arbusti','autunno','Parcho5');<br />
