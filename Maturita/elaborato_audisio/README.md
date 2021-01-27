@@ -203,3 +203,18 @@ create view numeroEsemplari(parco,specie,numero) as<br />
 select Parchi.nomeParco, Fauna.specie, count(Parchi.nomeParco)<br />
 from Fauna, Parchi<br />
 where Parchi.codiceParco = Fauna.codiceParco<br />
+group by Parchi.nomeParco, Fauna.specie;<br />
+select specie,parco<br />
+from numeroEsemplari<br />
+where numero = (select max(numero));<br />
+
+# Codice
+
+Il sito, tolta la parte grafica che viene strutturata su un template di boostrap, si basa su 4 pagine, che corrispondono alla pagina index.php, alla pagina query.php, in cui viene mostrata la query, la pagina login.php, in cui l’utente può effettuare il login,e la pagina profilo.php in cui vengono mostrate le informazioni dell’utente che ha effettuato il login.<br />
+Oltre a queste pagine, il sito viene gestito tramite 2 file, il primo, accedi.php, che viene richiamato dopo che viene effettuato il login e interroga il database per vedere se la mail e la password inserite sono presenti e, se non sono presenti, rimanda l’utente alla pagina di login, altrimenti lo manda alla pagina profilo.php, mentre invece la seconda,logout.php, permette all’utente di effettuare il login dal proprio account, ed una Classe, la Classe connesione presente nel file connessione.php, con cui,
+tramite la funzione apriConnessione, riusciamo a connetterci al server per interrogarlo.<br /><br />
+
+![ ](https://github.com/mattiaudisio/prjScuola/blob/master/Maturita/elaborato_audisio/img/03.PNG)
+![ ](https://github.com/mattiaudisio/prjScuola/blob/master/Maturita/elaborato_audisio/img/04.PNG)
+![ ](https://github.com/mattiaudisio/prjScuola/blob/master/Maturita/elaborato_audisio/img/05.PNG)
+![ ](https://github.com/mattiaudisio/prjScuola/blob/master/Maturita/elaborato_audisio/img/06.PNG)
