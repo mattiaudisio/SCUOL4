@@ -241,6 +241,24 @@ __accedi.php__
   }
 ?>
 ```
+__connessione.php__
+```
+<?php
+    Class Connessione{
+        static function apriConnessione(){
+          $connessione = new mysqli("localhost", "root", "", "parchi_audisio");
+
+          if ($connessione->connect_errno) {
+            echo "Connessione fallita: ". $connessione->connect_error . ".";
+          }
+
+          $connessione->query("SET NAMES 'utf8'");
+
+          return $connessione;
+        }
+    }
+?>
+```
 ![ ](https://github.com/mattiaudisio/prjScuola/blob/master/Maturita/elaborato_audisio/img/03.PNG)
 ![ ](https://github.com/mattiaudisio/prjScuola/blob/master/Maturita/elaborato_audisio/img/04.PNG)
 ![ ](https://github.com/mattiaudisio/prjScuola/blob/master/Maturita/elaborato_audisio/img/05.PNG)
