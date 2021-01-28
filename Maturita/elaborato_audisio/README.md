@@ -214,6 +214,33 @@ Il sito, tolta la parte grafica che viene strutturata su un template di boostrap
 Oltre a queste pagine, il sito viene gestito tramite 2 file, il primo, accedi.php, che viene richiamato dopo che viene effettuato il login e interroga il database per vedere se la mail e la password inserite sono presenti e, se non sono presenti, rimanda l’utente alla pagina di login, altrimenti lo manda alla pagina profilo.php, mentre invece la seconda,logout.php, permette all’utente di effettuare il login dal proprio account, ed una Classe, la Classe connesione presente nel file connessione.php, con cui,
 tramite la funzione apriConnessione, riusciamo a connetterci al server per interrogarlo.<br /><br />
 
+__accedi.php__
+```
+<?
+  include_once(__DIR__.'/connessione.php');
+
+  $connessione = Connessione::apriConnessione();
+
+  if(isset($_POST['login'])){
+    if(!empty($_POST['mailGuardia']) || !empty($_POST['passwordGuardia'])){
+      $mail = $_POST['mailGuardia'];
+      $password = hash('sha256',$_POST['passwordGuardia']);
+      $queryLogin = $connessione->query("SELECT GuardiaParco.codGuardia FROM GuardiaParco WHERE GuardiaParco.mailGuardia='$mail' AND GuardiaParco.passwordGuardia='$password'");
+      if($queryLogin -> num_rows){
+        while ($riga = $queryLogin -> fetch_assoc()){
+          session_start();
+          $_SESSION['codFiscaleGuardia'] = $riga['codGuardia'];
+          header('location:profilo.php');
+        }
+      }else{
+        header('location: login.php');
+      }
+    }else{
+      header('location: login.php');
+    }
+  }
+?>
+```
 ![ ](https://github.com/mattiaudisio/prjScuola/blob/master/Maturita/elaborato_audisio/img/03.PNG)
 ![ ](https://github.com/mattiaudisio/prjScuola/blob/master/Maturita/elaborato_audisio/img/04.PNG)
 ![ ](https://github.com/mattiaudisio/prjScuola/blob/master/Maturita/elaborato_audisio/img/05.PNG)
