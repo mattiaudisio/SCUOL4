@@ -692,6 +692,7 @@ __profilo.php__<br />
 ```
 __query.php__
 
+```
 <?php
   include_once(__DIR__.'/connessione.php');
 
@@ -799,3 +800,4 @@ __query.php__
   <script src="assets/js/main.js"></script>
 </body>
 </html>
+```
