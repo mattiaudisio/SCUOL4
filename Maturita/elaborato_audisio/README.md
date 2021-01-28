@@ -259,7 +259,8 @@ __connessione.php__
     }
 ?>
 ```
-__index.php__
+__index.php__<br />
+
 ![ ](https://github.com/mattiaudisio/prjScuola/blob/master/Maturita/elaborato_audisio/img/03.PNG)
 ![ ](https://github.com/mattiaudisio/prjScuola/blob/master/Maturita/elaborato_audisio/img/04.PNG)
 ```
