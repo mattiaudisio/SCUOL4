@@ -1,0 +1,70 @@
+<html>
+	<head></head>
+	<body>
+		<%= for(var i = 0; i < miaTemperatura.temperatureRiepilogo.length; i++)%>
+			Citta: <%=miaTemperatura.temperatureRiepilogo[i].getCitta()%><br>
+			Temperature Massima: <%=miaTemperatura.temperatureRiepilogo[i].getTempMassima()%>
+			<%=for(var j = 0; j < miaTemperatura.MieTemperature.length; j++)%>
+			<%=tempMin = 0%>
+			<%=numMin = 0%>
+			<%=if(miaTemperatura.temperatureRiepilogo[i].getCitta == miaTemperatura.MieTemperature[j].getCitta{%>
+			<%= tempMin = tempMin + miaTemperatura.MieTemperature[j].getTempMinima%>
+			<%= numMin = numMin + 1%>			
+			<%=}=>
+			Tempeartura minima:<%=tempMin = tempMin/numMin>
+			<br>
+		<%=}%>
+		<br>
+		<b>Media temperature al nord</b>
+		<%=tempMassima = 0%>
+			<%=numMassima = 0%>
+			<%=tempMin = 0%>
+			<%=numMin = 0%
+			<%=for(var j = 0; j < miaTemperatura.MieTemperature.length; j++){%>
+			<%=if(miaTemperatura.temperatureRiepilogo[i].getCitta == Trento || miaTemperatura.temperatureRiepilogo[i].getCitta == Milano || miaTemperatura.temperatureRiepilogo[i].getCitta == Torino{%>
+			<%= tempMassima = tempMassima + miaTemperatura.MieTemperature[j].getTempMassima%>
+			<%= numMassima = numMassima + 1%>			
+			<%= tempMin = tempMin + miaTemperatura.MieTemperature[j].getTempMassima%>
+			<%= numMin = numMin + 1%>			
+			<%=}=>
+			Temperatura massima:<%=tempMassima = tempMassima/numMassima>
+			Temperatura minima:<%=tempMin = tempMin/numMin>
+			<br>
+		<%=}%>
+		<br>	
+		<b>Media temperature al centro</b>
+		<%=tempMassima = 0%>
+			<%=numMassima = 0%>
+			<%=tempMin = 0%>
+			<%=numMin = 0%
+			<%=for(var j = 0; j < miaTemperatura.MieTemperature.length; j++){%>
+			<%=if(miaTemperatura.temperatureRiepilogo[i].getCitta == Firenze || miaTemperatura.temperatureRiepilogo[i].getCitta == Bologna || miaTemperatura.temperatureRiepilogo[i].getCitta == Roma{%>
+			<%= tempMassima = tempMassima + miaTemperatura.MieTemperature[j].getTempMassima%>
+			<%= numMassima = numMassima + 1%>			
+			<%= tempMin = tempMin + miaTemperatura.MieTemperature[j].getTempMassima%>
+			<%= numMin = numMin + 1%>			
+			<%=}=>
+			Temperatura massima:<%=tempMassima = tempMassima/numMassima>
+			Temperatura minima:<%=tempMin = tempMin/numMin>
+			<br>
+		<%=}%>
+		<br>
+		<b>Media temperature al sud</b>
+		<%=tempMassima = 0%>
+			<%=numMassima = 0%>
+			<%=tempMin = 0%>
+			<%=numMin = 0%
+			<%=for(var j = 0; j < miaTemperatura.MieTemperature.length; j++){%>
+			<%=if(miaTemperatura.temperatureRiepilogo[i].getCitta == Napoli || miaTemperatura.temperatureRiepilogo[i].getCitta == Bari || miaTemperatura.temperatureRiepilogo[i].getCitta == Messina{%>
+			<%= tempMassima = tempMassima + miaTemperatura.MieTemperature[j].getTempMassima%>
+			<%= numMassima = numMassima + 1%>			
+			<%= tempMin = tempMin + miaTemperatura.MieTemperature[j].getTempMassima%>
+			<%= numMin = numMin + 1%>			
+			<%=}=>
+			Temperatura massima:<%=tempMassima = tempMassima/numMassima>
+			Temperatura minima:<%=tempMin = tempMin/numMin>
+			<br>
+		<%=}%>
+		<br>				
+	</body>
+</html>
