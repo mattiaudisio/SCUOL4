@@ -30,9 +30,9 @@ return n;
 
 int caricaIscritti(){
 	int iscr=0;int random(int,int);
-int numTast();
-void som(int *somma, int a);
-void med(float *media, int somma, int a);
+	int numTast();
+	void som(int *somma, int a);
+	void med(float *media, int somma, int a);
 	iscr=rand()%500+1;
 return iscr;
 }
