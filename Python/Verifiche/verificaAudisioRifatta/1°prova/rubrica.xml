@@ -1,9 +1,0 @@
-<persona>
-  <nome>Pino</nome>
-  <telefono tipo="ufficio">+39 011 9989677</telefono>
-  <telefono tipo="cellulare">+39 333 253 48 22</telefono>
-  <email>
-    <casa>pino@gmail.com</casa>
-    <lavoro>pino@lavoro.it</lavoro>
-  </email>
-</persona>
