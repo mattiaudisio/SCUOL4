@@ -1,4 +1,0 @@
-Rossi	Mario	1974	M
-Verdi	Marta	1977	F
-Alberti	Gaetano	1999	M
-Zanna	Bianca	1978	F
