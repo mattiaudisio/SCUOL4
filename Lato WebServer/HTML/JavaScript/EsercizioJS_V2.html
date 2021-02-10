@@ -1,0 +1,39 @@
+<html>
+    <head>
+        <h2>Esercizio JavaScript</h2>
+        <script>
+        function prodotto(){
+                var numero1;
+                var numero2;
+                var risultato;   
+                numero1 = document.getElementById("numero1");
+                numero2 = document.getElementById("numero2");
+                if(isNaN(numero1.value) || (numero1.value=="")){
+                   alert("Inserisci il primo numero");
+                   numero1.value="";
+                   numero1.focus();
+                   return false;  
+                 }
+                if(isNaN(numero2.value) || (numero2.value=="")){
+                   alert("Inserisci il secondo numero");
+                   numero2.value="";
+                   numero2.focus();
+                   return false;  
+                 }
+                document.getElementById("demo").innerHTML = numero1.value * numero2.value;
+        }
+      </script>                        
+    </head>
+    <body>
+            <p>1&#176; numero</p>        
+        <input type="text" id="numero1">
+            <p>2&#176; numero</p>
+        <input type="text" id="numero2">
+            <br />
+            <br />
+        <button onclick="prodotto()">Prodotto</button>
+            <br />
+            <p> <b> risultato</b> </p>
+            <p id="demo"></p>        
+    </body>
+</html>
