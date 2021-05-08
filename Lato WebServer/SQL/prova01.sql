@@ -323,6 +323,9 @@ COMMIT;
 
 -- ###############################################################################################################################
 -- ESERCIZIO MOSTRA CANI --
+-- Progettare una base di dati per la gestione di una mostra canina.
+-- Di ogni cane, identificato da un codice, interessano il nome, la data di nascita, l'altezza, il peso, la razza di appartenenza, e i dati del proprietario. 
+-- Le razze si distinguono dal nome, e possiedono un'altezza e un peso standard. Ogni giudice, identificato da un codice, esprime un voto su ciascun cane.
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 SET AUTOCOMMIT = 0;
@@ -461,6 +464,25 @@ INSERT INTO istruttori_specializzazioni (fk_istruttore, fk_specializzazione);
 
 -- ###############################################################################################################################	      
 -- VERIFICA --
+-- Un’agenzia artistica conserva nei propri archivi informazioni riguardanti gruppi musicali.
+-- Di ciascun gruppo, identificato da un codice, interessa il nome e l’anno di fondazione.
+-- Un gruppo ha pubblicato degli album, dei quali interessa il titolo e l’anno di uscita; ognialbum è identificato da un codice, ed è realizzato da un solo gruppo.
+-- Un gruppo ha partecipato a concerti, anch’essi identificati da un codice, e dei quali interessa ilnome, il luogo, la data; ad un concerto possono partecipare più gruppi, 
+-- e per ciascun concertointeressa quante canzoni ha cantato ciascun gruppo.Anche i componenti di un gruppo sono identificati da un codice;
+-- di essi interessa la nazionalità,lo stipendio annuale e l’anno di nascita. Alcuni componenti hanno il ruolo di strumentisti, altri di cantante. Gli strumentisti sono 
+-- identificati dal cognome, dal nome e dall’eventuale pseudonimo. Di loro si conoscono lo strumento o gli strumenti suonati, i quali sonoidentificati da un codice e dal
+-- tipo di strumento. Il cantante è uno solo per ogni gruppo e non suonaalcuno strumento, è identificato dal cognome, dal nome e dall’eventuale pseudonimo.
+-- Di lui sisanno le canzoni cantate, identificate dal codice e dal titolo.Si richiede:
+-- •Schema E/R (con le cardinalità espresse in entrambe le modalità)  
+-- •Schema logico•Risoluzione delle seguenti query:
+-- 1.Elenco dei componenti (cognome, nome, nazionalità) del gruppo AC/DC
+--  2.Il nome ed il cognome del cantante del gruppo Pinguini Tattici Nucleari nell’album“Faber Nostrum”
+-- 3.Nome e cognome dei cantanti italiani ed il numero di canzoni interpretate da ognuno diessi
+-- 4.Il guadagno annuale totale di ogni gruppo
+-- 5.Elenco dei componenti (cognome, nome) dei gruppi che hanno suonato al Concertonedel 1 Maggio 2019 a Roma
+-- 6.Numero di album usciti nell’anno 2001, suddividi per ogni gruppo 
+-- 7.Cognome e nome del batterista dei gruppi con anno di fondazione successivo al 1977	       
+	       
 CREATE DATABASE 5C_Audisio_Gruppi;
 USE 5C_Audisio_Gruppi;
 
@@ -634,6 +656,7 @@ AND Strumentista.psedStrum = Strumenti.psedStrum
 AND Strumenti.tipoStrument = 'Batteria'
 ORDER BY Strumentista.cognStrum;
 
+-- ###############################################################################################################################	      			    
 -- ComandiSQL_x_db_palestra --
 
 /*Creazione del database*/
@@ -762,6 +785,17 @@ create table orari(giorno_settimana varchar(10), ora_inizio time, ora_fine time,
 
 -- ###############################################################################################################################
 -- Esercizio_Carnevale --
+-- Un piccolo comune deve gestire mediante database le multe per violazione del codice della strada. 
+-- Gli addetti a fare multe sono gli agenti, i quali sono descritti da matricola e nominativo.
+-- Le infrazioni   sanzionabili   sono   descritte   dal   codice   infrazione,   data,   agente   che   l’ha   scritta,denominazione dell’infrazione 
+-- (es. “divieto di sosta”, “Eccesso di velocità”, ...), importo e targa delveicolo multato. Dei veicoli interessano la targa, la marca (es. “Fiat”, “Citroen”, ...), 
+-- il modello edil proprietario. Ogni automobilista è infine descritto dal codice fiscale, dal cognome, nome,indirizzo, città e CAP.
+-- Query:
+-- 1)Cognome e nome degli automobilisti multati per divieto di sosta suddivisi per città
+-- 2)Marca e modello dei veicoli multati dall’agente Rossi il 14/02/2020, raggruppati permarca
+-- 3)Numeri di targa e nomi dei proprietari multati dall’agente Verdi per eccesso divelocità
+-- 4)Elenco delle date e del tipo di infrazioni commesse dall’automobilista Va Lentino
+-- 5)Numero di infrazioni sanzionate dall’agente Severo6)Importo totale delle multe del veicolo FD 444 XX 
 
 CREATE DATABASE 5C_Multe;
 USE 5C_Multe;
@@ -880,6 +914,20 @@ GROUP BY Multa.importoInfrazione;
 
 -- ###############################################################################################################################
 -- PREPARAZIONE VERIFICA --
+-- Le informazioni relative alle attività sportive studentesche devono essere organizzate in una base di dati.
+-- Gli studenti, dei quali si conservano le informazioni anagrafiche frequentano gli Istituti superiori, e possono partecipare a una o 
+-- più manifestazioni sportive (specialità sportive diverse, giornate diverse, campionati durano per mesi o gare di un giorno).
+-- Per ogni attività sportiva le scuole indicano un professore che svolge la funzione di riferimento e di allenatore: ogni professore segue una sola manifestazione 
+-- ma una stessa manifestazione può essere seguita da professori diversi di scuole diverse.
+-- Definire un modello del database (con relativi schemi ER e Logico) e successiva implementazione fisica in SQL 
+-- considerando che possano essere poi svolte le seguenti interrogazioni (anche se ora non è ancora possibile per lo studente tradurle nei relativi comandi QL):
+-- 1. Numero degli studenti che partecipano a una determinata manifestazione sportiva.
+-- 2. Elenco anagrafico degli allenatori di un'attività sportiva.
+-- 3. Elenco delle scuole (denominazione) con il numero di studenti che partecipano alle attività sportive.
+-- 4. Elenco delle scuole (con denominazione, indirizzo, telefono) con studenti che partecipano a una determinata manifestazione sportiva.
+-- 5. Elenco degli allenatori (cognome e nome) e scuole (denominazione) di appartenenza in ordine alfabetico.
+-- 6. Numero degli studenti partecipanti di una determinata scuola per ciascuna delle manifestazioni sportive.
+-- Naturalmente anche le relazioni tra le tabelle devono essere esplicitate in SQL in modo da poter essere in grado di dare risposta alle interrogazioni di cui sopra.
 
 CREATE 5C_MANIFESTAZIONI
 USE 5C_MANIFESTAZIONI
@@ -971,6 +1019,14 @@ SELECT
 
 -- ###############################################################################################################################
 -- ESERCIZI MERENDE --
+-- Interrogazioni
+-- 1. Elenco delle merendine della scuola con codice 34 ordinate per prezzo
+-- 2. Elenco con nome della merenda, tipo della macchinetta, quantità merendine e nome della scuola in cui si trova la macchinetta; elencare solo le macchinette che hanno 
+-- almeno una merendina; l’elenco deve essere ordinato alfabeticamente per nome scuola e in subordine per numero di merendine decrescente presenti nelle macchinette.
+-- 3. Elenco con i nomi delle scuole e numero delle macchinette presenti
+-- 4. Prezzo medio delle macchinette nella scuola 12
+-- 5. Elenco delle macchinette che non hanno più merendine
+-- 6. Elenco dei tipi di macchinetta con il numero totale di merendine in esse caricato; escludere dall’elenco i tipi di macchinetta con meno di 40 merendine.		
 
 CREATE database 5C_merendine;
 USE 5C_merendine;
@@ -1145,6 +1201,7 @@ AND Merende.codMerenda = Posizioni.codMerenda
 AND Macchinette.CodScuola = Scuole.CodScuola
 GROUP BY Macchinette.TipoMacchinetta;			    
 
+-- ###############################################################################################################################
 -- ComandiSQL_x_db_palestra_QL --
 
 /* Interrogazioni al DB Palestra */
@@ -1274,7 +1331,27 @@ ALTER TABLE `clienti_corsi`
 
 -- ###############################################################################################################################			    
 -- esercizio_Filiale_Audisio --
-
+-- Una banca deve gestire i dati relativi alle filiali. Per ogni filiale si devono registrare i seguenti dati:
+-- codice, nome, città e patrimonio totale in euro. Ogni filiale gestisce un certo insieme di conticorrenti. Ogni conto corrente è descritto dal numero del conto e dal suo 
+-- saldo in euro (positivo onegativo). Ogni conto corrente può avere uno o più intestatari (clienti), ognuno dei quali può essereintestatario di più di un conto, anche in
+-- filiali diverse. Per ogni cliente si registrano i seguenti dati:codice fiscale, nominativo, indirizzo, città e numero di telefono. Ogni filiale, inoltre, concede 
+-- dei prestiti ai clienti (un prestito, come un conto corrente, può essere intestato a più di un cliente): unprestito è descritto da un codice identificativo, dal codice
+-- del cliente a cui è stato concesso, dal suoammontare in euro, dal codice dell’ufficio che lo ha concesso, dalla matricola dell’impiegato che loha stipulato, dalla data 
+-- di apertura e dalla data entro il quale dovrà essere estinto.Impostare:
+-- •Schema E/R (comprensivo di cardinalità)
+-- •Schema logico•Schema fisico
+-- •DDL
+-- •DML Interrogazioni:
+-- 1.Visualizzare, per ogni prestito, il valore del prestito ed i dati identificativi dei clienti che lohanno stipulato (ordinato per cognome del cliente);
+-- 2.visualizzare l’elenco di tutti i clienti che hanno almeno un deposito ed un prestito;
+-- 3.visualizzare l’elenco di tutti i clienti titolari di almeno un deposito, ma non di un prestito;
+-- 4.visualizzare, per ogni filiale, il numero dei titolari di conti;
+-- 5.visualizzare per ogni filiale ed saldo medio dei conti depositati;
+-- 6.visualizzare l’elenco di tutti i clienti che hanno un deposito presso tutte le filiali di Torino;
+-- 7.visualizzare il saldo medio dei clienti che vivono a Novara ed hanno almeno due depositi;
+-- 8.Visualizzare il numero dei titolari di deposito per ogni filiale, dove il saldo medio deidepositi sia superiore a 6.500 euro;
+-- 9.Elenco dei clienti che hanno un deposito presso la filiale “agenzia2” di Cuneo;10.Elenco dei clienti che hanno più di 3 conti correnti intestati.
+			    
 CREATE DATABASE 5C_Filiale;
 USE 5C_Filiale;
 
