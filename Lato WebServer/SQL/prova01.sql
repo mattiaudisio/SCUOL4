@@ -4,6 +4,7 @@
 -- UPDATE anagrafe SET indirizzo=
 -- 'Via Roma, 22' WHERE indirizzo = 'Corso V. Emanuele,215';
 
+-- ###############################################################################################################################
 -- ESERCIZIO MANIFESTAZIONI --
 
 CREATE DATABSE 5C_Manifestazioni;
@@ -54,6 +55,7 @@ ALTER TABLE `Fanno`
     ADD Key `NomeManifestazione` (`NomeManifestazione`),
     PRIMARY KEY(`NomeIstituto`,`NomeManifestazione`);
 
+-- ###############################################################################################################################
 -- ESERCIZIO ORCHESTRA --
 
     SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
@@ -202,7 +204,13 @@ ALTER TABLE `Fanno`
       ADD CONSTRAINT `CodiceScala` FOREIGN KEY (`CodiceScala`) REFERENCES `Scala` (`CodiceScala`);
     COMMIT;
 
+-- ###############################################################################################################################
 -- ESERCIZIO RISTORANTI --
+-- Diversi ristoranti adottano diversi tipi di cucina (cinese, tailandese, italiana, ...). --
+-- Ad ogni tipo di cucina si vuole associare un codice ed una breve descrizione ad uso dei turisti. --
+-- I ristoranti sono siti in zone diverse della città, ognuna delle quali è raggiunta da almeno una linea urbana di autobus. --  
+-- I ristoranti, di cui si fornisce anche nome e indirizzo, accettano esclusivamente le carte di credito con cui sono convenzionati. --
+-- Per ogni tipo di carta di credito è disponibile un numero verde in caso sia necessaria una consulenza telefonica. --
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 SET AUTOCOMMIT = 0;
@@ -294,6 +302,7 @@ ALTER TABLE `Raggiunge`
   ADD CONSTRAINT `LineaTrasporti` FOREIGN KEY (`LineaTrasporti`) REFERENCES `TrasportiPlubbici` (`LineaTrasporti`);
 COMMIT;
 
+-- ###############################################################################################################################
 -- ESERCIZIO MOSTRA CANI --
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
@@ -356,6 +365,7 @@ ALTER TABLE `giudica`
   ADD CONSTRAINT `giudica_ibfk_3` FOREIGN KEY (`CodG`) REFERENCES `giudici` (`codG`);
 COMMIT;
 
+-- ###############################################################################################################################
 -- ESERCIZIO PROVA --
 
 CREATE TABLE esercizioProva (
@@ -365,6 +375,7 @@ CREATE TABLE esercizioProva (
 
 ALTER TABLE esercizioProva ADD PRIMARY KEY (`id`);
 
+-- ###############################################################################################################################
 -- ESERCIZIO INTRODUZIONE --
 
 CREATE TABLE IF NOT EXISTS Persone (
@@ -429,6 +440,7 @@ INSERT INTO istruttori_specializzazioni (fk_istruttore, fk_specializzazione);
 	(1,4);
 -- In questo modo NV1 è collegato a NomeVariabile3 e NomeVariabile4, NV2 a NomeVariabile1, NV3 a NomeVariabile4, NV4 a NomeVariabile1
 
+-- ###############################################################################################################################	      
 -- VERIFICA --
 CREATE DATABASE 5C_Audisio_Gruppi;
 USE 5C_Audisio_Gruppi;
@@ -729,6 +741,7 @@ create table orari(giorno_settimana varchar(10), ora_inizio time, ora_fine time,
   	('mercoledi''', '18:00:00', '19:00:00', 2),
   	('venerdi''', '20:00:00', '21:00:00', 4);
 
+-- ###############################################################################################################################
 -- Esercizio_Carnevale --
 
 CREATE DATABASE 5C_Multe;
@@ -846,6 +859,7 @@ WHERE Veicolo.targaVeicolo = 'FD444XX'
 AND Multa.targaVeicolo = Veicoli.targaVeicolo
 GROUP BY Multa.importoInfrazione;
 
+-- ###############################################################################################################################
 -- PREPARAZIONE VERIFICA --
 
 CREATE 5C_MANIFESTAZIONI
@@ -936,6 +950,7 @@ ORDER BY Istituti.denominazione;
 /*Totale   degli   alunni   per   ogni   scuola   che   partecipano   alle   attivitàsportive, ordinati per scuola ed in seguito per attività sportiva*/
 SELECT     
 
+-- ###############################################################################################################################
 -- ESERCIZI MERENDE --
 
 CREATE database 5C_merendine;
@@ -1155,6 +1170,7 @@ Select *
 From istruttori
 ORDER BY istruttori.cognome, istruttori.nome;
 
+-- ###############################################################################################################################			    
 -- 5C_Palestra --
 
 CREATE DATABASE 5C_Palestra;
@@ -1236,7 +1252,8 @@ ALTER TABLE `clienti_corsi`
     ADD KEY `fk_cliente` (`pk_corso`),
     ADD KEY `fk_corso` (`pk_corso`),
 	ADD PRIMARY KEY(`fk_corso`);
-			    
+
+-- ###############################################################################################################################			    
 -- esercizio_Filiale_Audisio --
 
 CREATE DATABASE 5C_Filiale;
