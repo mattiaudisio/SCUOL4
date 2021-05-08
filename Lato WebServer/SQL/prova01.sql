@@ -6,6 +6,20 @@
 
 -- ###############################################################################################################################
 -- ESERCIZIO MANIFESTAZIONI --
+-- Le informazioni relative alle attività sportive studentesche devono essere organizzate in una base di dati.
+-- Gli studenti, dei quali si conservano le informazioni anagrafiche frequentano gli Istituti superiori, e possono partecipare a una o 
+-- più manifestazioni sportive (specialità sportive diverse, giornate diverse, campionati durano per mesi o gare di un giorno).
+-- Per ogni attività sportiva le scuole indicano un professore che svolge la funzione di riferimento e di allenatore: ogni professore segue una sola manifestazione 
+-- ma una stessa manifestazione può essere seguita da professori diversi di scuole diverse.
+-- Definire un modello del database (con relativi schemi ER e Logico) e successiva implementazione fisica in SQL 
+-- considerando che possano essere poi svolte le seguenti interrogazioni (anche se ora non è ancora possibile per lo studente tradurle nei relativi comandi QL):
+-- 1. Numero degli studenti che partecipano a una determinata manifestazione sportiva.
+-- 2. Elenco anagrafico degli allenatori di un'attività sportiva.
+-- 3. Elenco delle scuole (denominazione) con il numero di studenti che partecipano alle attività sportive.
+-- 4. Elenco delle scuole (con denominazione, indirizzo, telefono) con studenti che partecipano a una determinata manifestazione sportiva.
+-- 5. Elenco degli allenatori (cognome e nome) e scuole (denominazione) di appartenenza in ordine alfabetico.
+-- 6. Numero degli studenti partecipanti di una determinata scuola per ciascuna delle manifestazioni sportive.
+-- Naturalmente anche le relazioni tra le tabelle devono essere esplicitate in SQL in modo da poter essere in grado di dare risposta alle interrogazioni di cui sopra.
 
 CREATE DATABSE 5C_Manifestazioni;
 USE 5C_MANIFESTAZIONI;
@@ -57,6 +71,11 @@ ALTER TABLE `Fanno`
 
 -- ###############################################################################################################################
 -- ESERCIZIO ORCHESTRA --
+-- La stagione concertistica di Orvieto prevede una serie di concerti ognuno dei quali ha un codice, un titolo e una descrizione, ed è composto da un insieme di pezzi musicali.
+-- Ogni pezzo ha un codice, un titolo e uno o più autori (ciascuno con codice e nome); uno stesso pezzo può essere rappresentato in diversi concerti.
+-- Ogni concerto è eseguito da un’orchestra; ogni orchestra ha un nome, un direttore (del quale interessano solo nome e cognome) e un insieme di orchestrali. 
+-- Ogni orchestrale ha una matricola (univoca nell’ambito della base di dati), nome e cognome, suona uno o più strumenti e può partecipare a più orchestre. 
+-- Ogni concerto è tenuto in una sala, in una certa data. Ogni sala ha un codice, un nome e una capienza.
 
     SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
     SET AUTOCOMMIT = 0;
