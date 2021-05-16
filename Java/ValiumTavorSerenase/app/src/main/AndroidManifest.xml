@@ -9,10 +9,13 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.AppCompat.NoActionBar">
+        <activity android:name=".ImpostazioniActivity"></activity>
+        <activity android:name=".AppActivity" />
+        <activity android:name=".GamesActivity" />
         <activity
             android:name=".games"
             android:label="@string/title_activity_games"
-            android:theme="@style/NoActionBar"></activity>
+            android:theme="@style/NoActionBar" />
         <activity android:name=".HomeActivity" />
         <activity android:name=".MainActivity">
             <intent-filter>
@@ -21,6 +24,7 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+        <activity android:name=".AdapterHome" />
     </application>
 
 </manifest>
