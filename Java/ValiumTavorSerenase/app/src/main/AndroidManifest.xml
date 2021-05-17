@@ -9,7 +9,8 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.AppCompat.NoActionBar">
-        <activity android:name=".ImpostazioniActivity"></activity>
+        <activity android:name=".TicTacToeActivity"></activity>
+        <activity android:name=".ImpostazioniActivity" />
         <activity android:name=".AppActivity" />
         <activity android:name=".GamesActivity" />
         <activity
