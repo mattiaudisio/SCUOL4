@@ -27,8 +27,14 @@ public class AppActivity extends AppCompatActivity {
         images = new ArrayList<>();
 
         titles.add("Progetto Intent");
+        titles.add("Carica Automobile");
+        titles.add("Lista Kilowatt");
+
 
         images.add(R.drawable.progettointent);
+        images.add(R.drawable.progettointent);
+        images.add(R.drawable.progettointent);
+
 
         adapter = new AdapterApp(this,titles,images);
 
