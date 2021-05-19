@@ -1,5 +1,0 @@
-<resources>
-    <string name="app_name">TelefonoChatConBluetooth</string>
-    <string name="btnConnetti">Connetti</string>
-    <string name="btnDisconnetti">Disconnetti</string>
-</resources>
