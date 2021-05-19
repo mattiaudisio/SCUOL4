@@ -28,4 +28,7 @@
     <string name="cerca">INSERISCI COGNOME</string>
     <string name="btnCerca">CERCA TELEFONO</string>
     <string name="btnElimina">ELIMINA TELEFONO</string>
+
+    <string name="btnConnetti">Connetti</string>
+    <string name="btnDisconnetti">Disconnetti</string>
 </resources>

@@ -78,6 +78,18 @@ public class AdapterApp extends RecyclerView.Adapter<AdapterApp.ViewHolder>{
                             intent = new Intent(context , AnagraficaStudenteActivity.class);
                             context.startActivity(intent);
                             break;
+                        case 5:
+                            intent = new Intent(context , TelefonoChatConBluetoothActivity.class);
+                            context.startActivity(intent);
+                            break;
+                        case 6:
+                            intent = new Intent(context , BluetoothArduinoActivity.class);
+                            context.startActivity(intent);
+                            break;
+                        case 7:
+                            intent = new Intent(context , DragDropActivity.class);
+                            context.startActivity(intent);
+                            break;
                     }
                 }
             });

@@ -31,6 +31,9 @@ public class AppActivity extends AppCompatActivity {
         titles.add("Lista Kilowatt");
         titles.add("Ristoranti");
         titles.add("Anagrafica Studente");
+        titles.add("Telefono Bluetooth");
+        titles.add("Bluetooth Arduino");
+        titles.add("Drag and Drop");
 
 
         images.add(R.drawable.progettointent);
@@ -38,7 +41,8 @@ public class AppActivity extends AppCompatActivity {
         images.add(R.drawable.progettointent);
         images.add(R.drawable.progettointent);
         images.add(R.drawable.progettointent);
-
+        images.add(R.drawable.progettointent);
+        images.add(R.drawable.progettointent);
 
         adapter = new AdapterApp(this,titles,images);
 

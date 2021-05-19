@@ -30,10 +30,14 @@ public class HomeActivity extends AppCompatActivity {
         titles.add("Games");
         titles.add("App");
         titles.add("Impostazioni");
+        titles.add("Rubrica");
+
 
         images.add(R.drawable.games);
         images.add(R.drawable.apppredefinite);
         images.add(R.drawable.impostazioni);
+        images.add(R.drawable.progettointent);
+
 
         adapter = new AdapterHome(this,titles,images);
 
