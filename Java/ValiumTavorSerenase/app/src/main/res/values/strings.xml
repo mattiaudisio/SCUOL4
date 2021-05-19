@@ -13,4 +13,19 @@
     <string name="player2">Player 2: 0</string>
     <string name="reset">Reset</string>
 
+    <string name="txtNome">Nome</string>
+    <string name="txtCognome">Cognome</string>
+    <string name="txtMail">Mail</string>
+    <string name="txtMatricola">Matricola</string>
+    <string name="btnStampa">Stampa</string>
+
+    <string name="titolo1activity">CARICA UTENTE</string>
+    <string name="nome">NOME</string>
+    <string name="cognome">COGNOME</string>
+    <string name="telefono">TELEFONO</string>
+    <string name="salva">SALVA</string>
+    <string name="button2">APRI CERCA</string>
+    <string name="cerca">INSERISCI COGNOME</string>
+    <string name="btnCerca">CERCA TELEFONO</string>
+    <string name="btnElimina">ELIMINA TELEFONO</string>
 </resources>

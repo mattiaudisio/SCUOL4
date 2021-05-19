@@ -9,7 +9,12 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.AppCompat.NoActionBar">
-        <activity android:name=".ListaKilowattActivity"></activity>
+        <activity android:name=".RubricaTelefono3"></activity>
+        <activity android:name=".RubricaTelefono2" />
+        <activity android:name=".RubricaTelefonoActivity" />
+        <activity android:name=".AnagraficaStudenteActivity" />
+        <activity android:name=".ProgettoRistorantiActivity" />
+        <activity android:name=".ListaKilowattActivity" />
         <activity android:name=".CaricaAutomobileActivity" />
         <activity android:name=".ProgettoIntentActivity" />
         <activity android:name=".TicTacToeActivity" />

@@ -29,8 +29,12 @@ public class AppActivity extends AppCompatActivity {
         titles.add("Progetto Intent");
         titles.add("Carica Automobile");
         titles.add("Lista Kilowatt");
+        titles.add("Ristoranti");
+        titles.add("Anagrafica Studente");
 
 
+        images.add(R.drawable.progettointent);
+        images.add(R.drawable.progettointent);
         images.add(R.drawable.progettointent);
         images.add(R.drawable.progettointent);
         images.add(R.drawable.progettointent);

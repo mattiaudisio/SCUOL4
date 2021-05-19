@@ -63,11 +63,19 @@ public class AdapterApp extends RecyclerView.Adapter<AdapterApp.ViewHolder>{
                             context.startActivity(intent);
                             break;
                         case 1:
-                            intent = new Intent(context , AppActivity.class);
+                            intent = new Intent(context , CaricaAutomobileActivity.class);
                             context.startActivity(intent);
                             break;
                         case 2:
-                            intent = new Intent(context , ImpostazioniActivity.class);
+                            intent = new Intent(context , ListaKilowattActivity.class);
+                            context.startActivity(intent);
+                            break;
+                        case 3:
+                            intent = new Intent(context , ProgettoRistorantiActivity.class);
+                            context.startActivity(intent);
+                            break;
+                        case 4:
+                            intent = new Intent(context , AnagraficaStudenteActivity.class);
                             context.startActivity(intent);
                             break;
                     }

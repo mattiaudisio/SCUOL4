@@ -2,24 +2,25 @@ package com.example.valiumtavorserenase;
 
 import android.content.Context;
 import android.content.Intent;
+import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
-
 import java.util.List;
 
-public class AdapterApp extends RecyclerView.Adapter<AdapterApp.ViewHolder>{
+public class AdapterHome extends RecyclerView.Adapter<AdapterHome.ViewHolder> {
     Context context;
     List<String> titles;
     List<Integer> images;
     LayoutInflater inflater;
 
-    public AdapterApp(Context ctx, List<String> titles, List<Integer> images){
+    public AdapterHome(Context ctx, List<String> titles, List<Integer> images){
         this.titles = titles;
         this.images = images;
         this.inflater = LayoutInflater.from(ctx);
@@ -28,9 +29,9 @@ public class AdapterApp extends RecyclerView.Adapter<AdapterApp.ViewHolder>{
 
     @NonNull
     @Override
-    public AdapterApp.ViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
+    public ViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
         View view = inflater.inflate(R.layout.custom_grid_layout,parent,false);
-        return new AdapterApp.ViewHolder(view);
+        return new ViewHolder(view);
     }
 
     @Override
@@ -59,15 +60,15 @@ public class AdapterApp extends RecyclerView.Adapter<AdapterApp.ViewHolder>{
                     Intent intent;
                     switch (getAdapterPosition()){
                         case 0:
-                            intent = new Intent(context , ProgettoIntentActivity.class);
+                            intent = new Intent(context , GamesActivity.class);
                             context.startActivity(intent);
                             break;
                         case 1:
-                            intent = new Intent(context , CaricaAutomobileActivity.class);
+                            intent = new Intent(context , AppActivity.class);
                             context.startActivity(intent);
                             break;
                         case 2:
-                            intent = new Intent(context , ListaKilowattActivity.class);
+                            intent = new Intent(context , ImpostazioniActivity.class);
                             context.startActivity(intent);
                             break;
                     }
@@ -75,4 +76,5 @@ public class AdapterApp extends RecyclerView.Adapter<AdapterApp.ViewHolder>{
             });
         }
     }
+
 }
