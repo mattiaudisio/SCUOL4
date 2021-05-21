@@ -59,17 +59,10 @@ public class AdapterImpostazioni extends RecyclerView.Adapter<AdapterImpostazion
                     Intent intent;
                     switch (getAdapterPosition()){
                         case 0:
-                            intent = new Intent(context , TicTacToeActivity.class);
+                            intent = new Intent(context , BluetoothActivity.class);
                             context.startActivity(intent);
                             break;
-                        case 1:
-                            intent = new Intent(context , AppActivity.class);
-                            context.startActivity(intent);
-                            break;
-                        case 2:
-                            intent = new Intent(context , ImpostazioniActivity.class);
-                            context.startActivity(intent);
-                            break;
+
                     }
                 }
             });

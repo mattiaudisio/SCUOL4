@@ -2,7 +2,15 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="com.example.valiumtavorserenase">
 
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
     <uses-permission android:name="android.permission.BLUETOOTH" />
+    <uses-permission android:name="android.permission.INTERNET" />
+
+    <meta-data
+        android:name="com.google.android.gms.vision.DEPENDENCIES"
+        android:value="barcode" />
+
+    <uses-permission android:name="android.permission.CAMERA" />
 
     <application
         android:allowBackup="true"
@@ -11,7 +19,14 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.AppCompat.NoActionBar">
-        <activity android:name=".DragDropActivity"></activity>
+        <activity android:name=".QRCodeActivity"></activity>
+        <activity android:name=".BluetoothActivity" />
+        <activity android:name=".SharedPreferenceSecondaActivity" />
+        <activity android:name=".SharedPreferenceActivity" />
+        <activity android:name=".VolleyActivity" />
+        <activity android:name=".BroadcastReceiverActivity" />
+        <activity android:name=".TipTapActivity" />
+        <activity android:name=".DragDropActivity" />
         <activity android:name=".BluetoothArduinoActivity" />
         <activity android:name=".TelefonoChatConBluetoothActivity" />
         <activity android:name=".RubricaTelefono3" />

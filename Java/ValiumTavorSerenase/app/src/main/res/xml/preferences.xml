@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<PreferenceScreen xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+    <SwitchPreference
+        android:defaultValue="true"
+        android:key="vite"
+        app:thumbTint="@color/black"
+        app:trackTint="@color/black"
+
+        android:title="Vite"/>
+
+    <ListPreference
+        android:defaultValue="3"
+        android:entries="@array/lista_vite"
+        android:entryValues="@array/lista_vite"
+        android:key="nVite"
+        android:title="Numero vite"
+        />
+
+    <!--<SeekBarPreference
+        android:defaultValue="3"
+        android:key="nVite"
+        android:max="5"
+        android:text="Numero Vite"
+        android:title="numeroVite" />-->
+    <SwitchPreference
+        android:defaultValue="true"
+        android:key="errori"
+        android:title="Errori" />
+    <!-- <SwitchPreference
+         android:defaultValue="false"
+         android:key="tempo"
+         android:title="Tempo" />
+         -->
+</PreferenceScreen>

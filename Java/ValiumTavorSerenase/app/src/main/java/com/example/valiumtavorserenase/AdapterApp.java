@@ -1,5 +1,6 @@
 package com.example.valiumtavorserenase;
 
+import android.content.BroadcastReceiver;
 import android.content.Context;
 import android.content.Intent;
 import android.view.LayoutInflater;
@@ -88,6 +89,22 @@ public class AdapterApp extends RecyclerView.Adapter<AdapterApp.ViewHolder>{
                             break;
                         case 7:
                             intent = new Intent(context , DragDropActivity.class);
+                            context.startActivity(intent);
+                            break;
+                        case 8:
+                            intent = new Intent(context , BroadcastReceiverActivity.class);
+                            context.startActivity(intent);
+                            break;
+                        case 9:
+                            intent = new Intent(context , VolleyActivity.class);
+                            context.startActivity(intent);
+                            break;
+                        case 10:
+                            intent = new Intent(context , SharedPreferenceActivity.class);
+                            context.startActivity(intent);
+                            break;
+                        case 11:
+                            intent = new Intent(context , QRCodeActivity.class);
                             context.startActivity(intent);
                             break;
                     }

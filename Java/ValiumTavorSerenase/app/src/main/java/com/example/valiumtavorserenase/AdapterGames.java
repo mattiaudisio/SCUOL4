@@ -63,7 +63,7 @@ public class AdapterGames extends RecyclerView.Adapter<AdapterGames.ViewHolder>{
                             context.startActivity(intent);
                             break;
                         case 1:
-                            intent = new Intent(context , AppActivity.class);
+                            intent = new Intent(context , TipTapActivity.class);
                             context.startActivity(intent);
                             break;
                         case 2:

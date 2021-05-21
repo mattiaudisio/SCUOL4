@@ -28,8 +28,12 @@ public class GamesActivity extends AppCompatActivity {
         images = new ArrayList<>();
 
         titles.add("Tic Tac Toe");
+        titles.add("Tip Tap");
+
 
         images.add(R.drawable.tictactoe);
+        images.add(R.drawable.tiptap);
+
 
         adapter = new AdapterGames(this,titles,images);
 
