@@ -46,15 +46,4 @@ public class HomeActivity extends AppCompatActivity {
         dataList.setAdapter(adapter);
     }
 
-    public void createIntent(){
-        Toast.makeText(this.getApplicationContext(),"Ciao",Toast.LENGTH_SHORT).show();
-        /*switch (adapterPosition){
-            case 0:
-                Intent gamesIntent = new Intent(HomeActivity.this, GamesActivity.class);
-                startActivity(gamesIntent);
-                break;
-
-        }*/
-    }
-
 }
