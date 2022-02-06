@@ -1,7 +1,0 @@
-  1 2 3 4
-1NoneNoneNoneNone
-2NoneNoneNoneNone
-3 O O O O
-4 O O O O
-***HAI VINTO***
-Con 3 mosse
