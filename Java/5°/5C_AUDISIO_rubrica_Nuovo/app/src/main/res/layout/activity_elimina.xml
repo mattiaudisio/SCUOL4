@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".CaricaAcitivity">
+
+    <TextView
+        android:id="@+id/txtInfoNome"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="98dp"
+        android:layout_marginTop="134dp"
+        android:text="@string/txtInfoNome"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <EditText
+        android:id="@+id/txtNomeElimina"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:autofillHints=""
+        android:ems="10"
+        android:inputType="textPersonName"
+        android:text="@string/nomeContatto"
+        app:layout_constraintStart_toStartOf="@+id/txtInfoNome"
+        app:layout_constraintTop_toBottomOf="@+id/txtInfoNome" />
+
+    <EditText
+        android:id="@+id/txtCognomeElimina"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:ems="10"
+        android:inputType="textPersonName"
+        android:text="@string/cognomeContatto"
+        app:layout_constraintStart_toStartOf="@+id/txtInfoCognome"
+        app:layout_constraintTop_toBottomOf="@+id/txtInfoCognome" />
+
+    <TextView
+        android:id="@+id/txtInfoCognome"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="1dp"
+        android:layout_marginTop="31dp"
+        android:text="@string/cognomeContatto"
+        app:layout_constraintStart_toStartOf="@+id/txtNomeElimina"
+        app:layout_constraintTop_toBottomOf="@+id/txtNomeElimina" />
+
+    <Button
+        android:id="@+id/btnEliminaContatto"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="136dp"
+        android:layout_marginBottom="144dp"
+        android:text="@string/elimina"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="parent" />
+</androidx.constraintlayout.widget.ConstraintLayout>

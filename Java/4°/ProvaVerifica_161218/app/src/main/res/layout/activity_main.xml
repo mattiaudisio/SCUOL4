@@ -1,0 +1,144 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".MainActivity">
+
+    <EditText
+        android:id="@+id/Nome"
+        android:layout_width="158dp"
+        android:layout_height="wrap_content"
+        android:ems="10"
+        android:inputType="textPersonName"
+        android:text="@string/txtNome"
+        tools:layout_editor_absoluteX="16dp"
+        tools:layout_editor_absoluteY="54dp" />
+
+    <TextView
+        android:id="@+id/TextView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Nome"
+        tools:layout_editor_absoluteX="16dp"
+        tools:layout_editor_absoluteY="34dp" />
+
+    <EditText
+        android:id="@+id/Cognome"
+        android:layout_width="165dp"
+        android:layout_height="wrap_content"
+        android:ems="10"
+        android:inputType="textPersonName"
+        android:text="@string/txtCognome"
+        tools:layout_editor_absoluteX="203dp"
+        tools:layout_editor_absoluteY="54dp" />
+
+    <TextView
+        android:id="@+id/textView2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Cognome"
+        tools:layout_editor_absoluteX="203dp"
+        tools:layout_editor_absoluteY="34dp" />
+
+    <RadioGroup
+        android:id="@+id/Sesso"
+        android:layout_width="154dp"
+        android:layout_height="58dp"
+        tools:layout_editor_absoluteX="16dp"
+        tools:layout_editor_absoluteY="137dp">
+
+        <RadioButton
+            android:id="@+id/Maschio"
+            android:layout_width="152dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="@string/Maschio" />
+
+        <RadioButton
+            android:id="@+id/Femmina"
+            android:layout_width="154dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="@string/Femmina" />
+    </RadioGroup>
+
+    <TextView
+        android:id="@+id/textView3"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Sesso"
+        tools:layout_editor_absoluteX="16dp"
+        tools:layout_editor_absoluteY="117dp" />
+
+    <RadioGroup
+        android:id="@+id/Patente"
+        android:layout_width="140dp"
+        android:layout_height="61dp"
+        tools:layout_editor_absoluteX="203dp"
+        tools:layout_editor_absoluteY="136dp">
+
+        <RadioButton
+            android:id="@+id/PatenteSi"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="@string/PatenteSi" />
+
+        <RadioButton
+            android:id="@+id/PatenteNo"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="@string/PatenteNo" />
+    </RadioGroup>
+
+    <TextView
+        android:id="@+id/TextView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Patente"
+        tools:layout_editor_absoluteX="203dp"
+        tools:layout_editor_absoluteY="115dp" />
+
+    <TextView
+        android:id="@+id/textView4"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Hobby"
+        tools:layout_editor_absoluteX="16dp"
+        tools:layout_editor_absoluteY="245dp" />
+
+    <Button
+        android:id="@+id/button"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/btnToast"
+        tools:layout_editor_absoluteX="148dp"
+        tools:layout_editor_absoluteY="433dp" />
+
+    <CheckBox
+        android:id="@+id/Calcio"
+        android:layout_width="74dp"
+        android:layout_height="wrap_content"
+        android:text="@string/Calcio"
+        tools:layout_editor_absoluteX="16dp"
+        tools:layout_editor_absoluteY="286dp" />
+
+    <CheckBox
+        android:id="@+id/Tennis"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/Tennis"
+        tools:layout_editor_absoluteX="16dp"
+        tools:layout_editor_absoluteY="318dp" />
+
+    <CheckBox
+        android:id="@+id/Basket"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/Basket"
+        tools:layout_editor_absoluteX="16dp"
+        tools:layout_editor_absoluteY="350dp" />
+</android.support.constraint.ConstraintLayout>

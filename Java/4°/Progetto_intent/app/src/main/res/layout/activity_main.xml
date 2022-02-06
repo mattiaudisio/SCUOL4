@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".MainActivity">
+
+    <Button
+        android:id="@+id/Cerca"
+        android:layout_width="190dp"
+        android:layout_height="68dp"
+        android:text="Cerca"
+        tools:layout_editor_absoluteX="79dp"
+        tools:layout_editor_absoluteY="16dp" />
+
+    <RadioGroup
+        android:id="@+id/Scelta"
+        android:layout_width="225dp"
+        android:layout_height="182dp"
+        tools:layout_editor_absoluteX="71dp"
+        tools:layout_editor_absoluteY="101dp">
+
+        <RadioButton
+            android:id="@+id/Telefono"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="Telefono" />
+
+        <RadioButton
+            android:id="@+id/SMS"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="SMS" />
+
+    </RadioGroup>
+
+    <Button
+        android:id="@+id/btnToAST"
+        android:layout_width="189dp"
+        android:layout_height="87dp"
+        android:text="Invia"
+        tools:layout_editor_absoluteX="79dp"
+        tools:layout_editor_absoluteY="358dp" />
+
+
+</android.support.constraint.ConstraintLayout>

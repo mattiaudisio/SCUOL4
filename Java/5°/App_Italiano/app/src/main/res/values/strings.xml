@@ -1,0 +1,29 @@
+<resources>
+    <string name="app_name">App_Italiano</string>
+    <string name="app_titolo">ITALIANO</string>
+    <string name="app_Accedi">Accedi</string>
+
+    <string name="periodo_etaPostunitaria">L\'età postunitaria</string>
+    <string name="periodo_NaturalismoVerismo">Il Naturalismo e Verismo</string>
+    <string name="periodo_decadentismo">Il decadentismo</string>
+    <string name="periodo_primoNovecento">Il primo Novecento</string>
+    <string name="periodo_dueGuerre">Tra le due guerre</string>
+    <string name="periodo_dopoGuerra">Dal dopoguerra ai giorni nostri</string>
+
+    <string name="autore_GiosueCarducci">Giosue Carducci</string>
+    <string name="autore_GustaveFlaubert">Gustave Flaubert</string>
+    <string name="autore_GiovanniVerga">Giovanni Verga</string>
+    <string name="autore_ChrlesBoudelaire">Charles Boudelaire</string>
+    <string name="autore_GabrieleDAnnunzio">Gabriele D\'Annunzio</string>
+    <string name="autore_GiovanniPascoli">Giovanni Pascoli</string>
+    <string name="autore_Futuristi">I futuristi</string>
+    <string name="autore_ItaloSvevo">Italo Svevo</string>
+    <string name="autore_LuigiPirandello">Luigi Pirandello</string>
+    <string name="autore_FranzKafka">Franz Kafka</string>
+    <string name="autore_JamesJoyce">James Joyce</string>
+    <string name="autore_UmbertoSaba">Umberto Saba</string>
+    <string name="autore_GiuseppeUngaretti">Giuseppe Ungaretti</string>
+    <string name="autore_SalvatoreQuasimodo">Salvatore Quasimodo</string>
+    <string name="autore_EugenioMontale">Eugenio Montale</string>
+    <string name="autore_LeonardoSciascia">Leonardo Sciascia</string>
+</resources>

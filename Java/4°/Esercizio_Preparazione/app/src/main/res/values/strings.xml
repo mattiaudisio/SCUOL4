@@ -1,0 +1,12 @@
+<resources>
+    <string name="app_name">Esercizio_Preparazione</string>
+    <string name="Nome">Nome</string>
+    <string name="Cognome">Cognome</string>
+    <string name="rbMaschio">Maschio</string>
+    <string name="rbFemmina">Femmina</string>
+    <string name="cbxItaliano">Italiano</string>
+    <string name="cbxInglese">Inglese</string>
+    <string name="cbxFrancese">Francese</string>
+    <string name="cbxSpagnolo">Spagnolo</string>
+    <string name="cbxTedesco">Tedesco</string>
+</resources>
