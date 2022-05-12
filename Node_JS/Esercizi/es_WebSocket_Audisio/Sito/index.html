@@ -1,0 +1,37 @@
+<html>
+	<head>
+		<title>Calcolatrice | Web Socket</title>
+		<script>
+			var socket = io.connect('httP://127.0.0.1:1984');
+			socket.on("broadcast",function(variabile){
+				var oggetto = document.getElementById("risultato");
+				oggetto.innerHTML = "<br>" + variabile;
+			});
+			
+			function Invia(){
+				var valoreX = document.getElementById("valX").value;
+				var valoreY = document.getElementById("valY").value;
+				var valoreComando = document.getElementById("comando").value;
+				var valoreM1 = document.getElementById("M1").value;
+				socket.emit("calcolatrice",valoreX,valoreY,valoreComando,valoreM1);
+			}
+		</script>	
+	</head>
+	<body>
+		<p>Inserisci il valore X:</p>
+		<input type="text" id="valX">
+		<br>
+		<p>Inserisci il valore Y:</p>
+		<input type="text" id="valY">
+		<br>
+		<p>Inserisci il comando (ADD,SUB,MUL,DIV,POW,MEM,STORE,CLEAR):</p>
+		<input type="text" id="comando">
+		<br>
+		<input type="checkbox" name="M1" value="M1">M1<br>
+		<input type="checkbox" name="M2" value="M2">M2<br>
+		<input type="button" value="Invia" onclick="Invia()">
+		<br><br>
+		<p>Risultato:</p>
+		<div id="risultato"></div>
+	</body>
+</html>
