@@ -1,0 +1,33 @@
+<html>
+    <head>
+        <h2>Esercizio JavaScript</h2>
+        <script>
+        function prodotto(){
+                var numero1;
+                var numero2;
+                var risultato;
+        
+                numero1 = prompt("Inserisci il primo numero");
+                numero2 = prompt("Inserisci il secondo numero");
+                numero1 = numero1*1;
+                numero2 = numero2*1;
+    /* Faccio questo quando uso delle caselle di testo[  numero1 = document.getElementById("numero1").value  ];
+                    if(isNaN(numero1)){
+                       alert("Inserisci il primo numero");
+                       document.getElementById.value="";
+                       document.getElementById.focus();
+                       return false;  
+                    }
+                    document.getElementById("demo").innerHTML = a * b;
+                }
+      </script>                        
+    */
+                risultato = numero1 * numero2;                    
+                document.write("Prodotto --> " + risultato)
+        }                                                                                                                                                                   
+        </script>
+    </head>
+    <body>
+        <button onclick="prodotto()">Inserisci numeri</button>
+    </body>
+</html>
