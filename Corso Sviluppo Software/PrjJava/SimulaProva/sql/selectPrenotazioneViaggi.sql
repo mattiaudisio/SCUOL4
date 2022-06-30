@@ -1,0 +1,1 @@
+SELECT prenotazioni.prenotazioneID,prenotazioni.clienteID, prenotazioni.viaggioID, prenotazioni.tipoPagamento, prenotazioni.prezzo, prenotazioni.postiPrenotati, prenotazioni.dataPrenotazione, clienti.cognome, clienti.telefono, clienti.mail FROM prenotazioni JOIN clienti ON prenotazioni.clienteID = clienti.clienteID;

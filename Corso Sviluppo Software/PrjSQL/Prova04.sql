@@ -1,0 +1,1 @@
+UPDATE utente  set dataIscrizione = now() where idUtente = "2"            
